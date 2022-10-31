@@ -1,3 +1,5 @@
+package Entities;
+
 public interface Recommendable {
     /**
      * Perform the specific recommendation algorithm
