@@ -1,4 +1,4 @@
-/* Below is the Question Pool entity object with its constructor.
+package questionHandling;/* Below is the Question Pool entity object with its constructor.
 
  */
 
@@ -7,7 +7,7 @@ import java.util.List;
 
 
 
-public class QuestionPool {
+public class questionPool {
     List<String> lstOfQs = new ArrayList<>();
 }
 
