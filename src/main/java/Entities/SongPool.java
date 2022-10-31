@@ -1,5 +1,4 @@
-package SongHandling;
-import java.lang.reflect.Array;
+package Entities;
 import java.util.ArrayList;
 
 public class SongPool {
