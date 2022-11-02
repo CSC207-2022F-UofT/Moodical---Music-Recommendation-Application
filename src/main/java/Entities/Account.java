@@ -1,22 +1,23 @@
 package Entities;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
 
-public class Account {
-    String username = "";
-    String password = "";
-    HashMap<String, String> AllUsers = new HashMap<String, String>();
-    // History userHistory = new History();
-    // Favourites userFavourites = new Favourites();
+public class Account extends History {
+    public String username = "";
+    public String password = "";
+    public HashMap<String, String> AllUsers = new HashMap<String, String>();
+    public History userHistory;
+    public Favourites userFavourites;
 
-    public Account(String username, String password) {
-        // Want to add (History userHistory, Favourites userFavourites) to parameters
+    public Account(String username, String password, History previous_songs, Favourites favourites) {
+        super();
         this.username = username;
         this.password = password;
-        // this.userHistory = userHistory;
-        // this.userFavourites = userFavourites;
+        this.userHistory = previous_songs;
+        this.userFavourites = favourites;
     }
 
     public void createAccount(String username, String password) {
