@@ -7,7 +7,6 @@ public class History implements Recommendable {
     public History(){
         this.previous_songs = new ArrayList<String>();
     }
-
     @Override
     public ArrayList<String> recommend(){
         ArrayList<String> new_playlist = new ArrayList<String>();
