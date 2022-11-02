@@ -1,10 +1,10 @@
 package Entities;
+import java.util.ArrayList;
 
 public interface Recommendable {
     /**
      * Perform the specific recommendation algorithm
      **/
-
-    void recommend();
+     ArrayList<String> recommend();
 
 }
