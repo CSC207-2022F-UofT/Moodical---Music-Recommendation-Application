@@ -1,5 +1,3 @@
-import Entities.Recommendable;
-
 import java.util.ArrayList;
 
 public class History implements Recommendable {
@@ -20,7 +18,6 @@ public class History implements Recommendable {
         }
         return new_playlist;
     }
-
 
 
 }
