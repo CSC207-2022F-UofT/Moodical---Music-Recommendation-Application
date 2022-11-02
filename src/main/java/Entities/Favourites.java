@@ -9,7 +9,6 @@ public class Favourites extends History {
         this.favourites = favourites;
     }
 
-
     @Override
     public ArrayList<String> recommend(){
         ArrayList<String> new_playlist = new ArrayList<String>();
@@ -22,5 +21,6 @@ public class Favourites extends History {
         }
         return new_playlist;
     }
+
 
 }
