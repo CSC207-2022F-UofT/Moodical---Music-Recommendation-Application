@@ -1,3 +1,5 @@
+package Entities;
+
 public interface Writeable {
     /**
      * Write the file type specified
