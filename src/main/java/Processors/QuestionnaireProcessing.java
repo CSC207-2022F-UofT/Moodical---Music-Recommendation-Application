@@ -1,4 +1,4 @@
-package Processors;
+package main.java.Processors;
 
 public class QuestionnaireProcessing {
 }
