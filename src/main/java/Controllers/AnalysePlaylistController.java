@@ -1,4 +1,4 @@
-package main.java.Controllers;
+package Controllers;
 
 public class AnalysePlaylistController {
 

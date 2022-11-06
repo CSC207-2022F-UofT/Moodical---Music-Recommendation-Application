@@ -1,4 +1,4 @@
-package main.java.Entities;/* Below is the Question Pool entity object with its constructor.
+package Entities;/* Below is the Question Pool entity object with its constructor.
 
  */
 

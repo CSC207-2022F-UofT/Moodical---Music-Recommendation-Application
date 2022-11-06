@@ -1,8 +1,8 @@
-package main.java.Processors;
+package Processors;
 
-import main.java.Entities.History;
-import main.java.Entities.Recommendable;
-import main.java.Entities.Song;
+import Entities.History;
+import Entities.Recommendable;
+import Entities.Song;
 
 import java.util.ArrayList;
 

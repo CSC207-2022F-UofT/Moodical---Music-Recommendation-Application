@@ -1,4 +1,4 @@
-package main.java.Entities;
+package Entities;
 
 public interface Readable {
     /**

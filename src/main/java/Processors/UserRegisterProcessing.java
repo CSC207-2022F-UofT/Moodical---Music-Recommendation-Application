@@ -1,4 +1,4 @@
-package main.java.Processors;
+package Processors;
 
 public class UserRegisterProcessing {
 }
