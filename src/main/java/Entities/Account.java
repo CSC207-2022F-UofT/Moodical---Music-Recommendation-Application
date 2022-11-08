@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Objects;
 
 
-public class Account extends History {
+public class Account {
     public String username = "";
     public String password = "";
     public HashMap<String, String> AllUsers = new HashMap<String, String>();
@@ -24,24 +24,12 @@ public class Account extends History {
         AllUsers.put(username, password);
     }
 
-    public boolean checkUserExists(String username, String password) {
-        // If user exists, check the password
-        if (AllUsers.containsKey(username)) {
-            checkPassword(AllUsers.get(username));
-        // If user does not exist, create an account for the user
-        } else {
-            createAccount(username, password);
-            return true;
-        }
-        return false;
+    public String getPassword(){
+        return this.password;
     }
 
-    public void checkPassword(String password) {
-        if (this.password.equals(password)) {
-            System.out.println("Password Successful");
-        } else {
-            System.out.println("Password Incorrect. Please try again.");
-        }
+    public String getUsername(){
+        return this.username;
     }
 
     public void changeUsername(String newUsername) {
@@ -53,4 +41,5 @@ public class Account extends History {
     public void changePassword(String newPassword) {
         AllUsers.put(username, newPassword);
     }
+
 }
