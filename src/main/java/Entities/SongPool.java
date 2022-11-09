@@ -1,4 +1,6 @@
 package Entities;
+import Processors.CSVFileProcessing;
+
 import java.util.ArrayList;
 
 public class SongPool {
@@ -9,9 +11,10 @@ public class SongPool {
     }
 
     public void populateSongPool(ReadableFile songFile) {
-        Song[] songsReadFromFile = songFile.readFile(); //want readFile to return a list of Songs, we don't care how
-        for (Song readSong : songsReadFromFile) {
-            this.songs.add(readSong);
+        ArrayList<String> songsReadFromFile = songFile.readFile(); //want readFile to return a list of Songs, we don't care how
+        for (String readLine : songsReadFromFile) {
+            String[] values = readLine.split(",");
+            this.songs.add(CSVFileProcessing.readLine(values));
         }
     }
 

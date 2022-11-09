@@ -11,13 +11,11 @@ import java.util.ArrayList;
 
 public class CSVFileProcessing {
 
-    int bruh;
     /**
      *
-     * @param
+     * @param values containing processed CSV line (i.e. a string representing the line read from CSV data set we chose)
      * @return Song object based on the read line
      */
-
     public static Song readLine(String[] values) {
         Song newSong = new Song();
 
