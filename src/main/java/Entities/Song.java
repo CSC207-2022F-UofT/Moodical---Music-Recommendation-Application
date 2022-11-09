@@ -4,11 +4,12 @@ public class Song {
     public String song;
     public String artist;
     public String genre;
-    public int energy;
-    public int liveness;
-    public int valence;
-    public int popularity;
-    public int danceability;
-    public int bpm;
+    public String energy;
+    public String liveness;
+    public String valence;
+    public String popularity;
+    public String danceability;
+    public String bpm;
+
     public boolean favourite;
 }

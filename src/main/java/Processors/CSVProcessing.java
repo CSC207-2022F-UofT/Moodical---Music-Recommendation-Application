@@ -16,15 +16,29 @@ public class CSVProcessing implements ReadableFile {
      * @param
      * @return Song object based on the read line
      */
+
+//    @Override
+//    public Song[] readLine(String[] values) {
+//        Song newSong = new Song();
+//
+//        newSong.song = values[0];
+//        newSong.artist = values[1];
+//        newSong.genre = values[2];
+//        newSong.energy = values[5];
+//        newSong.liveness = values[8];
+//        newSong.valence = values[9];
+//        newSong.popularity = values[13];
+//        newSong.danceability = values[6];
+//        newSong.bpm = values[4];
+//
+//        return newSong;
+//    }
+
     @Override
-    public Song readLine(String[] values) {
-        Song newSong = new Song();
-
-        newSong.song = values[0];
-        newSong.artist = values[1];
-
-        return newSong;
+    public Song[] readFile() {
+        return new Song[3]; // temp. to allow me to commit
     }
+
 
     public static void main(String[] args) {
         String path = "/Users/alex/Desktop/SacramentocrimeJanuary2006.csv";
@@ -36,7 +50,7 @@ public class CSVProcessing implements ReadableFile {
 
             while((line = br.readLine()) != null) {
                 String[] values = line.split(",");
-                // songs.add()
+                // songs.add(readLine(values));  NEED TO FIX THIS, WON'T WORK CAUSE NON-STATIC BEING USED IN STATIC CONTEXT
             }
         } catch (FileNotFoundException error) {
             error.printStackTrace();

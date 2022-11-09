@@ -8,10 +8,9 @@ public class SongPool {
         this.songs = new ArrayList<>();
     }
 
-    public void populateSongPool(ArrayList<Song> readSongs) {
-        for (Song song : readSongs) {
-            this.songs.add(song);
-        }
+    public void populateSongPool(ReadableFile songFile) {
+        Song[] songsReadFromFile = songFile.readFile(); //want readFile to return a list of Songs, we dont care how
+
     }
 
     public static void main(String[] args) {

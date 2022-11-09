@@ -7,5 +7,5 @@ public interface ReadableFile {
      * Read the file type specified
      **/
 
-    Song readLine(String[] values);
+     Song[] readFile();
 }
