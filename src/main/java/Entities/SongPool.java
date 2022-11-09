@@ -9,11 +9,10 @@ public class SongPool {
     }
 
     public void populateSongPool(ReadableFile songFile) {
-        Song[] songsReadFromFile = songFile.readFile(); //want readFile to return a list of Songs, we dont care how
-
+        Song[] songsReadFromFile = songFile.readFile(); //want readFile to return a list of Songs, we don't care how
+        for (Song readSong : songsReadFromFile) {
+            this.songs.add(readSong);
+        }
     }
 
-    public static void main(String[] args) {
-
-    }
 }
