@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class FavouritesProcessor implements Recommendable {
 
     @Override
-    public ArrayList<Song> recommend(History songs){
+    public ArrayList<Song> recommend(Object songs){
         ArrayList<Song> new_playlist = new ArrayList<Song>();
         Favourites favourites = ((Favourites)songs);
         for (int i = 0; i < 10; i++){
