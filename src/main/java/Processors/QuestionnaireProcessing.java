@@ -19,7 +19,7 @@ public class QuestionnaireProcessing implements ReadableFile {
      * @param args containing processed CSV line from questions.csv
      * @return
      */
-    public static ArrayList<String> main (String[] args){
+    public static ArrayList<String> main (){
 
     // this method takes the questions csv file and returns list of questions of type String
 
@@ -58,11 +58,12 @@ public class QuestionnaireProcessing implements ReadableFile {
         }
         return (ArrayList<String>) filteredLst.subList(0,5);
     }
-
-
     @Override
     public ArrayList<String> readFile() {
-        return null;
+        return main();
     }
+
+
+
 }
 
