@@ -27,7 +27,9 @@ public class FavouritesController{
     // alternatively we have the ui pass each song to this function immediately not sure if this utilized the attribute
     //or if we should eliminate it altogether
     public void addToFavourites(Song song, Favourites userFavourites){
-        userFavourites.favourites.add(song);
+        if (!(userFavourites.favourites.contains(song))){
+            userFavourites.favourites.add(song);
+        }
     }
 }
 

@@ -3,6 +3,7 @@ package Processors;
 import Entities.History;
 import Entities.Recommendable;
 import Entities.Song;
+import Controllers.HistoryController;
 
 import java.util.ArrayList;
 
@@ -19,12 +20,13 @@ public class HistoryProcessor implements Recommendable {
             if (!(new_playlist.contains(song))){
                 new_playlist.add(song);
             }
+            //HistoryController.addTo(new_playlist, userHistory);
+            //unclear how to access the specific accounts user history
         }
         return new_playlist;
     }
 
-    public void addToHistory (ArrayList<String> playlist, History history){
 
 
-    }
-}
+ }
+
