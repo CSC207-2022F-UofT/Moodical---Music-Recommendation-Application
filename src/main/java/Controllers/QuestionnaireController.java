@@ -38,8 +38,8 @@ public class QuestionnaireController implements Recommendable, ReadableFile, Wri
     }
 
     @Override
-    public void readFile() {
-
+    public ArrayList<String> readFile() {
+        return null
     }
 
     @Override
