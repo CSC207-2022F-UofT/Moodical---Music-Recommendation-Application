@@ -10,6 +10,6 @@ public class HistoryController {
     //needs to be called by whichever class generates the questionnaire
 
     public void addTo(ArrayList<Song> playlist, History userHistory){
-        userHistory.previous_songs.add(playlist);
+        userHistory.getPrevious_songs().add(playlist);
     }
 }

@@ -10,11 +10,11 @@ import java.util.ArrayList;
 public class HistoryProcessor implements Recommendable {
     @Override
     public ArrayList<Song> recommend(Object songs){
-        ArrayList<Song> new_playlist = new ArrayList<Song>();
+        ArrayList<Song> new_playlist = new ArrayList<>();
         History history = ((History)songs);
         for (int i = 0; i < 10; i++){
-            int index = (int) ((Math.random() * ((history.previous_songs.size()-1))));
-            ArrayList<Song> playlist = history.previous_songs.get(index);
+            int index = (int) ((Math.random() * ((history.getPrevious_songs().size()-1))));
+            ArrayList<Song> playlist = history.getPrevious_songs().get(index);
             int index2 = (int) ((Math.random() * 9));
             Song song = playlist.get(index2);
             if (!(new_playlist.contains(song))){
@@ -24,6 +24,21 @@ public class HistoryProcessor implements Recommendable {
             //unclear how to access the specific accounts user history
         }
         return new_playlist;
+    }
+
+
+    //This function just reformats a History object's attribute previous_songs so that its easier for processing
+    //what will get passed to things such as display with just use the usual getter function in the History class
+    public ArrayList<Song> getAllSongs(History history){
+        ArrayList<Song> songs_so_far = new ArrayList<>();
+        for(ArrayList<Song> playlist : history.getPrevious_songs()){
+            for(Song song : playlist){
+                if (!(songs_so_far.contains(song))){
+                    songs_so_far.add(song);
+                }
+            }
+        }
+        return songs_so_far;
     }
 
 
