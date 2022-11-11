@@ -18,7 +18,7 @@ public class FavouritesController{
     public void addTo(ArrayList<Song> playlist, Favourites userFavourites){
         for(Song song : playlist){
             if(song.favourite == true){
-                userFavourites.favourites.add(song);
+                userFavourites.getFavourites().add(song);
             }
         }
 
@@ -27,8 +27,8 @@ public class FavouritesController{
     // alternatively we have the ui pass each song to this function immediately not sure if this utilized the attribute
     //or if we should eliminate it altogether
     public void addToFavourites(Song song, Favourites userFavourites){
-        if (!(userFavourites.favourites.contains(song))){
-            userFavourites.favourites.add(song);
+        if (!(userFavourites.getFavourites().contains(song))){
+            userFavourites.getFavourites().add(song);
         }
     }
 }

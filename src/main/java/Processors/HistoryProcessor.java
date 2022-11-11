@@ -12,7 +12,7 @@ public class HistoryProcessor implements Recommendable {
     public ArrayList<Song> recommend(Object songs){
         ArrayList<Song> new_playlist = new ArrayList<>();
         History history = ((History)songs);
-        for (int i = 0; i < 10; i++){
+        while(new_playlist.size() < 10){
             int index = (int) ((Math.random() * ((history.getPrevious_songs().size()-1))));
             ArrayList<Song> playlist = history.getPrevious_songs().get(index);
             int index2 = (int) ((Math.random() * 9));
@@ -27,7 +27,7 @@ public class HistoryProcessor implements Recommendable {
     }
 
 
-    //This function just reformats a History object's attribute previous_songs so that its easier for processing
+    //This function just reformats a History object's attribute previous_songs so that it's easier for processing
     //what will get passed to things such as display with just use the usual getter function in the History class
     public ArrayList<Song> getAllSongs(History history){
         ArrayList<Song> songs_so_far = new ArrayList<>();
