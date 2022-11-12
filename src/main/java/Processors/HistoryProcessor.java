@@ -1,5 +1,6 @@
 package Processors;
 
+import Entities.Account;
 import Entities.History;
 import Entities.Recommendable;
 import Entities.Song;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 
 public class HistoryProcessor implements Recommendable {
     @Override
-    public ArrayList<Song> recommend(Object songs){
+    public ArrayList<Song> recommend(Object songs, Account userAccount){
         ArrayList<Song> new_playlist = new ArrayList<>();
         History history = ((History)songs);
         while(new_playlist.size() < 10){
@@ -20,8 +21,7 @@ public class HistoryProcessor implements Recommendable {
             if (!(new_playlist.contains(song))){
                 new_playlist.add(song);
             }
-            //HistoryController.addTo(new_playlist, userHistory);
-            //unclear how to access the specific accounts user history
+            HistoryController.addTo(new_playlist, userAccount.userHistory);
         }
         return new_playlist;
     }

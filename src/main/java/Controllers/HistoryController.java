@@ -9,7 +9,7 @@ public class HistoryController {
     //by my understanding responds to buttons being pressed
     //needs to be called by whichever class generates the questionnaire
 
-    public void addTo(ArrayList<Song> playlist, History userHistory){
+    public static void addTo(ArrayList<Song> playlist, History userHistory){
         userHistory.getPrevious_songs().add(playlist);
     }
 }

@@ -1,5 +1,6 @@
 package Processors;
 
+import Entities.Account;
 import Entities.Recommendable;
 import Entities.Favourites;
 import Entities.Song;
@@ -12,7 +13,7 @@ public class FavouritesProcessor implements Recommendable {
 
     @Override
     //reccommends playlist and adds playlist to history
-    public ArrayList<Song> recommend(Object songs) {
+    public ArrayList<Song> recommend(Object songs, Account userAccount) {
         ArrayList<Song> new_playlist = new ArrayList<Song>();
         Favourites favourites = ((Favourites) songs);
         while(new_playlist.size() < 10){
@@ -21,8 +22,8 @@ public class FavouritesProcessor implements Recommendable {
             if (!(new_playlist.contains(song))) {
                 new_playlist.add(song);
             }
-            //HistoryController.addTo(new_playlist, userHistory);
-            //unclear how to access the specific accounts user history
+            HistoryController.addTo(new_playlist, userAccount.userHistory);
+
         }
         return new_playlist;
     }
