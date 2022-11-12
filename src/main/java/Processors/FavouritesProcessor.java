@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class FavouritesProcessor implements Recommendable {
 
     @Override
-    //reccommends playlist and adds playlist to history
+    //recommends playlist and adds playlist to history
     public ArrayList<Song> recommend(Object songs) {
         ArrayList<Song> new_playlist = new ArrayList<Song>();
         Favourites favourites = ((Favourites) songs);
