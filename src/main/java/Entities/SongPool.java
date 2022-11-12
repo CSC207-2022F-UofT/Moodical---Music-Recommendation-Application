@@ -16,6 +16,7 @@ public class SongPool {
             String[] values = readLine.split(",");
             this.songs.add(CSVFileProcessing.readLine(values));
         }
+
     }
 
 }
