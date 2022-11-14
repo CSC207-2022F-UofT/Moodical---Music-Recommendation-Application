@@ -6,10 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+public class questionPool{
+    ArrayList<String> lstOfQs = new ArrayList<>();
 
-public class questionPool {
-    List<String> lstOfQs = new ArrayList<>();
+    public ArrayList<String> questionPool(){
+        return this.lstOfQs;
+    }
 }
+
 
 /*
 This class only consists of a list of strings.
