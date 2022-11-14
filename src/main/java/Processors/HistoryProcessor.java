@@ -21,7 +21,7 @@ public class HistoryProcessor implements Recommendable {
             if (!(new_playlist.contains(song))){
                 new_playlist.add(song);
             }
-            HistoryController.addTo(new_playlist, userAccount.userHistory);
+            HistoryController.addTo(new_playlist, userAccount);
         }
         return new_playlist;
     }
@@ -29,9 +29,9 @@ public class HistoryProcessor implements Recommendable {
 
     //This function just reformats a History object's attribute previous_songs so that it's easier for processing
     //what will get passed to things such as display with just use the usual getter function in the History class
-    public static ArrayList<Song> getAllSongs(History history){
+    public static ArrayList<Song> getAllSongs(Account userAccount){
         ArrayList<Song> songs_so_far = new ArrayList<>();
-        for(ArrayList<Song> playlist : history.getPrevious_songs()){
+        for(ArrayList<Song> playlist : userAccount.userHistory.getPrevious_songs()){
             for(Song song : playlist){
                 if (!(songs_so_far.contains(song))){
                     songs_so_far.add(song);

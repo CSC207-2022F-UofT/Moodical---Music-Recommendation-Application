@@ -22,7 +22,7 @@ public class FavouritesProcessor implements Recommendable {
             if (!(new_playlist.contains(song))) {
                 new_playlist.add(song);
             }
-            HistoryController.addTo(new_playlist, userAccount.userHistory);
+            HistoryController.addTo(new_playlist, userAccount);
 
         }
         return new_playlist;
