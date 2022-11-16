@@ -9,8 +9,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static jdk.nashorn.internal.runtime.ScriptingFunctions.readLine;
-
 public class QuestionnaireProcessing {
     /**
      * This class has two methods for processing - obtaining the list of questions from Questions.csv and then
