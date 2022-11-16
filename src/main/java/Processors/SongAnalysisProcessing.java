@@ -1,26 +1,53 @@
 package Processors;
 
 import Entities.Song;
+import Entities.SongPool;
+
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class SongAnalysisProcessing {
-    public Song getVerySadSong(double averageHappyScore){
-        Song returnSong = new Song();
+    public Song getSong(double averageHappyScore, SongPool songs, String type){
+        // 'verysad', 'sad', 'happy', 'veryhappy' for type
+        ArrayList<Song> songList = songs.getSongList();
+        Song returnSong = songList.get(0);
 
+        for (int i = 0; i < songList.size(); i++)
+        {
+            // generating the index using Math.random()
+            int index = (int)(Math.random() * songList.size());
+
+            Song currentSong = songList.get(index);
+
+            if(isDesiredScore(currentSong, type)){
+                return currentSong;
+            }
+        }
         return returnSong;
     }
-    public Song getSadSong(double averageHappyScore){
-        Song returnSong = new Song();
 
-        return returnSong;
+    public boolean isDesiredScore(Song song, String type){
+        if (80 <= getSongHappyScore(song) && Objects.equals(type, "veryhappy")){
+            return true;
+        }
+        else if (50 <= getSongHappyScore(song) && getSongHappyScore(song) < 80 && Objects.equals(type, "happy")){
+            return true;
+        }
+        else if (30 <= getSongHappyScore(song) && getSongHappyScore(song) < 50 && Objects.equals(type, "sad")){
+            return true;
+        }
+        else if (getSongHappyScore(song) < 30 && Objects.equals(type, "veryhappy")){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
-    public Song getHappySong(double averageHappyScore){
-        Song returnSong = new Song();
+    public double getSongHappyScore(Song songFromPool){
+        int a1 = Integer.parseInt(songFromPool.danceability);
+        int a2 = Integer.parseInt(songFromPool.energy);
+        int a3 = Integer.parseInt(songFromPool.valence);
 
-        return returnSong;
-    }
-    public Song getVeryHappySong(double averageHappyScore){
-        Song returnSong = new Song();
-
-        return returnSong;
+        return (a1 + a2 + a3) / 3;
     }
 }
