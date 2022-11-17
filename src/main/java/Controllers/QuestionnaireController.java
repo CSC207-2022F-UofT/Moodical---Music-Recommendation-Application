@@ -10,7 +10,7 @@ import Entities.Writeable;
 import java.util.ArrayList;
 public class QuestionnaireController {
 
-//public class QuestionnaireController implements Recommendable, ReadableFile, Writeable {
+//public class QuestionnaireController implements Input Boundary{
 
 
 
