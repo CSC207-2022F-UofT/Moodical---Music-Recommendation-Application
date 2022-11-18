@@ -29,5 +29,6 @@ public class AnaylsePlaylistPresenter implements OutputBoundary {
         getAnalysed.setres(moodBooster);
 
         return getAnalysed;
+
     }
 }
