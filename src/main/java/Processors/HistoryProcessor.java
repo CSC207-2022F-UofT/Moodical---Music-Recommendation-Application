@@ -29,7 +29,7 @@ public class HistoryProcessor implements Recommendable {
 
     //This function just reformats a History object's attribute previous_songs so that it's easier for processing
     //what will get passed to things such as display with just use the usual getter function in the History class
-    public ArrayList<Song> getAllSongs(History history){
+    public static ArrayList<Song> getAllSongs(History history){
         ArrayList<Song> songs_so_far = new ArrayList<>();
         for(ArrayList<Song> playlist : history.getPrevious_songs()){
             for(Song song : playlist){
