@@ -7,10 +7,22 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class SongAnalysisProcessing {
-    public Song getSong(double averageHappyScore, SongPool songs, String type){
+    public Song getSong(double averageHappyScore, SongPool songs){
         // 'verysad', 'sad', 'happy', 'veryhappy' for type
         ArrayList<Song> songList = songs.getSongList();
         Song returnSong = songList.get(0);
+
+        String type;
+
+        if (0 <= averageHappyScore &&  averageHappyScore < 3) {
+            type = "verysad";
+        } else if (4 <= averageHappyScore &&  averageHappyScore < 6) {
+            type = "sad";
+        } else if (7 <= averageHappyScore &&  averageHappyScore < 9) {
+            type = "happy";
+        } else {
+            type = "veryhappy";
+        }
 
         for (int i = 0; i < songList.size(); i++)
         {
@@ -36,7 +48,7 @@ public class SongAnalysisProcessing {
         else if (30 <= getSongHappyScore(song) && getSongHappyScore(song) < 50 && Objects.equals(type, "sad")){
             return true;
         }
-        else if (getSongHappyScore(song) < 30 && Objects.equals(type, "veryhappy")){
+        else if (getSongHappyScore(song) < 30 && Objects.equals(type, "verysad")){
             return true;
         }
         else{
