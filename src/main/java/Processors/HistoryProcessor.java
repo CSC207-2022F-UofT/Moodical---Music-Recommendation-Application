@@ -21,7 +21,7 @@ public class HistoryProcessor implements Recommendable {
             if (!(new_playlist.contains(song))){
                 new_playlist.add(song);
             }
-            HistoryController.addTo(new_playlist, userAccount);
+           addTo(new_playlist, userAccount);
         }
         return new_playlist;
     }
@@ -41,7 +41,9 @@ public class HistoryProcessor implements Recommendable {
         return songs_so_far;
     }
 
-
+    public static void addTo(ArrayList<Song> playlist, Account userAccount){
+        userAccount.userHistory.getPrevious_songs().add(playlist);
+    }
 
  }
 
