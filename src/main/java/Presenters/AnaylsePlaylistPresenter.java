@@ -6,7 +6,7 @@ import Boundaries.OutputBoundary;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class AnaylsePlaylistPresenter implements OutputBoundary {
+public abstract class AnaylsePlaylistPresenter implements OutputBoundary {
     @Override
     public AnalysePlaylistResponseModel analysePlaylist(AnalysePlaylistResponseModel getAnalysed){
 

@@ -7,11 +7,12 @@ import java.util.List;
 
 
 public class questionPool{
-    ArrayList<String> lstOfQs = new ArrayList<>();
+    public ArrayList<String> lstOfQs = new ArrayList<>();
 
-    public ArrayList<String> questionPool(){
-        return this.lstOfQs;
+    public questionPool(ReadableFile p, Object filepath){
+        this.lstOfQs = p.readRows(filepath);
     }
+
 }
 
 
