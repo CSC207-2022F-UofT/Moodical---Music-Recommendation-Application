@@ -1,13 +1,9 @@
 package Processors;
 
-import Boundaries.QuestionnaireOutputBoundary;
 import Entities.ReadableFile;
-import Entities.questionPool;
 
 import java.util.ArrayList;
 import java.util.Random;
-
-import Models.QuestionnaireResponseModel;
 
 
 public class QuestionnaireProcessing  {

@@ -1,12 +1,14 @@
 package Presenters;
 
-import Boundaries.QuestionnaireOutputBoundary; //this is the alias presenter from gries's lec
-import Models.QuestionnaireResponseModel;
-import Processors.QuestionnaireProcessing;
+import Boundaries.OutputBoundary;
+import ResponseModels.AnalysePlaylistResponseModel;
+import ResponseModels.QuestionnaireResponseModel;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
-public class QuestionnairePresenter implements QuestionnaireOutputBoundary{
+public abstract class QuestionnairePresenter implements OutputBoundary {
+
     /**
      * Obtains the questions from output boundary of questionnaire
      */
