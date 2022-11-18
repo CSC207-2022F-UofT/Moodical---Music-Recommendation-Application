@@ -9,7 +9,7 @@ import java.io.BufferedWriter;
 import static java.nio.file.Files.newBufferedWriter;
 
 
-public class Account{
+public class Account {
     public String username = "";
     public String password = "";
     public History userHistory;

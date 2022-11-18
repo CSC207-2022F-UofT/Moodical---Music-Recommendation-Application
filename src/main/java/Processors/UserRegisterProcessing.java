@@ -26,7 +26,7 @@ public class UserRegisterProcessing extends Account {
             writer.write("Username, Password, UserHistory, UserFavourites");
             writer.newLine();
 
-            ArrayList<Song> allHistorySongs = HistoryProcessor.getAllSongs(account.userHistory);
+            ArrayList<Song> allHistorySongs = HistoryProcessor.getAllSongs(account);
             String allHistorySongsAsAString = String.valueOf(allHistorySongs);
             String allFavouritesSongsAsAString = String.valueOf(account.userFavourites.getFavourites());
 
