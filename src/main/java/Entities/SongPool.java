@@ -3,10 +3,15 @@ package Entities;
 import java.util.ArrayList;
 
 public class SongPool {
-    public ArrayList<Song> songs;
+    private ArrayList<Song> songs;
 
     public SongPool() {
         this.songs = new ArrayList<>();
+    }
+
+    // Getter
+    public ArrayList<Song> getSongList() {
+        return this.songs;
     }
 
     public void populateSongPool(ReadableFile songFile, String filePath) {
@@ -33,5 +38,4 @@ public class SongPool {
 
         return newSong;
     }
-
 }
