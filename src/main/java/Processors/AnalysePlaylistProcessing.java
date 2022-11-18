@@ -8,9 +8,9 @@ import java.util.HashMap;
 
 public class AnalysePlaylistProcessing {
 
-    private Entities.History History;
-    public ArrayList<Song> prevRecs = HistoryProcessor.getAllSongs(History);
-    public ArrayList<String> getMostArtist() {
+    private static Entities.History History;
+    public static ArrayList<Song> prevRecs = HistoryProcessor.getAllSongs(History);
+    public static ArrayList<String> getMostArtist() {
         /* Return the most commonly appeared artist in the user's history (past recommendations)
           Return multiple artists if there is a tie in the number of occurrences
          */
@@ -66,7 +66,7 @@ public class AnalysePlaylistProcessing {
 
     }
 
-    public double getAvergeBmp() {
+    public static double getAverageBmp() {
         /* Return the average bmp of all the songs in the user's history (past recommendations)
          */
         double sum = 0;
@@ -80,7 +80,7 @@ public class AnalysePlaylistProcessing {
         return sum / total;
     }
 
-    public ArrayList<String> getMostDanceable(){
+    public static ArrayList<String> getMostDanceable(){
         /* Return the song(s) with the highest danceability score, return multiple if there are ties
          */
         HashMap<String, Integer> allDanceability = new HashMap<String, Integer>();
@@ -101,7 +101,7 @@ public class AnalysePlaylistProcessing {
         return mostDance;
     }
 
-    public ArrayList<String> getMostPopular(){
+    public static ArrayList<String> getMostPopular(){
         /* Return the song(s) with the highest popularity score, return multiple if there are ties
         */
         HashMap<String, Integer> allPopularity = new HashMap<String, Integer>();
@@ -121,7 +121,7 @@ public class AnalysePlaylistProcessing {
         }
         return mostPopular;
     }
-    public ArrayList<String> getHappiest(){
+    public static ArrayList<String> getHappiest(){
         /* Return the song(s) with the highest valence score, return multiple if there are ties
          */
         HashMap<String, Integer> allValence = new HashMap<String, Integer>();
@@ -142,7 +142,7 @@ public class AnalysePlaylistProcessing {
         return mostHappy;
     }
 
-    public ArrayList<String> getSaddest(){
+    public static ArrayList<String> getSaddest(){
         /* Return the song(s) with the lowest valence score, return multiple if there are ties
          */
         HashMap<String, Integer> allValence = new HashMap<String, Integer>();
@@ -162,7 +162,7 @@ public class AnalysePlaylistProcessing {
         return mostSad;
     }
 
-    public ArrayList<String> getMoodBooster(){
+    public static ArrayList<String> getMoodBooster(){
         /* Return the song(s) with the highest score of liveness and energy, return multiple if there are ties
          */
         HashMap<String, Integer> allScores = new HashMap<String, Integer>();
