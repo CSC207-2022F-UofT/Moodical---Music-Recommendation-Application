@@ -1,5 +1,6 @@
 package Processors;
 
+import Entities.Account;
 import Entities.History;
 import Entities.Recommendable;
 import Entities.Song;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 
 public class HistoryProcessor implements Recommendable {
     @Override
-    public ArrayList<Song> recommend(Object songs){
+    public ArrayList<Song> recommend(Object songs, Account userAccount){
         ArrayList<Song> new_playlist = new ArrayList<>();
         History history = ((History)songs);
         while(new_playlist.size() < 10){
@@ -20,8 +21,7 @@ public class HistoryProcessor implements Recommendable {
             if (!(new_playlist.contains(song))){
                 new_playlist.add(song);
             }
-            //HistoryController.addTo(new_playlist, userHistory);
-            //unclear how to access the specific accounts user history
+           addTo(new_playlist, userAccount);
         }
         return new_playlist;
     }
@@ -29,9 +29,9 @@ public class HistoryProcessor implements Recommendable {
 
     //This function just reformats a History object's attribute previous_songs so that it's easier for processing
     //what will get passed to things such as display with just use the usual getter function in the History class
-    public static ArrayList<Song> getAllSongs(History history){
+    public static ArrayList<Song> getAllSongs(Account userAccount){
         ArrayList<Song> songs_so_far = new ArrayList<>();
-        for(ArrayList<Song> playlist : history.getPrevious_songs()){
+        for(ArrayList<Song> playlist : userAccount.userHistory.getPrevious_songs()){
             for(Song song : playlist){
                 if (!(songs_so_far.contains(song))){
                     songs_so_far.add(song);
@@ -41,7 +41,9 @@ public class HistoryProcessor implements Recommendable {
         return songs_so_far;
     }
 
-
+    public static void addTo(ArrayList<Song> playlist, Account userAccount){
+        userAccount.userHistory.getPrevious_songs().add(playlist);
+    }
 
  }
 

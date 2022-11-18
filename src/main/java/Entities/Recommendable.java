@@ -5,6 +5,6 @@ public interface Recommendable {
     /**
      * Perform the specific recommendation algorithm
      **/
-     ArrayList<Song> recommend(Object songs);
+     ArrayList<Song> recommend(Object songs, Account userAccount);
 
 }
