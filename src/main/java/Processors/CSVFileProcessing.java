@@ -17,12 +17,12 @@ public class CSVFileProcessing implements ReadableFile {
      * @return an array list of strings where each element/string represents a line of data in the data set (CSV)
      */
     @Override
-    public ArrayList<String> readRows(String filePath) {
+    public ArrayList<String> readRows(Object filePath) {
         String line = "";
         ArrayList<String> rowsRead = new ArrayList<>();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader(filePath));
+            BufferedReader br = new BufferedReader(new FileReader((String) filePath));
 
             while((line = br.readLine()) != null) {
                 rowsRead.add(line);
