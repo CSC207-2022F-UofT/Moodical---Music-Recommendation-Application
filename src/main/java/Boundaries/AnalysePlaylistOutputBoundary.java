@@ -1,11 +1,8 @@
 package Boundaries;
 
-
-import ResponseModels.QuestionnaireResponseModel;
 import ResponseModels.AnalysePlaylistResponseModel;
 
-public interface OutputBoundary {
+public interface AnalysePlaylistOutputBoundary {
 
     AnalysePlaylistResponseModel analysePlaylist(AnalysePlaylistResponseModel getAnalysed);
-    QuestionnaireResponseModel generateQ(QuestionnaireResponseModel generate);
 }

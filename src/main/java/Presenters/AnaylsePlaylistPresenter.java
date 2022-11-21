@@ -1,12 +1,12 @@
 package Presenters;
 
 import ResponseModels.AnalysePlaylistResponseModel;
-import Boundaries.OutputBoundary;
+import Boundaries.AnalysePlaylistOutputBoundary;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
-public abstract class AnaylsePlaylistPresenter implements OutputBoundary {
+public class AnaylsePlaylistPresenter implements AnalysePlaylistOutputBoundary {
+
     @Override
     public AnalysePlaylistResponseModel analysePlaylist(AnalysePlaylistResponseModel getAnalysed){
 
@@ -22,6 +22,7 @@ public abstract class AnaylsePlaylistPresenter implements OutputBoundary {
         // Setters
         getAnalysed.setMostArtist(mostArtists);
         getAnalysed.setMostGenre(mostGenre);
+        getAnalysed.setAverageBmp(averageBmp);
         getAnalysed.setMostDance(mostDanceable);
         getAnalysed.setMostPopular(mostPopular);
         getAnalysed.setMostHappy(happiest);
@@ -29,5 +30,6 @@ public abstract class AnaylsePlaylistPresenter implements OutputBoundary {
         getAnalysed.setres(moodBooster);
 
         return getAnalysed;
+
     }
 }
