@@ -3,7 +3,6 @@ package Entities;/* Below is the Question Pool entity object with its constructo
  */
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class questionPool{
