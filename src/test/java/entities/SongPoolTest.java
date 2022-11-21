@@ -1,7 +1,5 @@
 package entities;
 
-import Entities.Song;
-import Entities.SongPool;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;

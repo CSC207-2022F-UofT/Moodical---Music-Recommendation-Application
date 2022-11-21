@@ -1,14 +1,13 @@
 package Processors;
 
-import Processors.HistoryProcessor;
-import Entities.Song;
+import entities.Song;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
 public class AnalysePlaylistProcessing {
 
-    private static Entities.Account Account;
+    private static entities.Account Account;
     public static ArrayList<Song> prevRecs = HistoryProcessor.getAllSongs(Account);
     public static ArrayList<String> getMostArtist() {
         /* Return the most commonly appeared artist in the user's history (past recommendations)

@@ -1,10 +1,4 @@
-package Entities;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Objects;
-import java.io.FileWriter;
-import java.io.BufferedWriter;
+package entities;
 
 import static java.nio.file.Files.newBufferedWriter;
 

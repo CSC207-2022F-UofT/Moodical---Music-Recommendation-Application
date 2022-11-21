@@ -1,7 +1,7 @@
 package Processors;
 
-import Entities.Song;
-import Entities.SongPool;
+import entities.Song;
+import entities.SongPool;
 
 import java.util.ArrayList;
 import java.util.Objects;

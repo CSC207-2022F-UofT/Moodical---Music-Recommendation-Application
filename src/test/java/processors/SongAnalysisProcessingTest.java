@@ -1,12 +1,10 @@
 package processors;
 
-import Entities.Song;
-import Entities.SongPool;
+import entities.Song;
+import entities.SongPool;
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class SongAnalysisProcessingTest {
 

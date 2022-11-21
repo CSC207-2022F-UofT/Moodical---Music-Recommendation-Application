@@ -1,8 +1,5 @@
 package Processors;
-import Entities.Account;
-import Entities.Favourites;
-import Entities.History;
-import Processors.UserRegisterProcessing;
+import entities.Account;
 
 import java.util.HashMap;
 

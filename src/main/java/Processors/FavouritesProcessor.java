@@ -1,10 +1,9 @@
 package Processors;
 
-import Entities.Account;
-import Entities.Recommendable;
-import Entities.Favourites;
-import Entities.Song;
-import Controllers.HistoryController;
+import entities.Account;
+import entities.Recommendable;
+import entities.Favourites;
+import entities.Song;
 
 
 import java.util.ArrayList;

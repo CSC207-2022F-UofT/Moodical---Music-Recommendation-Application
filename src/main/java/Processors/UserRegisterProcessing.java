@@ -1,5 +1,5 @@
 package Processors;
-import Entities.*;
+import entities.*;
 
 import java.io.*;
 import java.nio.file.Files;

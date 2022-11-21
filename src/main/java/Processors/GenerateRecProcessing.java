@@ -1,8 +1,8 @@
 package Processors;
 
-import Entities.Account;
-import Entities.Recommendable;
-import Entities.Song;
+import entities.Account;
+import entities.Recommendable;
+import entities.Song;
 
 import java.util.ArrayList;
 
