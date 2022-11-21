@@ -8,4 +8,6 @@ public interface OutputBoundary {
 
     AnalysePlaylistResponseModel analysePlaylist(AnalysePlaylistResponseModel getAnalysed);
     QuestionnaireResponseModel generateQ(QuestionnaireResponseModel generate);
+
+
 }
