@@ -11,7 +11,6 @@ public abstract class QuestionnairePresenter implements AnalysePlaylistOutputBou
      * Obtains the questions from output boundary of questionnaire
      */
 
-    @Override
     public QuestionnaireResponseModel generateQ(QuestionnaireResponseModel response) {
         ArrayList<String> questions = response.getRandQs();
         response.setRandQs(questions);
