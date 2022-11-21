@@ -22,9 +22,6 @@ public class Account {
         this.userFavourites = favourites;
     }
 
-    public Account() {
-    }
-
     public void setUsername(String username){
         this.username = username;
     }
