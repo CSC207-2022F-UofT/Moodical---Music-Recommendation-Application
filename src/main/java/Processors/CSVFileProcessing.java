@@ -1,6 +1,6 @@
 package Processors;
 
-import entities.ReadableFile;
+import Entities.ReadableFile;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

@@ -1,17 +1,18 @@
 package Processors;
 
-import entities.Account;
-import entities.History;
-import entities.Recommendable;
-import entities.Song;
+import Entities.Account;
+import Entities.History;
+import Entities.Song;
+
 
 import java.util.ArrayList;
 
-public class HistoryProcessor implements Recommendable {
-    @Override
-    public ArrayList<Song> recommend(Object songs, Account userAccount){
+public class HistoryProcessor{
+    public static ArrayList<Song> recommend (Account userAccount){
         ArrayList<Song> new_playlist = new ArrayList<>();
-        History history = ((History)songs);
+        History history = userAccount.userHistory;
+        if (history.getPrevious_songs().size() <= 1)
+            return history.getPrevious_songs().get(0);
         while(new_playlist.size() < 10){
             int index = (int) ((Math.random() * ((history.getPrevious_songs().size()-1))));
             ArrayList<Song> playlist = history.getPrevious_songs().get(index);
