@@ -5,7 +5,8 @@ import Boundaries.AnalysePlaylistOutputBoundary;
 
 import java.util.ArrayList;
 
-public abstract class AnaylsePlaylistPresenter implements AnalysePlaylistOutputBoundary {
+public class AnaylsePlaylistPresenter implements AnalysePlaylistOutputBoundary {
+
     @Override
     public AnalysePlaylistResponseModel analysePlaylist(AnalysePlaylistResponseModel getAnalysed){
 
