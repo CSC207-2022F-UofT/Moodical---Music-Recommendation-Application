@@ -15,6 +15,7 @@ public class AnalysePlaylistResponseModel {
     ArrayList<String> mostHappy = AnalysePlaylistProcessing.getHappiest();
     ArrayList<String> mostSad = AnalysePlaylistProcessing.getSaddest();
     ArrayList<String> res = AnalysePlaylistProcessing.getMoodBooster();
+
     public ArrayList<String> getMostArtist(){
         return allArtists;
     }
