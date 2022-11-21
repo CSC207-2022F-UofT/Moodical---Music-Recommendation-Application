@@ -1,5 +1,5 @@
 package Processors;
-import entities.Account;
+import Entities.Account;
 
 import java.util.HashMap;
 

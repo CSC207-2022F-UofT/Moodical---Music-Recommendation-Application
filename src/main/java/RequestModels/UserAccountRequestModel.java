@@ -1,6 +1,6 @@
 package RequestModels;
-import entities.History;
-import entities.Favourites;
+import Entities.History;
+import Entities.Favourites;
 public class UserAccountRequestModel {
 
     private String username;

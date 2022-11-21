@@ -1,7 +1,7 @@
 package processors;
 
-import entities.Song;
-import entities.SongPool;
+import Entities.Song;
+import Entities.SongPool;
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;

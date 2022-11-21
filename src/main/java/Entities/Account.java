@@ -1,4 +1,4 @@
-package entities;
+package Entities;
 
 import static java.nio.file.Files.newBufferedWriter;
 
