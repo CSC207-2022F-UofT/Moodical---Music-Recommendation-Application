@@ -16,11 +16,13 @@ public class Account {
     public Favourites userFavourites;
 
     public Account(String username, String password, History previous_songs, Favourites favourites) {
-        super();
         this.username = username;
         this.password = password;
         this.userHistory = previous_songs;
         this.userFavourites = favourites;
+    }
+
+    public Account() {
     }
 
     public void setUsername(String username){
@@ -45,7 +47,5 @@ public class Account {
     public String getUsername(){
         return this.username;
     }
-
-
 
 }
