@@ -11,7 +11,6 @@ public class AccountCheckerProcessing {
     public AccountCheckerProcessing(Account account){
         AllUsers = new HashMap<String, String>();
     }
-
     public void MapAllAccounts(String username, String password) {
         AllUsers.put(username, password);
     }
