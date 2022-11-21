@@ -27,8 +27,6 @@ public class CSVFileProcessing implements ReadableFile {
             while((line = br.readLine()) != null) {
                 rowsRead.add(line);
             }
-        } catch (FileNotFoundException error) {
-            error.printStackTrace();
         } catch (IOException error) {
             error.printStackTrace();
         }
