@@ -1,25 +1,18 @@
 package Processors;
-import Entities.Account;
-import Entities.Favourites;
-import Entities.History;
-import Entities.Song;
+import Entities.*;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.File;
+import java.io.*;
+import java.nio.file.Files;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.io.IOException;
+import java.util.List;
 
-public class UserRegisterProcessing extends Account {
-    HashMap<String, String> AllUsers = new HashMap<String, String>();
-    private final File csvOfUsers;
-    public UserRegisterProcessing(String username, String password, History previous_songs, Favourites favourites, File csvOfUsers) {
-        super(username, password, previous_songs, favourites);
-        this.csvOfUsers = csvOfUsers;
+public class UserRegisterProcessing {
+    public static File csvOfUsers;
+    public UserRegisterProcessing(Account account, File csvOfUsers) {
+        UserRegisterProcessing.csvOfUsers = csvOfUsers;
     }
 
-    public void writeAccountToCSV(Account account) {
+    public static void writeAccountToCSV(Account account) {
         BufferedWriter writer;
         try {
             writer = new BufferedWriter(new FileWriter(csvOfUsers));
@@ -37,33 +30,16 @@ public class UserRegisterProcessing extends Account {
             writer.newLine();
 
             writer.close();
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
-        // Reading method?
-
-    public void createAccount(Account account) {
+    public Object[] readAccountCSV(File csvOfUsers) throws IOException {
+        List<String> eachLine = Files.readAllLines(csvOfUsers.toPath());
+        return eachLine.toArray();
+    }
+    public static void createAccount(Account account) {
         writeAccountToCSV(account);
-        AllUsers.put(account.username, account.password);
     }
-
-    public boolean createNewAccount(Account account) {
-        if (!(AllUsers.containsKey(account.username))) {
-            createAccount(account);
-            return true;
-        }
-        return false;
-    }
-
-        public void MapAllAccounts(String username, String password) {
-        AllUsers.put(username, password);
-    }
-
-    public boolean checkUserExists(String username) {
-        return AllUsers.containsKey(username);
-    }
-
-
-
 }
