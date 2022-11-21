@@ -1,28 +1,18 @@
-package Entities;
+package RequestModels;
+import Entities.History;
+import Entities.Favourites;
+public class UserAccountRequestModel {
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Objects;
-import java.io.FileWriter;
-import java.io.BufferedWriter;
+    private String username;
+    private String password;
+    private final History userHistory;
+    private final Favourites userFavourites;
 
-import static java.nio.file.Files.newBufferedWriter;
-
-
-public class Account {
-    public String username = "";
-    public String password = "";
-    public History userHistory;
-    public Favourites userFavourites;
-
-    public Account(String username, String password, History previous_songs, Favourites favourites) {
+    public UserAccountRequestModel(String username, String password, History userHistory, Favourites userFavourites){
         this.username = username;
         this.password = password;
-        this.userHistory = previous_songs;
-        this.userFavourites = favourites;
-    }
-
-    public Account() {
+        this.userHistory = userHistory;
+        this.userFavourites = userFavourites;
     }
 
     public void setUsername(String username){
@@ -41,11 +31,11 @@ public class Account {
     }
 
     public String getPassword(){
-        return this.password;
+        return password;
     }
 
     public String getUsername(){
-        return this.username;
+        return username;
     }
 
     public String getUserHistory() {
