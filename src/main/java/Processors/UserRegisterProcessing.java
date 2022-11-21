@@ -2,17 +2,17 @@ package Processors;
 import Entities.*;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.List;
 
-public class UserRegisterProcessing extends Account {
-    public File csvOfUsers;
-}
-    public UserRegisterProcessing(String username, String password, History previous_songs, Favourites favourites, File csvOfUsers) {
-        super(username, password, previous_songs, favourites);
-        this.csvOfUsers = csvOfUsers;
+public class UserRegisterProcessing {
+    public static File csvOfUsers;
+    public UserRegisterProcessing(Account account, File csvOfUsers) {
+        UserRegisterProcessing.csvOfUsers = csvOfUsers;
     }
 
-    public void writeAccountToCSV(Account account) {
+    public static void writeAccountToCSV(Account account) {
         BufferedWriter writer;
         try {
             writer = new BufferedWriter(new FileWriter(csvOfUsers));
@@ -35,11 +35,11 @@ public class UserRegisterProcessing extends Account {
             throw new RuntimeException(e);
         }
     }
-
-    public ArrayList<String> readAccountCSV(File csvOfUsers) {
-        // need to create a Reader Method
+    public Object[] readAccountCSV(File csvOfUsers) throws IOException {
+        List<String> eachLine = Files.readAllLines(csvOfUsers.toPath());
+        return eachLine.toArray();
     }
-    public void createAccount(Account account) {
+    public static void createAccount(Account account) {
         writeAccountToCSV(account);
     }
 }
