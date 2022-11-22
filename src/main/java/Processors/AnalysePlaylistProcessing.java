@@ -1,14 +1,21 @@
 package Processors;
 
-import Entities.Song;
+import entities.Song;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import entities.Account;
+import Boundaries.InputBoundary;
 
-public class AnalysePlaylistProcessing {
+public class AnalysePlaylistProcessing implements InputBoundary{
 
-    private static Entities.Account Account;
-    public static ArrayList<Song> prevRecs = HistoryProcessor.getAllSongs(Account);
+    public static Account account;
+    public static ArrayList<Song> prevRecs = HistoryProcessor.getAllSongs(account);
+
+    public void setAccount(Account account){
+        AnalysePlaylistProcessing.account = account;
+    }
+
     public static ArrayList<String> getMostArtist() {
         /* Return the most commonly appeared artist in the user's history (past recommendations)
           Return multiple artists if there is a tie in the number of occurrences

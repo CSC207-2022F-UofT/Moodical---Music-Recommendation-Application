@@ -1,7 +1,7 @@
 package Processors;
 
-import Entities.Account;
-import Entities.Song;
+import entities.Account;
+import entities.Song;
 
 import java.util.ArrayList;
 

@@ -1,6 +1,6 @@
 package ResponseModels;
 
-import Entities.ReadableFile;
+import entities.ReadableFile;
 import Processors.QuestionnaireProcessing;
 
 import java.util.ArrayList;

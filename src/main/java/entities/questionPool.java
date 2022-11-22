@@ -1,4 +1,4 @@
-package Entities;/* Below is the Question Pool entity object with its constructor.
+package entities;/* Below is the Question Pool entity object with its constructor.
 
  */
 

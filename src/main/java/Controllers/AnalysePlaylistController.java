@@ -1,8 +1,7 @@
 package Controllers;
 
-public class AnalysePlaylistController {
-    /***
-     *
-     */
+public class AnalysePlaylistController{
+//
+//    void AnalysePlaylistProcessing.setAccount(Account account);
 
 }
