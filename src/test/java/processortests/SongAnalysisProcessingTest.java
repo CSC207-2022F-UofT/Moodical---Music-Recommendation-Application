@@ -1,9 +1,8 @@
-package processors;
+package processortests;
 
 import Processors.SongAnalysisProcessing;
-import entities.Song;
-import entities.SongPool;
-import org.junit.After;
+import Entities.Song;
+import Entities.SongPool;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
