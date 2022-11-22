@@ -1,11 +1,11 @@
-package Entities;
+package entitiestests;
 
+import Entities.SongPool;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class SongPoolTest {
-
     SongPool songPool;
     String[] exampleStringArray;
 
@@ -16,7 +16,7 @@ class SongPoolTest {
         exampleStringArray = new String[] {"Hey, Soul Sister","Train","neo mellow",
                 "2010","97","89","67","-4","8","80","217","19","4","83"};
 
-            // song, artist, genre,
+        // song, artist, genre,
         // year, BPM, energy, danceability, loudness, liveness, valence, length, acousticness, speechiness, popularity
     }
 
@@ -43,7 +43,7 @@ class SongPoolTest {
 
     // after each method happens after every test
     @AfterEach
-    void compareExampleData(){
+    void testMessage(){
         System.out.println("Test Completed");
     }
 }
