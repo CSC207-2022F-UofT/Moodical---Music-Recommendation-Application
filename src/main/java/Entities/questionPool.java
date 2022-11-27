@@ -2,18 +2,35 @@ package Entities;/* Below is the Question Pool entity object with its constructo
 
  */
 
-import java.util.ArrayList;
 
-
+//public class questionPool{
+//    public String[] lstOfQs;
+//
+//    public String[] questionPool() {
+//    lstOfQs = new String[]{};
+//
+//    public String[] getRandQ(ArrayList<String> lst)
+//        return this.lstOfQs;
+//    }
+//    public void setRandQ(String[] lst){
+//        this.lstOfQs = lst;
+//    }
+//
+//}
 public class questionPool{
-    public ArrayList<String> lstOfQs = new ArrayList<>();
-
-    public questionPool(ReadableFile p, Object filepath){
-        this.lstOfQs = p.readRows(filepath);
+    private String[] lstOfQ;
+    public questionPool(){
+        this.lstOfQ = new String[]{};
     }
 
-}
+    public String[] getRandQ(){
+        return this.lstOfQ;
+    }
 
+    public void setRandQ(String[] lst){
+        this.lstOfQ = lst;
+    }
+}
 
 /*
 This class only consists of a list of strings.
