@@ -1,8 +1,8 @@
 package Processors;
 
-import entities.Account;
-import entities.History;
-import entities.Song;
+import Entities.Account;
+import Entities.History;
+import Entities.Song;
 
 
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package Processors;
 
-import entities.ReadableFile;
+import Entities.ReadableFile;
 
 import java.util.ArrayList;
 import java.util.Random;

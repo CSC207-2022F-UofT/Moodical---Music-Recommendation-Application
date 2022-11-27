@@ -1,10 +1,10 @@
 package ResponseModels;
 
-import entities.Song;
+import Entities.Song;
 import Processors.HistoryProcessor;
 
 import java.util.ArrayList;
-import entities.Account;
+import Entities.Account;
 
 public class HistoryResponseModel {
 

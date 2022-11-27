@@ -1,7 +1,18 @@
 package Controllers;
 
+import java.util.ArrayList;
+import Processors.AnalysePlaylistProcessing;
+import Entities.Account;
+
 public class AnalysePlaylistController{
+
 //
-//    void AnalysePlaylistProcessing.setAccount(Account account);
+//    AnalysePlaylistProcessing.setAnaylseAccount(Account account);
+
+    public static ArrayList<ArrayList<String>> getAllData(){
+        return AnalysePlaylistProcessing.getAllData();
+    }
+
+
 
 }

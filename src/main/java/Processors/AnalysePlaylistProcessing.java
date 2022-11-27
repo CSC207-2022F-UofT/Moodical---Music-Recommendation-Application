@@ -1,18 +1,19 @@
 package Processors;
 
-import entities.Song;
+import Boundaries.AnaylseInputBoundary;
+import Entities.Song;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import entities.Account;
-import Boundaries.InputBoundary;
+import Entities.Account;
 
-public class AnalysePlaylistProcessing implements InputBoundary{
+public class AnalysePlaylistProcessing implements AnaylseInputBoundary{
 
     public static Account account;
     public static ArrayList<Song> prevRecs = HistoryProcessor.getAllSongs(account);
 
-    public void setAccount(Account account){
+    @Override
+    public void setAnaylseAccount(Account account){
         AnalysePlaylistProcessing.account = account;
     }
 
@@ -44,7 +45,7 @@ public class AnalysePlaylistProcessing implements InputBoundary{
         return resArtists;
     }
 
-    public ArrayList<String> getMostGenre(){
+    public static ArrayList<String> getMostGenre(){
         /* Return the most commonly appeared genre in the user's history (past recommendations)
           Return multiple genres if there is a tie between the number of occurrences
          */
@@ -72,9 +73,11 @@ public class AnalysePlaylistProcessing implements InputBoundary{
 
     }
 
-    public static double getAverageBmp() {
+    public static ArrayList<String> getAverageBmp() {
         /* Return the average bmp of all the songs in the user's history (past recommendations)
          */
+        ArrayList<String> bmp =  new ArrayList<String>();
+
         double sum = 0;
 
         for (Song song : prevRecs) {
@@ -82,8 +85,10 @@ public class AnalysePlaylistProcessing implements InputBoundary{
             }
 
         double total = prevRecs.size();
+        String result = Double.toString(sum / total);
+        bmp.add(result);
 
-        return sum / total;
+        return bmp;
     }
 
     public static ArrayList<String> getMostDanceable(){
@@ -188,4 +193,18 @@ public class AnalysePlaylistProcessing implements InputBoundary{
         return res;
     }
 
+    public static ArrayList<ArrayList<String>> getAllData(){
+        ArrayList<ArrayList<String>> allData = new ArrayList<>();
+
+        allData.add(getMostArtist());
+        allData.add(getMostGenre());
+        allData.add(getAverageBmp());
+        allData.add(getMostDanceable());
+        allData.add(getMostPopular());
+        allData.add(getHappiest());
+        allData.add(getSaddest());
+        allData.add(getMoodBooster());
+
+        return allData;
+    }
 }
