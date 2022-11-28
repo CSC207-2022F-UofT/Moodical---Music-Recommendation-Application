@@ -13,6 +13,8 @@ public class Song {
 
     public boolean favourite;
 
+    public Song(){
+    }
     public Song(String songIn, String artistIn, String genreIn, String energyIn, String livenessIn,
                 String valenceIn, String popularityIn, String danceabilityIn){
         this.song = songIn;
