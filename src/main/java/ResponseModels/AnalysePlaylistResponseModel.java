@@ -1,7 +1,6 @@
 package ResponseModels;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import Processors.AnalysePlaylistProcessing;
 
@@ -9,7 +8,7 @@ public class AnalysePlaylistResponseModel {
 
     ArrayList<String> allArtists = AnalysePlaylistProcessing.getMostArtist();
     ArrayList<String> allGenres = AnalysePlaylistProcessing.getMostArtist();
-    double averageBmp = AnalysePlaylistProcessing.getAverageBmp();
+    ArrayList<String> averageBmp = AnalysePlaylistProcessing.getAverageBmp();
     ArrayList<String> mostDance = AnalysePlaylistProcessing.getMostDanceable();
     ArrayList<String> mostPopular = AnalysePlaylistProcessing.getMostPopular();
     ArrayList<String> mostHappy = AnalysePlaylistProcessing.getHappiest();
@@ -22,7 +21,7 @@ public class AnalysePlaylistResponseModel {
     public ArrayList<String> getMostGenre(){
         return allGenres;
     }
-    public double getAverageBmp(){
+    public ArrayList<String> getAverageBmp(){
         return averageBmp;
     }
     public ArrayList<String> getMostDanceable(){
@@ -47,7 +46,7 @@ public class AnalysePlaylistResponseModel {
     public void setMostGenre(ArrayList<String> genre){
         this.allGenres = genre;
     }
-    public void setAverageBmp(double bmp){
+    public void setAverageBmp(ArrayList<String> bmp){
         this.averageBmp = bmp;
     }
     public void setMostDance(ArrayList<String> dance){
