@@ -42,7 +42,7 @@ public class Account {
         return this.username;
     }
 
-    public String getUserHistory() {
+    public static String getUserHistory() {
         return this.userHistory.toString();
     }
     public String getUserFavourites(){
