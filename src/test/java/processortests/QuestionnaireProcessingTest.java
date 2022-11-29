@@ -4,13 +4,15 @@ import Entities.ReadableFile;
 import Entities.questionPool;
 import Processors.CSVFileProcessing;
 import Processors.QuestionnaireProcessing;
-import Processors.SongAnalysisProcessing;
+import org.junit.Before;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,8 +22,21 @@ class QuestionnaireProcessingTest {
     ArrayList<String> example_array;
     questionPool qPool;
     CSVFileProcessing processFile;
+    List<String[]> columnValues = new ArrayList<String[]>();
 
-    @BeforeEach
+    @Before
+    public void init() {
+        try {
+            Scanner scanner = new Scanner(new File("questions.csv"));
+            while (scanner.hasNextLine()) {
+                String[] values = scanner.nextLine().split(", ");
+                columnValues.add(values);
+            }
+        } catch (Exception e) {
+            //whatever
+        }
+    }
+
     void createExampleData() {
         String exampleQ1 ="I am feeling optimistic about life at the moment";
         String exampleQ2 = " My energy levels are adequate today";

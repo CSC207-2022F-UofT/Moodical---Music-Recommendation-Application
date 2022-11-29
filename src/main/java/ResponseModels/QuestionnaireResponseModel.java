@@ -1,6 +1,7 @@
 package ResponseModels;
 
 import Entities.ReadableFile;
+import Processors.CSVFileProcessing;
 import Processors.QuestionnaireProcessing;
 
 import java.util.ArrayList;
@@ -12,13 +13,18 @@ public class QuestionnaireResponseModel {
      */
     ReadableFile q;
     Object filepath;
+    ArrayList<String> fiveQs;
 
-    public QuestionnaireResponseModel(ReadableFile q, Object filepath){
-        this.q = q;
-        this.filepath = filepath;
+    public QuestionnaireResponseModel(){
+        this.fiveQs = new ArrayList<>();
+        filepath = "/course-project-group-120/dataset/questions.csv";
+        q = new CSVFileProcessing();
+    }
+    public void Processed(){
+        fiveQs = QuestionnaireProcessing.getRandQues(q, filepath);
     }
 
-    ArrayList<String> fiveQs = QuestionnaireProcessing.getRandQues(q, filepath);
+
 
     public ArrayList<String> getRandQs(){
         /**

@@ -18,6 +18,8 @@ public class QuestionnaireProcessing {
      * only 5 questions as opposed to 1.
      */
     questionPool P;
+    public QuestionnaireProcessing(){
+    }
 
     public static ArrayList<String> getRandQues(ReadableFile p, Object filepath) {
 
