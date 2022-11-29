@@ -4,13 +4,11 @@ import Entities.ReadableFile;
 import Entities.questionPool;
 import Processors.CSVFileProcessing;
 import Processors.QuestionnaireProcessing;
-import Processors.SongAnalysisProcessing;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
