@@ -50,7 +50,7 @@ public class HistoryProcessor {
         for (ArrayList<Song> playlist : userAccount.userHistory.getPrevious_songs()) {
             String newplaylist = " ";
             for (Song song : playlist) {
-                newplaylist = newplaylist + ", " + song.song;
+                newplaylist = newplaylist + song.song + " ";
             }
             playlists.add(newplaylist);
         }
