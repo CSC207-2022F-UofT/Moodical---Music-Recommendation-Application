@@ -10,6 +10,8 @@ import javax.swing.table.JTableHeader;
 
 public class HistoryWindow {
 
+    //call readable file userAccount = readlineuser
+
     private JPanel panel1;
     private JTextArea textArea;
     JFrame f;
@@ -23,17 +25,17 @@ public class HistoryWindow {
         f.setBackground(Color.getHSBColor(164, 219, 232));
 
         String[] columnNames = {"Rec1", "Rec2", "Rec3", "Rec4", "Rec5", "Rec6", "Rec7"};
-        String[][] data = {{"song1", "song2", "song3", "song4", "song5", "song6", "song7", "song8", "song9", "song10"},
-                {"song1", "song2", "song3", "song4", "song5", "song6", "song7", "song8", "song9", "song10"},
-                {"song1", "song2", "song3", "song4", "song5", "song6", "song7", "song8", "song9", "song10"},
-                {"song1", "song2", "song3", "song4", "song5", "song6", "song7", "song8", "song9", "song10"},
-                {"song1", "song2", "song3", "song4", "song5", "song6", "song7", "song8", "song9", "song10"},
-                {"song1", "song2", "song3", "song4", "song5", "song6", "song7", "song8", "song9", "song10"},
-                {"song1", "song2", "song3", "song4", "song5", "song6", "song7", "song8", "song9", "song10"},
-                {"song1", "song2", "song3", "song4", "song5", "song6", "song7", "song8", "song9", "song10"},
-                {"song1", "song2", "song3", "song4", "song5", "song6", "song7", "song8", "song9", "song10"}};
+        String[][] data = {{"song1 song2, song3, song4, song5, song6, song7, song8, song9, song10"},
+                {"song1 song2, song3, song4, song5, song6, song7, song8, song9, song10"},
+                {"song1 song2, song3, song4, song5, song6, song7, song8, song9, song10"},
+                {"song1 song2, song3, song4, song5, song6, song7, song8, song9, song10"},
+                {"song1 song2, song3, song4, song5, song6, song7, song8, song9, song10"},
+                {"song1 song2, song3, song4, song5, song6, song7, song8, song9, song10"},
+                {"song1 song2, song3, song4, song5, song6, song7, song8, song9, song10"},
+                {"song1 song2, song3, song4, song5, song6, song7, song8, song9, song10"},
+                {"song1 song2, song3, song4, song5, song6, song7, song8, song9, song10"}};
 
-        //Object[] allSongs = HistoryProcessor.get_song_strings(Account userAccount);
+        //String [][] allSongs = HistoryProcessor.get_song_strings(Account userAccount);
 
         j = new JTable(data, columnNames);
 

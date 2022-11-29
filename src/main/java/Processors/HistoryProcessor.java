@@ -45,12 +45,12 @@ public class HistoryProcessor {
         userAccount.userHistory.getPrevious_songs().add(playlist);
     }
 
-    public static ArrayList<ArrayList<String>> get_song_strings(Account userAccount) {
-        ArrayList<ArrayList<String>> playlists = new ArrayList<>();
+    public static ArrayList<String> get_song_strings(Account userAccount) {
+        ArrayList<String> playlists = new ArrayList<>();
         for (ArrayList<Song> playlist : userAccount.userHistory.getPrevious_songs()) {
-            ArrayList<String> newplaylist = new ArrayList<>();
+            String newplaylist = " ";
             for (Song song : playlist) {
-                newplaylist.add(song.song);
+                newplaylist = newplaylist + ", " + song.song;
             }
             playlists.add(newplaylist);
         }
