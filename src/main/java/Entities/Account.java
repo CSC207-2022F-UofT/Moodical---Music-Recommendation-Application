@@ -49,7 +49,4 @@ public class Account {
         return this.userFavourites.toString();
     }
 
-    // public History getHistory(){return this.userHistory;}
-    // public Favourites getFavourites(){return this.getFavourites();}
-
 };

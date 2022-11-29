@@ -10,10 +10,13 @@ import Processors.HistoryProcessor;
 public class DashboardController {
 
     public DashboardController(Account account){
+
         AnalysePlaylistProcessing.setAccount(account);
     }
 
 }
 
-// When an account is created, we need to also give the user input to the history class/
-// their controllers, playlist and anything that depends on account
+// All the controller does for the dashboard is to set the account attribute for the playlist analysis, which we will be
+// using the username to get the account information and then passed onto here.
+
+// I am thinking if we can do the same for History and or favourites (Set the attribute here)

@@ -19,7 +19,8 @@ public class Dashboard  extends JFrame{
     JButton b2;
     JButton b3;
 
-    Dashboard(){
+    Dashboard(){ // This will be taking an input of "all data" generated from analyse playlist processing later, once
+        // The account reader works
 
         // Making a new J frame
         f = new JFrame();
@@ -41,7 +42,7 @@ public class Dashboard  extends JFrame{
         String[][] data1 = {{"1","2","3","4","5","6","7","8"}, {"1","2","3","4","5","6","7","8"},
                 {"1","2","3","4","5","6","7","8"}, {"1","2","3","4","5","6","7","8"}};
 
-//      Object[] allData = playlist.getAllData().toArray();
+//      Object[] allData = playlist.getAllData().toArray();  this is the actual data we will be using
 
         // Making the first JTable
         j = new JTable(data, columnNames);
@@ -111,7 +112,8 @@ public class Dashboard  extends JFrame{
     }
 
     public static void main(String[] args) {
-        new Dashboard();}
+        new Dashboard();} // this will be taking an input as well and be called by the presenter, in main
+    // the presenter will be calling this UI
 }
 
 
