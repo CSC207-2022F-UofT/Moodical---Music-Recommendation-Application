@@ -24,7 +24,7 @@ public class HistoryWindow {
         // Set the Frame colour
         f.setBackground(Color.getHSBColor(164, 219, 232));
 
-        String[] columnNames = {"Rec1", "Rec2", "Rec3", "Rec4", "Rec5", "Rec6", "Rec7"};
+        String[] columnNames = {"History"};
         String[][] data = {{"song1 song2, song3, song4, song5, song6, song7, song8, song9, song10"},
                 {"song1 song2, song3, song4, song5, song6, song7, song8, song9, song10"},
                 {"song1 song2, song3, song4, song5, song6, song7, song8, song9, song10"},
