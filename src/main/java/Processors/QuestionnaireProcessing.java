@@ -3,30 +3,21 @@ package Processors;
 import Entities.ReadableFile;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+import Entities.questionPool;
 
-
-public class QuestionnaireProcessing  {
+public class QuestionnaireProcessing {
     /**
      * This class has two methods for processing - obtaining the list of questions from Questions.csv and then
      * filtering out this list to obtain 5 questions at random for higher level usage.
-     *
+     * <p>
      * Final variables are :
-     *          1. lst of questions from csv as they don't change
-     *          2. questionOutputBoundary named questionOutputs as it doesn't change - these have
-     *          only 5 questions as opposed to 1.
+     * 1. lst of questions from csv as they don't change
+     * 2. questionOutputBoundary named questionOutputs as it doesn't change - these have
+     * only 5 questions as opposed to 1.
      */
-//    final questionPool lstOfQuestions;
-//    final QuestionnaireOutputBoundary questionOutputs;
-//
-//    public QuestionnaireProcessing(questionPool lstOfQuestions,
-//                                   QuestionnaireOutputBoundary questionOutputs) {
-//        /**
-//         * Initialises the two final variables
-//         */
-//        this.lstOfQuestions = lstOfQuestions;
-//        this.questionOutputs = questionOutputs;
-
+    questionPool P;
 
     public static ArrayList<String> getRandQues(ReadableFile p, Object filepath) {
 
@@ -48,7 +39,23 @@ public class QuestionnaireProcessing  {
         return filteredLst;
     }
 
+    public static List<String> get5RandQues(ArrayList<String> lstofQ) {
 
+        // this method takes from a list of list questions of type string[] and
+        // returns a list of 5 random questions which are of type list.
+        // the value at chosen index is deleted to avoid repetitions of questions
+        /**
+         * Gets 5 randomly generated questions from question file
+         */
+        ArrayList<String> filteredLst1 = new ArrayList<>();
+        Random rand1 = new Random();
+        for (int i = 0; i <= lstofQ.size(); i++) {
+            int rand1Index = rand1.nextInt(lstofQ.size());
+            filteredLst1.add(lstofQ.get(rand1Index));
+            lstofQ.remove(rand1Index);
+        }
+        return filteredLst1.subList(0, 5);
+
+    }
 }
-
 
