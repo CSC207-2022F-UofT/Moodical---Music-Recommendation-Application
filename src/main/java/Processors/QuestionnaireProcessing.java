@@ -33,7 +33,7 @@ public class QuestionnaireProcessing {
         ArrayList<String> lst = p.readRows(filepath);
         ArrayList<String> filteredLst = new ArrayList<>();
         Random rand = new Random();
-        for (int i = 0; i <= 5; i++) {
+        for (int i = 1; i < 6; i++) {
             int randIndex = rand.nextInt(lst.size());
             filteredLst.add(lst.get(randIndex));
             lst.remove(randIndex);
