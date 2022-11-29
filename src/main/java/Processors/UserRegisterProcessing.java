@@ -12,6 +12,8 @@ public class UserRegisterProcessing {
         UserRegisterProcessing.csvOfUsers = csvOfUsers;
     }
 
+    // Write at the end of arvins recommendation, and also write at the end of the program
+
     public static void writeAccountToCSV(Account account) {
         BufferedWriter writer;
         try {
@@ -35,10 +37,15 @@ public class UserRegisterProcessing {
             throw new RuntimeException(e);
         }
     }
+
+    /// If the account doesn't exist
     public Object[] readAccountCSV(File csvOfUsers) throws IOException {
         List<String> eachLine = Files.readAllLines(csvOfUsers.toPath());
         return eachLine.toArray();
     }
+
+    /// this doesn't search for a user when reading from csv, it just reads a line.
+
     public static void createAccount(Account account) {
         writeAccountToCSV(account);
     }
