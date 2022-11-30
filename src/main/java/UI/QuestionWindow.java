@@ -133,14 +133,15 @@ public class QuestionWindow extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        sliderValues.add(slider1.getValue());
-        sliderValues.add(slider2.getValue());
-        sliderValues.add(slider3.getValue());
-        sliderValues.add(slider4.getValue());
-        sliderValues.add(slider5.getValue());
+        double sum = 0;
+        sum += slider1.getValue();
+        sum += slider2.getValue();
+        sum += slider3.getValue();
+        sum += slider4.getValue();
+        sum += slider5.getValue();
+        double averageHappyScore = sum/5;
         setVisible(false); // "closes" this screen -> makes it invisible
-        songRecWindow = new SongRecWindow();
-        songRecWindow.submittedSliderValues = sliderValues;
+        songRecWindow = new SongRecWindow(averageHappyScore);
         songRecWindow.setVisible(true);
     }
 

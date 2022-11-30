@@ -13,23 +13,17 @@ public class SongRecResponseModel {
     String filepath = "dataset/songs.csv";
     public ArrayList<Song> recommendedSongs;
 
-    public double happyScore;
+    public SongPool songPool;
 
-    public ArrayList<Integer> givenHappyScore = new ArrayList<Integer>();
 
-    public SongPool songPool = new SongPool();
-
-    public SongRecResponseModel(ArrayList<Integer> sliderScores){
+    public SongRecResponseModel(SongPool sPool, double averageHappyScore, ArrayList<Song> rSongs){
+        songPool = sPool;
         songPool.populateSongPool(q, filepath);
-        happyScore = 0;
-        givenHappyScore = sliderScores;
-        for(int sliderValue : this.givenHappyScore){
-            happyScore += sliderValue;
-        }
+        recommendedSongs = rSongs;
 
         // populate with 5 songs
         for(int i = 0; i < 5; i++){
-            recommendedSongs.add(SongAnalysisProcessing.getSong(happyScore, songPool)); // get song gives a random song everytime
+            recommendedSongs.add(SongAnalysisProcessing.getSong(averageHappyScore, songPool)); // get song gives a random song everytime
         }
     }
 
@@ -41,7 +35,4 @@ public class SongRecResponseModel {
         this.recommendedSongs = recommendedSongs;
     }
 
-    public void setSliderScores(ArrayList<Integer> submittedSliderValues) {
-        this.givenHappyScore = submittedSliderValues;
-    }
 }
