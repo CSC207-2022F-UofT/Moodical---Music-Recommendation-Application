@@ -1,19 +1,24 @@
 package Processors;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
 import Entities.Account;
+import Entities.History;
 import Entities.Song;
 
 public class AnalysePlaylistProcessing{
 
     public static Account account;
+    public static History allHistory;
     public static ArrayList<Song> prevRecs;
 
     public static void setAccount(Account account) {
         AnalysePlaylistProcessing.account = account;
+        AnalysePlaylistProcessing.allHistory = account.userHistory;
+        HistoryProcessor.setAccount(account);
         AnalysePlaylistProcessing.prevRecs = HistoryProcessor.getAllSongs(account);
     }
 
@@ -26,6 +31,7 @@ public class AnalysePlaylistProcessing{
         ArrayList<String> resArtists = new ArrayList<String>();
 
         for (Song song : prevRecs) {
+
             Integer count = allArtists.get(song.artist);
             if (count == null) {
                 allArtists.put(song.artist, 1);

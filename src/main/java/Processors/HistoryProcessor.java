@@ -8,6 +8,11 @@ import Entities.Song;
 import java.util.ArrayList;
 
 public class HistoryProcessor{
+
+    public static Account account;
+    public static void setAccount(Account account) {
+        HistoryProcessor.account = account;}
+
     public static ArrayList<Song> recommend (Account userAccount){
         ArrayList<Song> new_playlist = new ArrayList<>();
         History history = userAccount.userHistory;
@@ -31,7 +36,7 @@ public class HistoryProcessor{
     //what will get passed to things such as display with just use the usual getter function in the History class
     public static ArrayList<Song> getAllSongs(Account userAccount){
         ArrayList<Song> songs_so_far = new ArrayList<>();
-        for(ArrayList<Song> playlist : userAccount.userHistory.getPrevious_songs()){
+        for(ArrayList<Song> playlist : HistoryProcessor.account.userHistory.getPrevious_songs()){
             for(Song song : playlist){
                 if (!(songs_so_far.contains(song))){
                     songs_so_far.add(song);
