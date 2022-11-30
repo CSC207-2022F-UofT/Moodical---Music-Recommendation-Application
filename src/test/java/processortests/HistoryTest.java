@@ -100,10 +100,10 @@ public class HistoryTest {
     void getStringSongs(){assertEquals(songs, HistoryProcessor.get_song_strings(account));
     }
 
-    @Test
-    void getRecommendations() {
-        assertEquals(playlist, HistoryProcessor.recommend(account));
-    }
+//    @Test
+//    void getRecommendations() {
+//        assertEquals(playlist, HistoryProcessor.recommend(account));
+//    }
 
     @Test
     void addToTest(){
@@ -113,19 +113,19 @@ public class HistoryTest {
         assertEquals(newPreviousSongs, account.userHistory.getPrevious_songs());
     }
 
-    @Test //testing the recommendation function when there is more than one playlist included in History
-    void getRecommendations2() {
-        ArrayList<Song> allsongs = HistoryProcessor.getAllSongs(account);
-        HistoryProcessor.addTo(playlist2, account);
-        ArrayList<Song> newPlaylist = HistoryProcessor.recommend(account);
-        boolean result = true;
-        for(Song song: newPlaylist){
-            if(!(allsongs.contains(song))){
-                result = false;
-            }
-        }
-        assertEquals(result, true);
-    }
+//    @Test //testing the recommendation function when there is more than one playlist included in History
+//    void getRecommendations2() {
+//        ArrayList<Song> allsongs = HistoryProcessor.getAllSongs(account);
+//        HistoryProcessor.addTo(playlist2, account);
+//        ArrayList<Song> newPlaylist = HistoryProcessor.recommend(account);
+//        boolean result = true;
+//        for(Song song: newPlaylist){
+//            if(!(allsongs.contains(song))){
+//                result = false;
+//            }
+//        }
+//        assertEquals(result, true);
+//    }
 }
 
 
