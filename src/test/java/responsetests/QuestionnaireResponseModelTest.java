@@ -3,6 +3,7 @@ package responsetests;
 import Entities.ReadableFile;
 import Processors.CSVFileProcessing;
 import ResponseModels.QuestionnaireResponseModel;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -24,6 +25,7 @@ class QuestionnaireResponseModelTest{
     fiveQs = new ArrayList<>();
     response = new QuestionnaireResponseModel();
     }
+
     @Test
     void getRandQs() {
         assertEquals(response.getRandQs(), response.fiveQs);
@@ -31,6 +33,9 @@ class QuestionnaireResponseModelTest{
 
 
 
-
+    @AfterEach
+    void testMessage(){
+        System.out.println("Test Completed");
+    }
 }
 

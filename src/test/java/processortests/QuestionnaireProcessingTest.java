@@ -24,7 +24,6 @@ class QuestionnaireProcessingTest {
         String exampleQ4 = "My self-esteem is doing alright";
         String exampleQ5 = "I have someone to talk to when I need it";
 
-
         questionPool.getRandQ().add(exampleQ1);
         questionPool.getRandQ().add(exampleQ2);
         questionPool.getRandQ().add(exampleQ3);
@@ -46,7 +45,7 @@ class QuestionnaireProcessingTest {
 
     @AfterEach
     void testMessage(){
-        System.out.println("Test Complete");
+        System.out.println("Test Completed");
     }
 
 
