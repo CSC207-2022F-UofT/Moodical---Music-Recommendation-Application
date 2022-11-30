@@ -20,49 +20,49 @@ public class HistoryTest {
     ArrayList<String> songs = new ArrayList<>();
     Song song1 = new Song("song","artist",
             "genre", "energy", "liveness",
-            "valence", "popularity", "danceability");
+            "valence", "popularity", "danceability", "5");
     Song song2 = new Song("song2","artist",
             "genre", "energy", "liveness",
-            "valence", "popularity", "danceability");
+            "valence", "popularity", "danceability","5");
     Song song3 = new Song("song3","artist",
             "genre", "energy", "liveness",
-            "valence", "popularity", "danceability");
+            "valence", "popularity", "danceability","7");
     Song song4 = new Song("song4","artist",
             "genre", "energy", "liveness",
-            "valence", "popularity", "danceability");
+            "valence", "popularity", "danceability","4");
     Song song5 = new Song("song5","artist",
             "genre", "energy", "liveness",
-            "valence", "popularity", "danceability");
+            "valence", "popularity", "danceability","9");
     Song song6 = new Song("song6","artist",
             "genre", "energy", "liveness",
-            "valence", "popularity", "danceability");
+            "valence", "popularity", "danceability","5");
     Song song7 = new Song("song7","artist",
             "genre", "energy", "liveness",
-            "valence", "popularity", "danceability");
+            "valence", "popularity", "danceability","3");
     Song song8 = new Song("song8","artist",
             "genre", "energy", "liveness",
-            "valence", "popularity", "danceability");
+            "valence", "popularity", "danceability", "2");
     Song song9 = new Song("song9","artist",
             "genre", "energy", "liveness",
-            "valence", "popularity", "danceability");
+            "valence", "popularity", "danceability", "1");
     Song song10 = new Song("song10","artist",
             "genre", "energy", "liveness",
-            "valence", "popularity", "danceability");
+            "valence", "popularity", "danceability", "3");
     Song song11 = new Song("song11","artist",
             "genre", "energy", "liveness",
-            "valence", "popularity", "danceability");
+            "valence", "popularity", "danceability", "4");
     Song song12 = new Song("song12","artist",
             "genre", "energy", "liveness",
-            "valence", "popularity", "danceability");
+            "valence", "popularity", "danceability","6");
     Song song13 = new Song("song13","artist",
             "genre", "energy", "liveness",
-            "valence", "popularity", "danceability");
+            "valence", "popularity", "danceability", "7");
     Song song14 = new Song("song14","artist",
             "genre", "energy", "liveness",
-            "valence", "popularity", "danceability");
+            "valence", "popularity", "danceability", "2");
     Song song15 = new Song("song14","artist",
             "genre", "energy", "liveness",
-            "valence", "popularity", "danceability");
+            "valence", "popularity", "danceability", "2");
 
     @BeforeEach
     void createExampleData(){
