@@ -26,4 +26,13 @@ public class Song {
         this.popularity = popularityIn;
         this.danceability = danceabilityIn;
     }
+
+    public String getArtist() {
+        return artist;
+    }
+
+    // returns song name
+    public String getSong() {
+        return song;
+    }
 }

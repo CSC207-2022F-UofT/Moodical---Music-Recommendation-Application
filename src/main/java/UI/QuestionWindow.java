@@ -35,10 +35,10 @@ public class QuestionWindow extends JFrame implements ActionListener{
 
     // CREATE INSTANCE OF RECOMMENDATION TO BUILD REC ON AND THEN SHOW WHEN RESULTS SUBMITTED (i.e. being built
     // in the background constantly while user adjusting slides)
-    SongRecWindow songRecWindow = new SongRecWindow();
+    SongRecWindow songRecWindow;
 
     // the slider values
-    private int[] sliderValues = new int[5];
+    private ArrayList<Integer> sliderValues = new ArrayList<Integer>();
 
 
     public QuestionWindow() {
@@ -49,8 +49,7 @@ public class QuestionWindow extends JFrame implements ActionListener{
     private void initializeQuestionnaireWindow(){
         QuestionnairePresenter qPresenter = new QuestionnairePresenter();
         QuestionnaireResponseModel qResponseModel = new QuestionnaireResponseModel();
-        ArrayList<String> questionSet = new ArrayList<String>();
-
+        ArrayList<String> questionSet;
 
         // Text for user Panel
         messagePanel = new JPanel();
@@ -134,13 +133,15 @@ public class QuestionWindow extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        sliderValues.add(slider1.getValue());
+        sliderValues.add(slider2.getValue());
+        sliderValues.add(slider3.getValue());
+        sliderValues.add(slider4.getValue());
+        sliderValues.add(slider5.getValue());
         setVisible(false); // "closes" this screen -> makes it invisible
+        songRecWindow = new SongRecWindow();
+        songRecWindow.submittedSliderValues = sliderValues;
         songRecWindow.setVisible(true);
-        sliderValues[0] = slider1.getValue();
-        sliderValues[1] = slider2.getValue();
-        sliderValues[2] = slider3.getValue();
-        sliderValues[3] = slider4.getValue();
-        sliderValues[4] = slider5.getValue();
     }
 
     public static void main(String[] args){
