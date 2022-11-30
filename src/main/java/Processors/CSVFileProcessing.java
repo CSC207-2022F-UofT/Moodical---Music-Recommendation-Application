@@ -8,7 +8,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class CSVFileProcessing implements ReadableFile {
+    public CSVFileProcessing(){
 
+    }
     /**
      *
      *
