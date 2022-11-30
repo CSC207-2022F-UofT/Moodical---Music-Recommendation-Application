@@ -56,7 +56,18 @@ public class SongRecWindow extends JFrame {
 
         mainPanel = new JPanel();
         mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 30, 40, 30));
-        mainPanel.setLayout(new GridLayout(7, 1));
+        mainPanel.setLayout(new GridLayout(6, 1));
+
+        // initializing frame w/ panel
+        add(mainPanel, BorderLayout.CENTER);
+        setTitle("Song Recommendation!");
+        setSize(1200, 1000);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setVisible(false); // needs to be because we want only visible AFTER user presses submit results button
+
+        JButton finishedButton = new JButton("DONE!");
+        finishedButton.setSize(50, 50);
+        finishedButton.setHorizontalAlignment(SwingConstants.CENTER);
 
         // formatting song recs:
         // song names
@@ -71,62 +82,68 @@ public class SongRecWindow extends JFrame {
         // song artists pictures
         // song image 1
         image1 = new JLabel();
+        image1.setBounds(5, 5, 200, 200);
+        image1.setHorizontalAlignment(SwingConstants.CENTER);
+
         image2 = new JLabel();
+        image2.setBounds(5, 5, 200, 200);
+        image2.setHorizontalAlignment(SwingConstants.CENTER);
+
         image3 = new JLabel();
+        image3.setBounds(5, 5, 200, 200);
+        image3.setHorizontalAlignment(SwingConstants.CENTER);
+
         image4 = new JLabel();
+        image4.setBounds(5, 5, 200, 200);
+        image4.setHorizontalAlignment(SwingConstants.CENTER);
+
         image5 = new JLabel();
+        image5.setBounds(5, 5, 200, 200);
+        image5.setHorizontalAlignment(SwingConstants.CENTER);
 
         if(availableArtistImages.contains(songNameSet.get(0).getArtist())){
-            image1.setIcon(new ImageIcon("program-images/artist-images/" + songNameSet.get(0).getArtist() +
-                    ".jpeg"));
+            scaleImage("program-images/artist-images/" + songNameSet.get(0).getArtist() +
+                    ".jpeg", image1);
         }
         else {
-            image1.setIcon(new ImageIcon("program-images/artist-images/defaultpic.jpg"));
+            scaleImage("program-images/artist-images/defaultpic.jpg", image1);
         }
 
         // song image 2
         if(availableArtistImages.contains(songNameSet.get(1).getArtist())){
-            image2.setIcon(new ImageIcon("program-images/artist-images/" + songNameSet.get(1).getArtist() +
-                    ".jpeg"));
+            scaleImage("program-images/artist-images/" + songNameSet.get(1).getArtist() +
+                    ".jpeg", image2);
         }
         else {
-            image2.setIcon(new ImageIcon("program-images/artist-images/defaultpic.jpg"));
+            scaleImage("program-images/artist-images/defaultpic.jpg", image2);
         }
 
         // song image 3
         if(availableArtistImages.contains(songNameSet.get(2).getArtist())){
-            image3.setIcon(new ImageIcon("program-images/artist-images/" + songNameSet.get(2).getArtist() +
-                    ".jpeg"));
+            scaleImage("program-images/artist-images/" + songNameSet.get(2).getArtist() +
+                    ".jpeg", image3);
         }
         else {
-            image3.setIcon(new ImageIcon("program-images/artist-images/defaultpic.jpg"));
+            scaleImage("program-images/artist-images/defaultpic.jpg", image3);
         }
 
         // song image 4
         if(availableArtistImages.contains(songNameSet.get(3).getArtist())){
-            image4.setIcon(new ImageIcon("program-images/artist-images/" + songNameSet.get(3).getArtist() +
-                    ".jpeg"));
+            scaleImage("program-images/artist-images/" + songNameSet.get(3).getArtist() +
+                    ".jpeg", image4);
         }
         else {
-            image4.setIcon(new ImageIcon("program-images/artist-images/defaultpic.jpg"));
+            scaleImage("program-images/artist-images/defaultpic.jpg", image4);
         }
 
         // song image 5
         if(availableArtistImages.contains(songNameSet.get(4).getArtist())){
-            image5.setIcon(new ImageIcon("program-images/artist-images/" + songNameSet.get(4).getArtist() +
-                    ".jpeg"));
+            scaleImage("program-images/artist-images/" + songNameSet.get(4).getArtist() +
+                    ".jpeg", image5);
         }
         else {
-            image5.setIcon(new ImageIcon("program-images/artist-images/defaultpic.jpg"));
+            scaleImage("program-images/artist-images/defaultpic.jpg", image5);
         }
-
-
-        // initializing frame w/ panel
-        add(mainPanel, BorderLayout.CENTER);
-        setTitle("Song Recommendation!");
-        setSize(700, 700);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setVisible(false); // needs to be because we want only visible AFTER user presses submit results button
 
         // adding songs and images to panel
         mainPanel.add(image1);
@@ -140,5 +157,14 @@ public class SongRecWindow extends JFrame {
         mainPanel.add(image5);
         mainPanel.add(song5);
 
+        mainPanel.add(finishedButton);
+
+    }
+    private void scaleImage(String location, JLabel label){
+        ImageIcon icon = new ImageIcon(location);
+        Image img = icon.getImage();
+        Image imgScale = img.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        label.setIcon(scaledIcon);
     }
 }

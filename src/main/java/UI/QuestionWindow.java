@@ -123,7 +123,7 @@ public class QuestionWindow extends JFrame implements ActionListener{
         add(messagePanel, BorderLayout.PAGE_START);
         add(mainPanel, BorderLayout.CENTER);
         setTitle("Questionnaire Time!");
-        setSize(700, 700);
+        setSize(1200, 700);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
 
