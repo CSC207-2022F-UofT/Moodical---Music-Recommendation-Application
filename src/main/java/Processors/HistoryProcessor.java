@@ -8,9 +8,16 @@ import Entities.Song;
 import java.util.ArrayList;
 
 public class HistoryProcessor {
+    public static Account userAccount;
+    public static void setAccount(Account account){
+        HistoryProcessor.userAccount = account;
+    }
+    //use this to link to an account in the controllers and the UI
+
+
     public static ArrayList<Song> recommend(Account userAccount) {
         ArrayList<Song> new_playlist = new ArrayList<>();
-        History history = userAccount.userHistory;
+        History history = HistoryProcessor.userAccount.userHistory;
         if (history.getPrevious_songs().size() <= 1)
             return history.getPrevious_songs().get(0);
         while (new_playlist.size() < 10) {
@@ -31,7 +38,7 @@ public class HistoryProcessor {
     //what will get passed to things such as display with just use the usual getter function in the History class
     public static ArrayList<Song> getAllSongs(Account userAccount) {
         ArrayList<Song> songs_so_far = new ArrayList<>();
-        for (ArrayList<Song> playlist : userAccount.userHistory.getPrevious_songs()) {
+        for (ArrayList<Song> playlist : HistoryProcessor.userAccount.userHistory.getPrevious_songs()) {
             for (Song song : playlist) {
                 if (!(songs_so_far.contains(song))) {
                     songs_so_far.add(song);
@@ -47,7 +54,7 @@ public class HistoryProcessor {
 
     public static ArrayList<String> get_song_strings(Account userAccount) {
         ArrayList<String> playlists = new ArrayList<>();
-        for (ArrayList<Song> playlist : userAccount.userHistory.getPrevious_songs()) {
+        for (ArrayList<Song> playlist : HistoryProcessor.userAccount.userHistory.getPrevious_songs()) {
             String newplaylist = " ";
             for (Song song : playlist) {
                 newplaylist = newplaylist + song.song + " ";
