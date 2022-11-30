@@ -1,8 +1,11 @@
 package Controllers;
 
-public class HistoryController {
-    //by my understanding responds to buttons being pressed
-    //needs to be called by whichever class generates the questionnaire
+import Entities.Account;
+import Processors.HistoryProcessor;
 
+public class HistoryController {
+    public HistoryController(Account account){
+        HistoryProcessor.setAccount(account);
+    }
 
 }

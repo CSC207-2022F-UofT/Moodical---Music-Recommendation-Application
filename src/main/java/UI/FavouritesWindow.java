@@ -1,22 +1,19 @@
 package UI;
 
-import Processors.HistoryProcessor;
-import Entities.Account;
+import Processors.FavouritesProcessor;
+
 import java.awt.*;
-import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.JTable;
 import javax.swing.JFrame;
 import javax.swing.table.JTableHeader;
 
-public class HistoryWindow {
-
-    private static JPanel panel1;
-    private static JTextArea textArea;
-    public static JFrame f;
-    public static JTable j;
-
-    public static void Hwindow(String[][] data) {
+public class FavouritesWindow {
+    private JPanel panel1;
+    private JTextArea textArea;
+    JFrame f;
+    JTable j;
+    FavouritesWindow() {
         f = new JFrame();
 
 
@@ -24,12 +21,9 @@ public class HistoryWindow {
         f.setBackground(Color.getHSBColor(164, 219, 232));
 
         String[] columnNames = {"History"};
-//        String[][] data = {{"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
-//                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
-//                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
-//                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
-//                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
-//                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"}};
+//        String [][] data = {{"song"}, {"song2"}, {"song3"}, {"song4"}, {"song5"}};
+
+        String [][] data = FavouritesProcessor.toArray(FavouritesProcessor.userAccount);
 
         j = new JTable(data, columnNames);
 
@@ -56,8 +50,9 @@ public class HistoryWindow {
         f.setVisible(true);
     }
     // Driver  method
+    public static void main(String[] args){
+        new HistoryWindow();
+
+    }
 
 }
-
-
-
