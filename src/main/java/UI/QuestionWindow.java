@@ -1,5 +1,8 @@
 package UI;
 
+import Presenters.QuestionnairePresenter;
+import ResponseModels.QuestionnaireResponseModel;
+
 import javax.swing.*;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -11,6 +14,7 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 public class QuestionWindow extends JFrame implements ActionListener{
@@ -31,17 +35,22 @@ public class QuestionWindow extends JFrame implements ActionListener{
 
     // CREATE INSTANCE OF RECOMMENDATION TO BUILD REC ON AND THEN SHOW WHEN RESULTS SUBMITTED (i.e. being built
     // in the background constantly while user adjusting slides)
-    SongRecWindow songRecWindow = new SongRecWindow();
+    SongRecWindow songRecWindow;
 
     // the slider values
-    private int[] sliderValues = new int[5];
+    private ArrayList<Integer> sliderValues = new ArrayList<Integer>();
 
 
     public QuestionWindow() {
+
         initializeQuestionnaireWindow();
     }
 
     private void initializeQuestionnaireWindow(){
+        QuestionnairePresenter qPresenter = new QuestionnairePresenter();
+        QuestionnaireResponseModel qResponseModel = new QuestionnaireResponseModel();
+        ArrayList<String> questionSet;
+
         // Text for user Panel
         messagePanel = new JPanel();
         messagePanel.setBorder(BorderFactory.createEmptyBorder(30, 70, 30, 10));
@@ -57,31 +66,36 @@ public class QuestionWindow extends JFrame implements ActionListener{
                 "(0 being the lowest, 10 being the highest!)");
 
         // slider questions
-        q1 = new JLabel("1.");
+        // Get Questions
+        qResponseModel = qPresenter.generate(qResponseModel);
+        questionSet = qResponseModel.getRandQs();
+
+        // Slider settings
+        q1 = new JLabel("1." + " " + questionSet.get(0));
         slider1 = new JSlider(0, 10, 5);
         slider1.setMajorTickSpacing(1);
         slider1.setPaintLabels(true);
         slider1.setPaintTicks(true);
 
-        q2 = new JLabel("2.");
+        q2 = new JLabel("2." + " " + questionSet.get(1));
         slider2 = new JSlider(0, 10, 5);
         slider2.setMajorTickSpacing(1);
         slider2.setPaintLabels(true);
         slider2.setPaintTicks(true);
 
-        q3 = new JLabel("3.");
+        q3 = new JLabel("3." + " " + questionSet.get(2));
         slider3 = new JSlider(0, 10,5 );
         slider3.setMajorTickSpacing(1);
         slider3.setPaintLabels(true);
         slider3.setPaintTicks(true);
 
-        q4 = new JLabel("4.");
+        q4 = new JLabel("4." + " " + questionSet.get(3));
         slider4 = new JSlider(0, 10, 5);
         slider4.setMajorTickSpacing(1);
         slider4.setPaintLabels(true);
         slider4.setPaintTicks(true);
 
-        q5 = new JLabel("5.");
+        q5 = new JLabel("5." + " " + questionSet.get(4));
         slider5 = new JSlider(0, 10, 5);
         slider5.setMajorTickSpacing(1);
         slider5.setPaintLabels(true);
@@ -109,35 +123,26 @@ public class QuestionWindow extends JFrame implements ActionListener{
         add(messagePanel, BorderLayout.PAGE_START);
         add(mainPanel, BorderLayout.CENTER);
         setTitle("Questionnaire Time!");
-        setSize(700, 700);
+        setSize(1200, 700);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
 
         // ActionListeners, ChangeListener, and user events
         submitAnswersButton.addActionListener(this);
-
-        event sliderEvent = new event();
-        slider1.addChangeListener(sliderEvent);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        double sum = 0;
+        sum += slider1.getValue();
+        sum += slider2.getValue();
+        sum += slider3.getValue();
+        sum += slider4.getValue();
+        sum += slider5.getValue();
+        double averageHappyScore = sum/5;
         setVisible(false); // "closes" this screen -> makes it invisible
+        songRecWindow = new SongRecWindow(averageHappyScore);
         songRecWindow.setVisible(true);
-    }
-
-
-    // all below for slider purposes
-    public class event implements ChangeListener {
-        // Everytime ANY ONE of the sliders values is changed, this checks ALL slider values again
-        public void stateChanged(ChangeEvent e) {
-
-            sliderValues[0] = slider1.getValue();
-            sliderValues[1] = slider2.getValue();
-            sliderValues[2] = slider3.getValue();
-            sliderValues[3] = slider4.getValue();
-            sliderValues[4] = slider5.getValue();
-        }
     }
 
     public static void main(String[] args){

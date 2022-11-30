@@ -27,4 +27,13 @@ public class Song {
         this.danceability = danceabilityIn;
         this.bpm = bpm;
     }
+
+    public String getArtist() {
+        return artist;
+    }
+
+    // returns song name
+    public String getSong() {
+        return song;
+    }
 }
