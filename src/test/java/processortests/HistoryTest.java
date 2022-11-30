@@ -96,9 +96,9 @@ public class HistoryTest {
 
 
 
-    @Test
-    void getStringSongs(){assertEquals(songs, HistoryProcessor.get_song_strings(account));
-    }
+//    @Test
+//    void getStringSongs(){assertEquals(songs, HistoryProcessor.get_song_strings(account));
+//    }
 
 //    @Test
 //    void getRecommendations() {
