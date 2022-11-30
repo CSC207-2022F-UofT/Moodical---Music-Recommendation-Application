@@ -1,27 +1,26 @@
 package Processors;
 
-import Boundaries.AnaylseInputBoundary;
-import Entities.Song;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import Entities.Account;
 
-public class AnalysePlaylistProcessing implements AnaylseInputBoundary{
+import Entities.Account;
+import Entities.Song;
+
+public class AnalysePlaylistProcessing{
 
     public static Account account;
-    public static ArrayList<Song> prevRecs = HistoryProcessor.getAllSongs(account);
+    public static ArrayList<Song> prevRecs;
 
-    @Override
-    public void setAnaylseAccount(Account account){
+    public static void setAccount(Account account) {
         AnalysePlaylistProcessing.account = account;
+        AnalysePlaylistProcessing.prevRecs = HistoryProcessor.getAllSongs(account);
     }
 
     public static ArrayList<String> getMostArtist() {
         /* Return the most commonly appeared artist in the user's history (past recommendations)
           Return multiple artists if there is a tie in the number of occurrences
          */
-
         HashMap<String, Integer> allArtists = new HashMap<String, Integer>();
 
         ArrayList<String> resArtists = new ArrayList<String>();
@@ -29,7 +28,7 @@ public class AnalysePlaylistProcessing implements AnaylseInputBoundary{
         for (Song song : prevRecs) {
             Integer count = allArtists.get(song.artist);
             if (count == null) {
-                count = 1;
+                allArtists.put(song.artist, 1);
             } else {
                 allArtists.put(song.artist, count + 1);
             }
@@ -56,7 +55,7 @@ public class AnalysePlaylistProcessing implements AnaylseInputBoundary{
         for (Song song : prevRecs) {
             Integer count = allGenres.get(song.genre);
             if (count == null) {
-                count = 1;
+                allGenres.put(song.genre, 1);
             } else {
                 allGenres.put(song.genre, count + 1);
             }
@@ -82,7 +81,7 @@ public class AnalysePlaylistProcessing implements AnaylseInputBoundary{
 
         for (Song song : prevRecs) {
             sum = sum + Double.parseDouble(song.bpm);
-            }
+        }
 
         double total = prevRecs.size();
         String result = Double.toString(sum / total);
@@ -114,7 +113,7 @@ public class AnalysePlaylistProcessing implements AnaylseInputBoundary{
 
     public static ArrayList<String> getMostPopular(){
         /* Return the song(s) with the highest popularity score, return multiple if there are ties
-        */
+         */
         HashMap<String, Integer> allPopularity = new HashMap<String, Integer>();
 
         ArrayList<String> mostPopular= new ArrayList<String>();
@@ -208,3 +207,5 @@ public class AnalysePlaylistProcessing implements AnaylseInputBoundary{
         return allData;
     }
 }
+
+

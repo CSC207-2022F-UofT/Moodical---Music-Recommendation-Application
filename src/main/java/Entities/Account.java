@@ -49,4 +49,4 @@ public class Account {
         return this.userFavourites.toString();
     }
 
-}
+};
