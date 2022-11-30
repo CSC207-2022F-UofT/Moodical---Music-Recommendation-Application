@@ -8,6 +8,10 @@ import Entities.Song;
 import java.util.ArrayList;
 
 public class FavouritesProcessor {
+    public static Account userAccount;
+    public static void setAccount(Account account){
+        FavouritesProcessor.userAccount = account;
+    }
 
     //recommends playlist and adds playlist to history
     public ArrayList<Song> recommend(Object songs, Account userAccount) {
@@ -34,7 +38,23 @@ public class FavouritesProcessor {
             userAccount.userFavourites.getFavourites().add(song);
         }
     }
+    public static ArrayList<String> get_song_strings(Account userAccount) {
+        ArrayList<String> favouriteslist = new ArrayList<>();
+        for (Song song : FavouritesProcessor.userAccount.userFavourites.getFavourites()){
+            favouriteslist.add(song.song);
+        }
+        return favouriteslist;
+
+    }
+    public static String[][] toArray(Account userAccount) {
+        ArrayList<String> songs = FavouritesProcessor.get_song_strings(userAccount);
+        String str_Array[] = new String[songs.size()];
+        for (int j = 0; j < songs.size(); j++) {
+            str_Array[j] = songs.get(j);
+        }
+        return new String[][]{str_Array};
 }
+
 
 
 

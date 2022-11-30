@@ -55,7 +55,7 @@ public class HistoryProcessor {
     }
 
     public static ArrayList<String> get_song_strings(Account userAccount) {
-        ArrayList<String> playlists = new ArrayList<>();
+        ArrayList<String> playlists = new ArrayList<String>();
         for (ArrayList<Song> playlist : HistoryProcessor.userAccount.userHistory.getPrevious_songs()) {
             String newplaylist = " ";
             for (Song song : playlist) {
@@ -65,6 +65,15 @@ public class HistoryProcessor {
         }
         return playlists;
     }
+    public static String[][] toArray(Account userAccount) {
+        ArrayList<String> songs = HistoryProcessor.get_song_strings(userAccount);
+        String str_Array[] = new String[songs.size()];
+        for (int j = 0; j < songs.size(); j++) {
+            str_Array[j] = songs.get(j);
+        }
+        return new String[][]{str_Array};
+    }
+
 }
 
 
