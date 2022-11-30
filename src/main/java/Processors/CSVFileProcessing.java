@@ -33,3 +33,5 @@ public class CSVFileProcessing implements ReadableFile {
         return rowsRead;
     }
 }
+
+// Are you creating song objects from the things you are reading from the file?
