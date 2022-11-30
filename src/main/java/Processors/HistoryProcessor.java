@@ -50,6 +50,8 @@ public class HistoryProcessor {
 
     public static void addTo(ArrayList<Song> playlist, Account userAccount) {
         userAccount.userHistory.getPrevious_songs().add(playlist);
+        // need to save to CSV file
+
     }
 
     public static ArrayList<String> get_song_strings(Account userAccount) {

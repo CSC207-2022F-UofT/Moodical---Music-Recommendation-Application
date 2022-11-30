@@ -39,3 +39,5 @@ public class SongPool {
         return newSong;
     }
 }
+
+/// Arvin create it in the Song's constructor and return the new song

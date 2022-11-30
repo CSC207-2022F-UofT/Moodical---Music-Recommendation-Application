@@ -5,12 +5,20 @@ package Entities;/* Below is the Question Pool entity object with its constructo
 import java.util.ArrayList;
 
 
-public class questionPool{
-    public ArrayList<String> lstOfQs = new ArrayList<>();
+public class questionPool {
+    public static ArrayList<String> lstOfQs = new ArrayList<>();
 
-    public questionPool(ReadableFile p, Object filepath){
-        this.lstOfQs = p.readRows(filepath);
+    public questionPool(Entities.ReadableFile p, Object filepath){
+
+        ArrayList<String> lstOfQs = p.readRows(filepath);
     }
+    public static ArrayList<String> getRandQ(){
+        return lstOfQs;
+    }
+    public static void setRandQ(ArrayList<String> lst){
+        lstOfQs = lst;
+    }
+
 
 }
 
