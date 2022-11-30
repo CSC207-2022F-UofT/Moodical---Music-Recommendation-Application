@@ -1,12 +1,8 @@
 package responsetests;
 
 import Entities.ReadableFile;
-import Entities.questionPool;
 import Processors.CSVFileProcessing;
-import Processors.QuestionnaireProcessing;
 import ResponseModels.QuestionnaireResponseModel;
-import org.junit.After;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,9 +13,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class QuestionnaireResponseModelTest{
     ReadableFile p;
     String filepath;
-    ArrayList<String> example_array;
     ArrayList<String> fiveQs;
     QuestionnaireResponseModel response;
+
 
     @BeforeEach
     void createExampleData(){
