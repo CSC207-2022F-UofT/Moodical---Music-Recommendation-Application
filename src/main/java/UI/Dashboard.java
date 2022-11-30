@@ -15,25 +15,25 @@ import static UI.FavouritesWindow.FavouritesWindow;
 
 
 public class Dashboard  extends JFrame implements ActionListener {
-    private JPanel panel;
-    private JTextArea textArea;
-    public JFrame f;
-    public JFrame f1;
-    public JTable j;
-    public JPanel J;
-    public JPanel J1;
-    public JButton b;
-    public JButton b1;
-    public JButton b2;
+    private static JPanel panel;
+    private static JTextArea textArea;
+    public static JFrame f;
+    public static JFrame f1;
+    public static JTable j;
+    public static JPanel J;
+    public static JPanel J1;
+    public static JButton b;
+    public static JButton b1;
+    public static JButton b2;
 
-    public JButton b3;
+    public static JButton b3;
 
-    public JButton b4;
+    public static JButton b4;
 
-    public JButton b5;
-    public JButton b6;
+    public static JButton b5;
+    public static JButton b6;
 
-    public Dashboard(){ // This will be taking an input of "all data" generated from analyse playlist processing later, once
+    public void DashboardWindow(){ // This will be taking an input of "all data" generated from analyse playlist processing later, once
         // The account reader works
 
         // Making a new J frame
@@ -110,8 +110,13 @@ public class Dashboard  extends JFrame implements ActionListener {
 
         // Adding the image
         JLabel jLabel = new JLabel();
-        jLabel.setIcon(new ImageIcon("src/main/java/mood.jpeg"));
         jLabel.setBounds(5, 5, 336, 434);
+
+        ImageIcon icon = new ImageIcon("program-images/mood.jpeg");
+        Image img = icon.getImage();
+        Image imgScale = img.getScaledInstance(jLabel.getWidth(), jLabel.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        jLabel.setIcon(scaledIcon);
 
         f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -126,7 +131,6 @@ public class Dashboard  extends JFrame implements ActionListener {
         f.add(J);
         f.pack();
 
-        validate();
         f.setSize(1100,1500);
         f.setVisible(true);
     }
@@ -135,7 +139,6 @@ public class Dashboard  extends JFrame implements ActionListener {
 
         f1 = new JFrame();
 
-        validate();
         f1.setSize(1100,1500);
         f1.setVisible(true);
 
@@ -170,8 +173,7 @@ public class Dashboard  extends JFrame implements ActionListener {
     }
 
 
-    public static void main(String[] args) {
-        new Dashboard();} // this will be taking an input as well and be called by the presenter, in main
+    public static void main(String[] args) {} // this will be taking an input as well and be called by the presenter, in main
 
     @Override
     public void actionPerformed(ActionEvent e) {
