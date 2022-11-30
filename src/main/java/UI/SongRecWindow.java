@@ -1,13 +1,13 @@
 package UI;
 
+import Presenters.QuestionnairePresenter;
+import ResponseModels.QuestionnaireResponseModel;
+
 import javax.swing.*;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JFrame;
-import javax.swing.JSlider;
 import javax.swing.JButton;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,6 +16,7 @@ public class SongRecWindow extends JFrame {
     JPanel mainPanel;
 
     public SongRecWindow() {
+
         initializeSongRecWindow();
     }
 
@@ -30,6 +31,7 @@ public class SongRecWindow extends JFrame {
         setSize(700, 700);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(false); // needs to be because we want only visible AFTER user presses submit results button
+
     }
 
 }
