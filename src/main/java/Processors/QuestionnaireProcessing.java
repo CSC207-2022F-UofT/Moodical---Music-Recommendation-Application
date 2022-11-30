@@ -5,7 +5,6 @@ import Entities.ReadableFile;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import Entities.questionPool;
 
 public class QuestionnaireProcessing {
     /**
@@ -17,7 +16,6 @@ public class QuestionnaireProcessing {
      * 2. questionOutputBoundary named questionOutputs as it doesn't change - these have
      * only 5 questions as opposed to 1.
      */
-    questionPool P;
     public QuestionnaireProcessing(){
     }
 
@@ -26,14 +24,12 @@ public class QuestionnaireProcessing {
         // this method takes from a list of list questions of type string[] and
         // returns a list of 5 random questions which are of type list.
         // the value at chosen index is deleted to avoid repetitions of questions
-        /**
-         * Gets 5 randomly generated questions from question file
-         */
+
 
         ArrayList<String> lst = p.readRows(filepath);
         ArrayList<String> filteredLst = new ArrayList<>();
         Random rand = new Random();
-        for (int i = 1; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
             int randIndex = rand.nextInt(lst.size());
             filteredLst.add(lst.get(randIndex));
             lst.remove(randIndex);
@@ -46,17 +42,15 @@ public class QuestionnaireProcessing {
         // this method takes from a list of list questions of type string[] and
         // returns a list of 5 random questions which are of type list.
         // the value at chosen index is deleted to avoid repetitions of questions
-        /**
-         * Gets 5 randomly generated questions from question file
-         */
+
         ArrayList<String> filteredLst1 = new ArrayList<>();
         Random rand1 = new Random();
-        for (int i = 0; i <= lstofQ.size(); i++) {
+        for (int i = 0; i < 5; i++) {
             int rand1Index = rand1.nextInt(lstofQ.size());
             filteredLst1.add(lstofQ.get(rand1Index));
             lstofQ.remove(rand1Index);
         }
-        return filteredLst1.subList(0, 5);
+        return filteredLst1;
 
     }
 }

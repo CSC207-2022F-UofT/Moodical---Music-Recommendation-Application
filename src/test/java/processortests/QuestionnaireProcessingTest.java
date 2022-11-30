@@ -7,16 +7,11 @@ import Processors.QuestionnaireProcessing;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class QuestionnaireProcessingTest {
     ReadableFile p;
     String filepath;
-    ArrayList<String> example_array;
-    questionPool qPool;
 
     @BeforeEach
     void createExampleData() {
@@ -30,25 +25,22 @@ class QuestionnaireProcessingTest {
         String exampleQ5 = "I have someone to talk to when I need it";
 
 
-        qPool.getRandQ().add(exampleQ1);
-        qPool.getRandQ().add(exampleQ2);
-        qPool.getRandQ().add(exampleQ3);
-        qPool.getRandQ().add(exampleQ4);
-        qPool.getRandQ().add(exampleQ5);
-
-
-        example_array = qPool.lstOfQs;
+        questionPool.getRandQ().add(exampleQ1);
+        questionPool.getRandQ().add(exampleQ2);
+        questionPool.getRandQ().add(exampleQ3);
+        questionPool.getRandQ().add(exampleQ4);
+        questionPool.getRandQ().add(exampleQ5);
 
     }
-//    }
-//    @Test
-//    void getRandQuesByQPool(){
-//        assertEquals(QuestionnaireProcessing.get5RandQues(qPool.lstOfQs).size(), example_array.size());
-//
-//    }
+
+    @Test
+    void getRandQuesByQPool() {
+        assertEquals(QuestionnaireProcessing.get5RandQues(questionPool.lstOfQs).size(), 5);
+    }
+
     @Test
     void getRandQuesByReadable(){
-        assertEquals(QuestionnaireProcessing.getRandQues(p, filepath).size(), example_array.size());
+        assertEquals(QuestionnaireProcessing.getRandQues(p, filepath).size(), 5);
 
     }
 
