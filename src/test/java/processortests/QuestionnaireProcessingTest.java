@@ -33,11 +33,6 @@ class QuestionnaireProcessingTest {
     }
 
     @Test
-    void getRandQuesByQPool() {
-        assertEquals(QuestionnaireProcessing.get5RandQues(questionPool.lstOfQs).size(), 5);
-    }
-
-    @Test
     void getRandQuesByReadable(){
         assertEquals(QuestionnaireProcessing.getRandQues(p, filepath).size(), 5);
 
