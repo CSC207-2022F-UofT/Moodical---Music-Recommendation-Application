@@ -11,7 +11,7 @@ public class SongAnalysisProcessing {
     public static Song getSong(double averageHappyScore, SongPool songs){
         // 'verysad', 'sad', 'happy', 'veryhappy' for type
         ArrayList<Song> copySongList = (ArrayList<Song>) songs.getSongList().clone();
-        Collections.shuffle(copySongList);
+        Collections.shuffle(copySongList); // randomizes
         Song returnSong = copySongList.get(0);
 
         String type;

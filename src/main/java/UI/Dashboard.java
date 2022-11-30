@@ -90,7 +90,7 @@ public class Dashboard  extends JFrame{
 
         // Adding the image
         JLabel jLabel = new JLabel();
-        jLabel.setIcon(new ImageIcon("/Users/savannapan/IdeaProjects/course-project-group-120/src/main/java/mood.jpeg"));
+        jLabel.setIcon(new ImageIcon("program-images/mood.jpeg"));
         jLabel.setBounds(5, 5, 336, 434);
 
 
