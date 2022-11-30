@@ -17,7 +17,7 @@ import static UI.FavouritesWindow.FavouritesWindow;
 public class Dashboard  extends JFrame implements ActionListener {
     private static JPanel panel;
     private static JTextArea textArea;
-    public static JFrame f;
+    public JFrame f;
     public static JFrame f1;
     public static JTable j;
     public static JPanel J;
@@ -34,10 +34,12 @@ public class Dashboard  extends JFrame implements ActionListener {
     public static JButton b6;
 
     public void DashboardWindow(){ // This will be taking an input of "all data" generated from analyse playlist processing later, once
+
         // The account reader works
 
         // Making a new J frame
         f = new JFrame();
+        f.setTitle("Moodical"); // window title
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Set the Frame colour

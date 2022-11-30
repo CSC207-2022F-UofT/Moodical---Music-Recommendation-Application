@@ -174,6 +174,7 @@ public class SongRecWindow extends JFrame implements ActionListener {
         if (e.getSource() == finishedButton) {
             Dashboard dashboard = new Dashboard();
             dashboard.DashboardWindow();
+            this.setVisible(false);
         }
 
     }
