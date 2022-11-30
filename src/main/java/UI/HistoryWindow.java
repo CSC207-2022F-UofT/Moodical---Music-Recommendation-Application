@@ -16,7 +16,8 @@ public class HistoryWindow {
     public static JFrame f;
     public static JTable j;
 
-    public static void Hwindow(String[][] data) {
+    public static void Hwindow() {
+        //String[][] data
         f = new JFrame();
 
 
@@ -24,12 +25,12 @@ public class HistoryWindow {
         f.setBackground(Color.getHSBColor(164, 219, 232));
 
         String[] columnNames = {"History"};
-//        String[][] data = {{"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
-//                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
-//                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
-//                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
-//                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
-//                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"}};
+        String[][] data = {{"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
+                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
+                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
+                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
+                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
+                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"}};
 
         j = new JTable(data, columnNames);
 

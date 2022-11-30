@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class HistoryPresenter {
     public HistoryPresenter(){
         String [][] tabledata = HistoryProcessor.toArray(HistoryProcessor.userAccount);
-        HistoryWindow.Hwindow(tabledata);
+        HistoryWindow.Hwindow();
     }
 
 }

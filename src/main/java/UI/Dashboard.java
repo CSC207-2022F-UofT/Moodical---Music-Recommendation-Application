@@ -10,6 +10,9 @@ import javax.swing.event.ChangeListener;
 import javax.swing.table.JTableHeader;
 import java.awt.event.*;
 
+import static UI.HistoryWindow.Hwindow;
+import static UI.FavouritesWindow.FavouritesWindow;
+
 
 public class Dashboard  extends JFrame implements ActionListener {
     private JPanel panel;
@@ -130,10 +133,7 @@ public class Dashboard  extends JFrame implements ActionListener {
 
     public void MemePage() {
 
-        f.setVisible(false);
-
         f1 = new JFrame();
-        f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         validate();
         f1.setSize(1100,1500);
@@ -160,8 +160,6 @@ public class Dashboard  extends JFrame implements ActionListener {
 
         J1 = new JPanel(new GridLayout(2,1, 5,5));
 
-        f1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
         J1.add(b3);
         J1.add(b4);
         J1.add(b5);
@@ -177,11 +175,9 @@ public class Dashboard  extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == b){
-            System.out.println("yay");}
+        if(e.getSource() == b){ Hwindow(); }
 
-        if(e.getSource() == b1){
-            System.out.println("yayy");}
+        if(e.getSource() == b1){FavouritesWindow();}
 
         if(e.getSource() == b2){MemePage();}
 
@@ -197,10 +193,6 @@ public class Dashboard  extends JFrame implements ActionListener {
             System.out.println("yay");}
 
         }
-
-
-
-    // the presenter will be calling this UI
 
 }
 

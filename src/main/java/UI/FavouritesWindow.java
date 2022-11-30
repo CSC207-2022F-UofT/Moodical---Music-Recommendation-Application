@@ -11,19 +11,19 @@ import javax.swing.table.JTableHeader;
 public class FavouritesWindow {
     private JPanel panel1;
     private JTextArea textArea;
-    JFrame f;
-    JTable j;
-    FavouritesWindow() {
+    public static JFrame f;
+    public static JTable j;
+    public static void FavouritesWindow() {
         f = new JFrame();
 
 
         // Set the Frame colour
         f.setBackground(Color.getHSBColor(164, 219, 232));
 
-        String[] columnNames = {"History"};
-//        String [][] data = {{"song"}, {"song2"}, {"song3"}, {"song4"}, {"song5"}};
-
-        String [][] data = FavouritesProcessor.toArray(FavouritesProcessor.userAccount);
+        String[] columnNames = {"Favourites"};
+        String [][] data = {{"song"}, {"song2"}, {"song3"}, {"song4"}, {"song5"}};
+//
+//        String [][] data = FavouritesProcessor.toArray(FavouritesProcessor.userAccount);
 
         j = new JTable(data, columnNames);
 
