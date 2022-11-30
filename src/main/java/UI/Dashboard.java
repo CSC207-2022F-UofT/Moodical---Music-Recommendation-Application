@@ -1,25 +1,36 @@
 package UI;
 
 import java.awt.*;
-import java.io.IOException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.JTable;
 import javax.swing.JFrame;
-import javax.swing.plaf.ColorUIResource;
+import javax.swing.event.ChangeListener;
 import javax.swing.table.JTableHeader;
+import java.awt.event.*;
 
-public class Dashboard  extends JFrame{
+
+public class Dashboard  extends JFrame implements ActionListener {
     private JPanel panel;
     private JTextArea textArea;
-    JFrame f;
-    JTable j;
-    JPanel J;
-    JButton b;
-    JButton b1;
-    JButton b2;
-    JButton b3;
+    public JFrame f;
+    public JFrame f1;
+    public JTable j;
+    public JPanel J;
+    public JPanel J1;
+    public JButton b;
+    public JButton b1;
+    public JButton b2;
 
-    Dashboard(){ // This will be taking an input of "all data" generated from analyse playlist processing later, once
+    public JButton b3;
+
+    public JButton b4;
+
+    public JButton b5;
+    public JButton b6;
+
+    public Dashboard(){ // This will be taking an input of "all data" generated from analyse playlist processing later, once
         // The account reader works
 
         // Making a new J frame
@@ -82,17 +93,24 @@ public class Dashboard  extends JFrame{
         // Making the buttons
         b = new JButton("History");
         b1 = new JButton("Favourites");
-        b2 = new JButton("Profile");
+        b2 = new JButton("Your daily dose of Serotonin");
 
-        b.setBackground(Color.MAGENTA);
+        b.addActionListener(this);
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+
+        b.setBackground(Color.PINK);
+        b1.setBackground(Color.PINK);
+        b2.setBackground(Color.PINK);
 
         b.setFocusPainted(false);
 
         // Adding the image
         JLabel jLabel = new JLabel();
-        jLabel.setIcon(new ImageIcon("/Users/savannapan/IdeaProjects/course-project-group-120/src/main/java/mood.jpeg"));
+        jLabel.setIcon(new ImageIcon("src/main/java/mood.jpeg"));
         jLabel.setBounds(5, 5, 336, 434);
 
+        f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         J.add(scrollPane);
         J.add(scrollPane1);
@@ -108,12 +126,82 @@ public class Dashboard  extends JFrame{
         validate();
         f.setSize(1100,1500);
         f.setVisible(true);
+    }
+
+    public void MemePage() {
+
+        f.setVisible(false);
+
+        f1 = new JFrame();
+        f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        validate();
+        f1.setSize(1100,1500);
+        f1.setVisible(true);
+
+        // Set the Frame colour
+        f1.setBackground(Color.getHSBColor(164,219,232));
+
+        // Making the buttons
+        b3 = new JButton("I'm feeling okay");
+        b4 = new JButton("I'm feeling sad");
+        b5 = new JButton("I'm feeling happy");
+        b6 = new JButton("I'm feeling happy");
+
+        b3.setBackground(Color.PINK);
+        b4.setBackground(Color.PINK);
+        b5.setBackground(Color.PINK);
+        b6.setBackground(Color.PINK);
+
+        b3.addActionListener(this);
+        b4.addActionListener(this);
+        b5.addActionListener(this);
+        b6.addActionListener(this);
+
+        J1 = new JPanel(new GridLayout(2,1, 5,5));
+
+        f1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        J1.add(b3);
+        J1.add(b4);
+        J1.add(b5);
+        J1.add(b6);
+
+        f1.add(J1);
 
     }
 
+
     public static void main(String[] args) {
         new Dashboard();} // this will be taking an input as well and be called by the presenter, in main
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == b){
+            System.out.println("yay");}
+
+        if(e.getSource() == b1){
+            System.out.println("yayy");}
+
+        if(e.getSource() == b2){MemePage();}
+
+        if(e.getSource() == b3){
+            System.out.println("yay");}
+
+        if(e.getSource() == b4){
+            System.out.println("yayy");}
+
+        if(e.getSource() == b5){MemePage();}
+
+        if(e.getSource() == b6){
+            System.out.println("yay");}
+
+        }
+
+
+
     // the presenter will be calling this UI
+
 }
 
 
