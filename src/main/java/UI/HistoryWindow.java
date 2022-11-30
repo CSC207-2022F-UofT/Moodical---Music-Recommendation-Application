@@ -11,12 +11,12 @@ import javax.swing.table.JTableHeader;
 
 public class HistoryWindow {
 
-    private JPanel panel1;
-    private JTextArea textArea;
-    JFrame f;
-    JTable j;
+    private static JPanel panel1;
+    private static JTextArea textArea;
+    public static JFrame f;
+    public static JTable j;
 
-    HistoryWindow() {
+    public static void Hwindow(String[][] data) {
         f = new JFrame();
 
 
@@ -30,8 +30,6 @@ public class HistoryWindow {
 //                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
 //                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
 //                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"}};
-
-        String[][] data = HistoryProcessor.toArray(HistoryProcessor.userAccount);
 
         j = new JTable(data, columnNames);
 
@@ -58,10 +56,8 @@ public class HistoryWindow {
         f.setVisible(true);
     }
     // Driver  method
-    public static void main(String[] args){
-        new HistoryWindow();
-
-    }
-
 
 }
+
+
+
