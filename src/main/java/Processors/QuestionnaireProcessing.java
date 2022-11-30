@@ -37,21 +37,21 @@ public class QuestionnaireProcessing {
         return filteredLst;
     }
 
-    public static List<String> get5RandQues(ArrayList<String> lstofQ) {
-
-        // this method takes from a list of list questions of type string[] and
-        // returns a list of 5 random questions which are of type list.
-        // the value at chosen index is deleted to avoid repetitions of questions
-
-        ArrayList<String> filteredLst1 = new ArrayList<>();
-        Random rand1 = new Random();
-        for (int i = 0; i < 5; i++) {
-            int rand1Index = rand1.nextInt(lstofQ.size());
-            filteredLst1.add(lstofQ.get(rand1Index));
-            lstofQ.remove(rand1Index);
-        }
-        return filteredLst1;
-
-    }
+//    public static List<String> get5RandQues(ArrayList<String> lstofQ) {
+//
+//        // this method takes from a list of list questions of type string[] and
+//        // returns a list of 5 random questions which are of type list.
+//        // the value at chosen index is deleted to avoid repetitions of questions
+//
+//        ArrayList<String> filteredLst1 = new ArrayList<>();
+//        Random rand1 = new Random();
+//        for (int i = 0; i < 5; i++) {
+//            int rand1Index = rand1.nextInt(lstofQ.size());
+//            filteredLst1.add(lstofQ.get(rand1Index));
+//            lstofQ.remove(rand1Index);
+//        }
+//        return filteredLst1;
+//
+//    }
 }
 
