@@ -1,6 +1,7 @@
 package Processors;
 
 import Entities.Account;
+import Entities.Favourites;
 import Entities.History;
 import Entities.Song;
 
@@ -9,6 +10,37 @@ import java.util.ArrayList;
 
 public class HistoryProcessor {
     public static Account userAccount;
+
+    public HistoryProcessor(){
+        ArrayList<Song> playlist1 = new ArrayList<>();
+        ArrayList<Song> playlist2 = new ArrayList<>();
+        History history = new History(new ArrayList<>());
+        Song song1 = new Song("Bad Romance","Lady Gaga","dance pop","2010","119","92","70","-4", "8");
+        Song song2 = new Song("Just the Way You Are","Bruno Mars","pop","2010","109","84","64","-5","9");
+        Song song3 = new Song("Only Girl (In The World)","Rihanna","barbadian pop","2010","126","72","79","-4","7");
+        Song song4 = new Song("Cooler Than Me - Single Mix","Mike Posner","dance pop","2010","130","82","77","-5","70");
+        Song song5 = new Song("Marry You","Bruno Mars","pop","2010","145","83","62","-5","10");
+        playlist1.add(song1);
+        playlist1.add(song2);
+        playlist1.add(song3);
+        playlist1.add(song4);
+        playlist1.add(song5);
+        Song song6 = new Song("Your Love Is My Drug","Kesha","dance pop","2010","120","61","83","-4","9");
+        Song song7 = new Song("Take It Off","Kesha","dance pop","2010","125","68","73","-5","9" );
+        Song song8 = new Song("Teenage Dream","Katy Perry","dance pop","2010","120","80","72","-5","13" );
+        Song song9 = new Song("My First Kiss - feat. Ke$ha","3OH!3","dance pop","2010","138","89","68","-4","36");
+        Song song10 = new Song("Sexy Bitch (feat. Akon)","David Guetta","dance pop","2010","130","63","81","-5","13");
+        playlist2.add(song6);
+        playlist2.add(song7);
+        playlist2.add(song8);
+        playlist2.add(song9);
+        playlist2.add(song10);
+        history.getPrevious_songs().add(playlist1);
+        history.getPrevious_songs().add(playlist2);
+        Favourites favourites = new Favourites(new ArrayList<>());
+        Account userAccount = new Account("DerekCresswell", "frogger", history, favourites);
+        this.userAccount = userAccount;
+        }
     public static void setAccount(Account account){
         HistoryProcessor.userAccount = account;
     }
@@ -20,7 +52,7 @@ public class HistoryProcessor {
         History history = HistoryProcessor.userAccount.userHistory;
         if (history.getPrevious_songs().size() <= 1)
             return history.getPrevious_songs().get(0);
-        while (new_playlist.size() < 10) {
+        while (new_playlist.size() < 5) {
             int index = (int) ((Math.random() * ((history.getPrevious_songs().size() - 1))));
             ArrayList<Song> playlist = history.getPrevious_songs().get(index);
             int index2 = (int) ((Math.random() * 9));

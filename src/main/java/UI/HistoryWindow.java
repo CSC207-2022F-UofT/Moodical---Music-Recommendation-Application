@@ -1,25 +1,29 @@
 package UI;
 
+import Presenters.HistoryPresenter;
 import Processors.HistoryProcessor;
 import Entities.Account;
+import ResponseModels.HistoryResponseModel;
+
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.JTable;
 import javax.swing.JFrame;
 import javax.swing.table.JTableHeader;
 
-public class HistoryWindow {
+public class HistoryWindow implements ActionListener {
 
     private static JPanel panel1;
     private static JTextArea textArea;
     public static JFrame f;
     public static JTable j;
+    public static JButton rbutton;
 
     public static void Hwindow() {
-        //String[][] data
-        f = new JFrame();
-
+        f = new JFrame("History");
 
         // Set the Frame colour
         f.setBackground(Color.getHSBColor(164, 219, 232));
@@ -37,15 +41,12 @@ public class HistoryWindow {
 
         j.setBounds(50, 60, 100, 200);
         j.setRowHeight(100);
-
         // Set the colours
         j.setGridColor(Color.getHSBColor(164, 219, 232));
-
         // headers
         JTableHeader tableHeader = j.getTableHeader();
         tableHeader.setBackground(Color.getHSBColor(85, 118, 209));
         tableHeader.setPreferredSize(new Dimension(50, 50));
-
         JScrollPane scrollPane = new JScrollPane(j);
         scrollPane.getViewport().setViewPosition(new Point(100, 100));
         f.add(scrollPane, BorderLayout.BEFORE_LINE_BEGINS);
@@ -55,6 +56,27 @@ public class HistoryWindow {
 //        f.add(sp);
         f.setSize(1000, 1000);
         f.setVisible(true);
+
+        rbutton = new JButton("Get Reccomendation");
+        rbutton.setBounds(10, 80, 80, 25);
+        rbutton.addActionListener(new HistoryWindow());
+        panel1.add(rbutton);
+
+
+
+
+    }
+
+
+
+    @Override
+    public void actionPerformed(ActionEvent e){
+        HistoryResponseModel response = new HistoryResponseModel();
+        HistoryPresenter presenter = new HistoryPresenter();
+        presenter.generate(response);
+
+
+
     }
     // Driver  method
 
