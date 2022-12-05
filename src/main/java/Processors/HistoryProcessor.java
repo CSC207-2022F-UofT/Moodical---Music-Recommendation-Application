@@ -38,8 +38,7 @@ public class HistoryProcessor {
         history.getPrevious_songs().add(playlist1);
         history.getPrevious_songs().add(playlist2);
         Favourites favourites = new Favourites(new ArrayList<>());
-        Account userAccount = new Account("DerekCresswell", "frogger", history, favourites);
-        this.userAccount = userAccount;
+        HistoryProcessor.userAccount = new Account("Derek Cresswell", "nox", history, favourites);
         }
     public static void setAccount(Account account){
         HistoryProcessor.userAccount = account;
@@ -49,13 +48,13 @@ public class HistoryProcessor {
 
     public static ArrayList<Song> recommend(Account userAccount) {
         ArrayList<Song> new_playlist = new ArrayList<>();
-        History history = HistoryProcessor.userAccount.userHistory;
+        History history = userAccount.userHistory;
         if (history.getPrevious_songs().size() <= 1)
             return history.getPrevious_songs().get(0);
-        while (new_playlist.size() < 5) {
-            int index = (int) ((Math.random() * ((history.getPrevious_songs().size() - 1))));
+        while (new_playlist.size() <= 5) {
+            int index = (int) ((Math.random() * (((history.getPrevious_songs().size()) - 1))));
             ArrayList<Song> playlist = history.getPrevious_songs().get(index);
-            int index2 = (int) ((Math.random() * 9));
+            int index2 = (int) ((Math.random() * 4));
             Song song = playlist.get(index2);
             if (!(new_playlist.contains(song))) {
                 new_playlist.add(song);
@@ -70,7 +69,7 @@ public class HistoryProcessor {
     //what will get passed to things such as display with just use the usual getter function in the History class
     public static ArrayList<Song> getAllSongs(Account userAccount) {
         ArrayList<Song> songs_so_far = new ArrayList<>();
-        for (ArrayList<Song> playlist : HistoryProcessor.userAccount.userHistory.getPrevious_songs()) {
+        for (ArrayList<Song> playlist : userAccount.userHistory.getPrevious_songs()) {
             for (Song song : playlist) {
                 if (!(songs_so_far.contains(song))) {
                     songs_so_far.add(song);
@@ -86,9 +85,9 @@ public class HistoryProcessor {
 
     }
 
-    public static ArrayList<String> get_song_strings(Account userAccount) {
+    public static ArrayList<String> get_song_strings(Account account) {
         ArrayList<String> playlists = new ArrayList<String>();
-        for (ArrayList<Song> playlist : HistoryProcessor.userAccount.userHistory.getPrevious_songs()) {
+        for (ArrayList<Song> playlist : account.userHistory.getPrevious_songs()) {
             String newplaylist = " ";
             for (Song song : playlist) {
                 newplaylist = newplaylist + song.song + " ";
@@ -97,9 +96,9 @@ public class HistoryProcessor {
         }
         return playlists;
     }
-    public static String[][] toArray(Account userAccount) {
-        ArrayList<String> songs = HistoryProcessor.get_song_strings(userAccount);
-        String str_Array[] = new String[songs.size()];
+    public static String[][] toArray(Account account) {
+        ArrayList<String> songs = HistoryProcessor.get_song_strings(account);
+        String[] str_Array = new String[songs.size()];
         for (int j = 0; j < songs.size(); j++) {
             str_Array[j] = songs.get(j);
         }

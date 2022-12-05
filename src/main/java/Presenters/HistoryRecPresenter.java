@@ -4,14 +4,14 @@ import Boundaries.HistoryOutputBoundary;
 import Entities.Song;
 import Processors.HistoryProcessor;
 import ResponseModels.HistoryResponseModel;
+import UI.HistorySongRecWindow;
 import UI.HistoryWindow;
 
 import java.util.ArrayList;
 
-public class HistoryPresenter implements HistoryOutputBoundary {
-    public HistoryPresenter(){
-        String [][] tabledata = HistoryProcessor.toArray(HistoryProcessor.userAccount);
-        HistoryWindow.Hwindow();
+public class HistoryRecPresenter implements HistoryOutputBoundary {
+    public HistoryRecPresenter(){
+    //HistorySongRecWindow.HistorySongRecWindow();
     }
 
     @Override

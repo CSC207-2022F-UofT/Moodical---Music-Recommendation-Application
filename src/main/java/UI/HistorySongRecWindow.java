@@ -2,15 +2,16 @@ package UI;
 
 import Entities.History;
 import Entities.Song;
-import Presenters.HistoryPresenter;
+import Presenters.HistoryRecPresenter;
 import ResponseModels.HistoryResponseModel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HistorySongRecWindow extends JFrame {
+public class HistorySongRecWindow extends JFrame{
     JPanel mainPanel;
 
     JLabel song1, song2, song3, song4, song5;
@@ -45,7 +46,7 @@ public class HistorySongRecWindow extends JFrame {
         setVisible(false); // needs to be because we want only visible AFTER user presses submit results button
 
         HistoryResponseModel response = new HistoryResponseModel();
-        HistoryPresenter presenter = new HistoryPresenter();
+        HistoryRecPresenter presenter = new HistoryRecPresenter();
         ArrayList<Song> songNameSet = presenter.generate(response);
 
         // formatting song recs:

@@ -1,6 +1,6 @@
 package UI;
 
-import Presenters.HistoryPresenter;
+import Presenters.HistoryRecPresenter;
 import Processors.HistoryProcessor;
 import Entities.Account;
 import ResponseModels.HistoryResponseModel;
@@ -22,19 +22,24 @@ public class HistoryWindow implements ActionListener {
     public static JTable j;
     public static JButton rbutton;
 
-    public static void Hwindow() {
+    public static void Hwindow(String[][] data) {
+        //technically takes in data as a param (calculated in the presenter and named table data) this came from the history
+        //processor
+        // Hwindow(String[][] data) and when calling hwindow input the table data in question
         f = new JFrame("History");
 
         // Set the Frame colour
         f.setBackground(Color.getHSBColor(164, 219, 232));
 
+
+        //this is dummy data
         String[] columnNames = {"History"};
-        String[][] data = {{"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
-                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
-                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
-                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
-                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
-                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"}};
+//        String[][] data = {{"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
+//                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
+//                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
+//                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
+//                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"},
+//                {"song1, song2, song3, song4, song5, song6, song7, song8, song9, song10"}};
 
         j = new JTable(data, columnNames);
 
@@ -72,7 +77,7 @@ public class HistoryWindow implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
         HistoryResponseModel response = new HistoryResponseModel();
-        HistoryPresenter presenter = new HistoryPresenter();
+        HistoryRecPresenter presenter = new HistoryRecPresenter();
         presenter.generate(response);
 
 
