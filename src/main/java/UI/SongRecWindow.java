@@ -59,6 +59,7 @@ public class SongRecWindow extends JFrame implements ActionListener {
         songNameSet = sResponseModel.get5RandSongs();
 
         mainPanel = new JPanel();
+        mainPanel.setBackground(Color.getHSBColor(164,219,232));
         mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 30, 40, 30));
         mainPanel.setLayout(new GridLayout(6, 1));
 

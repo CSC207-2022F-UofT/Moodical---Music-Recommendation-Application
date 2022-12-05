@@ -53,6 +53,7 @@ public class QuestionWindow extends JFrame implements ActionListener{
 
         // Text for user Panel
         messagePanel = new JPanel();
+        messagePanel.setBackground(Color.getHSBColor(164,219,232));
         messagePanel.setBorder(BorderFactory.createEmptyBorder(30, 70, 30, 10));
         messagePanel.setLayout(new GridLayout());
 
