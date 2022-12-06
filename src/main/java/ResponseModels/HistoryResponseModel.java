@@ -9,6 +9,7 @@ import Entities.Account;
 
 public class HistoryResponseModel {
     private ArrayList<Song> recommendedPlaylist;
+//    private ArrayList<ArrayList<Song>> previousSongs;
 
     public ArrayList<Song> getRecommendedPlaylist() {
         return recommendedPlaylist;
@@ -17,6 +18,7 @@ public class HistoryResponseModel {
         this.recommendedPlaylist = recommendedPlaylist;
 
     }
+
 
 //    private ArrayList<Song> allSongs = HistoryProcessor.getAllSongs(HistoryProcessor.userAccount);
 

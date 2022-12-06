@@ -34,7 +34,12 @@ public class HistoryProcessor {
         }
         return new_playlist;
     }
+    public static void addTo(ArrayList<Song> playlist, Account userAccount) {
+        userAccount.userHistory.getPrevious_songs().add(playlist);
+        // need to save to CSV file
 
+        // all below code just reformats the information in order to make it readable for analysis
+    }
 
     //This function just reformats a History object's attribute previous_songs so that it's easier for processing
     //what will get passed to things such as display with just use the usual getter function in the History class
@@ -48,12 +53,6 @@ public class HistoryProcessor {
             }
         }
         return songs_so_far;
-    }
-
-    public static void addTo(ArrayList<Song> playlist, Account userAccount) {
-        userAccount.userHistory.getPrevious_songs().add(playlist);
-        // need to save to CSV file
-
     }
 
     public static ArrayList<String> get_song_strings(Account account) {
