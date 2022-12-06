@@ -1,8 +1,6 @@
 package UI;
 
-import Presenters.HistoryRecPresenter;
-import Processors.HistoryProcessor;
-import Entities.Account;
+
 import ResponseModels.HistoryResponseModel;
 
 import java.awt.*;
@@ -30,15 +28,19 @@ public class HistoryWindow implements ActionListener {
         f.setBackground(Color.getHSBColor(164, 219, 232));
 
 
-        //this is dummy data
+        // the below data is hard coded for presentation demonstration purposes, when fully functioning History Processor
+        // to Array function will format the History Data into a String[][] and can be passed to the UI
         String[] columnNames = {"History"};
         String[][] data = {{"Bad Romance, Just The Way You Are, Only Girl In The World, Cooler Than Me, Marry You"},
                 {"Your Love is My Drug, Take It Off, Teenage Dream, My First Kiss, Sexy Bitch"}};
 
-        // the above data is hard coded for presentation demonstration purposes, when fully functioning History Processor
-        // to Array function will format the History Data into a String[][] and can be passed to the UI
+
 
         // with clean arch:
+//        UserRegisterAccountRequestModel requestmodel = new UserRegisterRequestModel(){
+//            //get input from Account window?
+//        HistoryResponseModel response = HistoryController.create_history(model);
+//        String[][] data = response.getpreviousSongs;
 
 
         j1 = new JPanel(new GridLayout(2,1, 5,5));

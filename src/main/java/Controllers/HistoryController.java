@@ -14,4 +14,9 @@ public class HistoryController {
     HistoryResponseModel create(UserAccountRequestModel accountRequestModel){
         return historyInput.create(accountRequestModel);
     }
+    HistoryResponseModel create_history(UserAccountRequestModel accountRequestModel){
+        return historyInput.create(accountRequestModel);
+    }
+
+
 }

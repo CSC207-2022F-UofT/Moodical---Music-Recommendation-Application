@@ -9,7 +9,7 @@ import Entities.Account;
 
 public class HistoryResponseModel {
     private ArrayList<Song> recommendedPlaylist;
-//    private ArrayList<ArrayList<Song>> previousSongs;
+    private String[][] previousSongs;
 
     public ArrayList<Song> getRecommendedPlaylist() {
         return recommendedPlaylist;
@@ -17,6 +17,13 @@ public class HistoryResponseModel {
     public void setRecommendedPlaylist(ArrayList<Song> recommendedPlaylist) {
         this.recommendedPlaylist = recommendedPlaylist;
 
+    }
+    public void setPreviousSongs(String[][] previousSongs){
+        this.previousSongs = previousSongs;
+    }
+
+    public String[][] getPreviousSongs(){
+        return previousSongs;
     }
 
 

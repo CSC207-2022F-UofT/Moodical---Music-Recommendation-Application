@@ -1,8 +1,5 @@
 package UI;
 
-import Processors.FavouritesProcessor;
-import ResponseModels.FavouritesResponseModel;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
