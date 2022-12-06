@@ -1,10 +1,13 @@
 package Boundaries;
 
+import Entities.Song;
 import ResponseModels.QuestionnaireResponseModel;
-import ResponseModels.SongRecResponseModel;
+
+import java.util.ArrayList;
 
 public interface SongRecOutputBoundary {
 
-    SongRecResponseModel generate(SongRecResponseModel response);
+    void set5RecSongs(ArrayList<Song> recommendedSongList);
 
+    ArrayList<Song> get5RecSongs();
 }

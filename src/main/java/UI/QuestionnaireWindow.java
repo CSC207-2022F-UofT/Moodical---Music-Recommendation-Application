@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JFrame;
 import javax.swing.JSlider;
 import javax.swing.JButton;
+import java.awt.*;
 
 
 public class QuestionnaireWindow extends JFrame{
@@ -20,6 +21,7 @@ public class QuestionnaireWindow extends JFrame{
 
     public QuestionnaireWindow() {
         setContentPane(qPanel);
+        setBackground(Color.getHSBColor(164,219,232));
 
         // initializing frame
         setTitle("Questionnaire Time!");
