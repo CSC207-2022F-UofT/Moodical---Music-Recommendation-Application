@@ -38,7 +38,7 @@ public class HistoryProcessor {
         history.getPrevious_songs().add(playlist1);
         history.getPrevious_songs().add(playlist2);
         Favourites favourites = new Favourites(new ArrayList<>());
-        HistoryProcessor.userAccount = new Account("Derek Cresswell", "nox", history, favourites);
+        this.userAccount = new Account("Derek Cresswell", "nox", history, favourites);
         }
     public static void setAccount(Account account){
         HistoryProcessor.userAccount = account;
@@ -51,7 +51,7 @@ public class HistoryProcessor {
         History history = userAccount.userHistory;
         if (history.getPrevious_songs().size() <= 1)
             return history.getPrevious_songs().get(0);
-        while (new_playlist.size() <= 5) {
+        while (new_playlist.size() < 5) {
             int index = (int) ((Math.random() * (((history.getPrevious_songs().size()) - 1))));
             ArrayList<Song> playlist = history.getPrevious_songs().get(index);
             int index2 = (int) ((Math.random() * 4));

@@ -17,14 +17,11 @@ public class HistorySongRecWindow extends JFrame{
     JLabel song1, song2, song3, song4, song5;
 
     JLabel image1, image2, image3, image4, image5;
-
-    ArrayList<Song> recommendedSongs;
-
     String[] artistImages;
     ArrayList<String> availableArtistImages;
 
 
-    public HistorySongRecWindow(){
+    public void HistorySongRecWindow(){
         artistImages = new String[]{"Adele", "Ariana Grande", "Beyonce", "Bruno Mars", "Drake",
                 "Ed Sheeran", "Eminem", "Jennifer Lopez", "Justin Bieber", "Justin Timberlake", "Katy Perry",
                 "Lady Gaga", "Maroon 5", "One Direction", "Pitbull", "Rihanna", "The Black Eyed Peas",
@@ -45,17 +42,19 @@ public class HistorySongRecWindow extends JFrame{
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(false); // needs to be because we want only visible AFTER user presses submit results button
 
-        HistoryResponseModel response = new HistoryResponseModel();
-        HistoryRecPresenter presenter = new HistoryRecPresenter();
-        ArrayList<Song> songNameSet = presenter.generate(response);
-
+//        HistoryResponseModel response = new HistoryResponseModel();
+//        HistoryRecPresenter presenter = new HistoryRecPresenter();
+//        ArrayList<Song> songNameSet = presenter.generate(response);
         // formatting song recs:
         // song names
-        song1 = new JLabel(songNameSet.get(0).getSong() + " by. " + songNameSet.get(0).getArtist());
-        song2 = new JLabel(songNameSet.get(1).getSong() + " by. " + songNameSet.get(1).getArtist());
-        song3 = new JLabel(songNameSet.get(2).getSong() + " by. " + songNameSet.get(2).getArtist());
-        song4 = new JLabel(songNameSet.get(3).getSong() + " by. " + songNameSet.get(3).getArtist());
-        song5 = new JLabel(songNameSet.get(4).getSong() + " by. " + songNameSet.get(4).getArtist());
+
+
+
+        song1 = new JLabel("Bad Romance by Lady Gaga");
+        song2 = new JLabel("Just The Way You Are by Bruno Mars");
+        song3 = new JLabel("Cooler Than Me by Mike Posner");
+        song4 = new JLabel("Teenage Dream by Katy Perry");
+        song5 = new JLabel("Sexy Bitch by David Guetta");
 
         availableArtistImages.addAll(List.of(artistImages)); // for searching purposes
 
@@ -81,44 +80,51 @@ public class HistorySongRecWindow extends JFrame{
         image5.setBounds(5, 5, 200, 200);
         image5.setHorizontalAlignment(SwingConstants.CENTER);
 
-        if (availableArtistImages.contains(songNameSet.get(0).getArtist())) {
-            scaleImage("program-images/artist-images/" + songNameSet.get(0).getArtist() +
-                    ".jpeg", image1);
-        } else {
-            scaleImage("program-images/artist-images/defaultpic.jpg", image1);
-        }
+        scaleImage("program-images/artist-images/LadyGaga.jpeg", image1);
+        scaleImage("program-images/artist-images/BrunoMars.jpeg", image2);
+        scaleImage("program-images/artist-images/defaultpic.jpg", image3);
+        scaleImage("program-images/artist-images/KatyPerry.jpeg", image4);
+        scaleImage("program-images/artist-images/defaultpic.jpg", image5);
 
-        // song image 2
-        if (availableArtistImages.contains(songNameSet.get(1).getArtist())) {
-            scaleImage("program-images/artist-images/" + songNameSet.get(1).getArtist() +
-                    ".jpeg", image2);
-        } else {
-            scaleImage("program-images/artist-images/defaultpic.jpg", image2);
-        }
 
-        // song image 3
-        if (availableArtistImages.contains(songNameSet.get(2).getArtist())) {
-            scaleImage("program-images/artist-images/" + songNameSet.get(2).getArtist() +
-                    ".jpeg", image3);
-        } else {
-            scaleImage("program-images/artist-images/defaultpic.jpg", image3);
-        }
-
-        // song image 4
-        if (availableArtistImages.contains(songNameSet.get(3).getArtist())) {
-            scaleImage("program-images/artist-images/" + songNameSet.get(3).getArtist() +
-                    ".jpeg", image4);
-        } else {
-            scaleImage("program-images/artist-images/defaultpic.jpg", image4);
-        }
-
-        // song image 5
-        if (availableArtistImages.contains(songNameSet.get(4).getArtist())) {
-            scaleImage("program-images/artist-images/" + songNameSet.get(4).getArtist() +
-                    ".jpeg", image5);
-        } else {
-            scaleImage("program-images/artist-images/defaultpic.jpg", image5);
-        }
+//        if (availableArtistImages.contains(songNameSet.get(0).getArtist())) {
+//            scaleImage("program-images/artist-images/" + songNameSet.get(0).getArtist() +
+//                    ".jpeg", image1);
+//        } else {
+//            scaleImage("program-images/artist-images/defaultpic.jpg", image1);
+//        }
+//
+//        // song image 2
+//        if (availableArtistImages.contains(songNameSet.get(1).getArtist())) {
+//            scaleImage("program-images/artist-images/" + songNameSet.get(1).getArtist() +
+//                    ".jpeg", image2);
+//        } else {
+//            scaleImage("program-images/artist-images/defaultpic.jpg", image2);
+//        }
+//
+//        // song image 3
+//        if (availableArtistImages.contains(songNameSet.get(2).getArtist())) {
+//            scaleImage("program-images/artist-images/" + songNameSet.get(2).getArtist() +
+//                    ".jpeg", image3);
+//        } else {
+//            scaleImage("program-images/artist-images/defaultpic.jpg", image3);
+//        }
+//
+//        // song image 4
+//        if (availableArtistImages.contains(songNameSet.get(3).getArtist())) {
+//            scaleImage("program-images/artist-images/" + songNameSet.get(3).getArtist() +
+//                    ".jpeg", image4);
+//        } else {
+//            scaleImage("program-images/artist-images/defaultpic.jpg", image4);
+//        }
+//
+//        // song image 5
+//        if (availableArtistImages.contains(songNameSet.get(4).getArtist())) {
+//            scaleImage("program-images/artist-images/" + songNameSet.get(4).getArtist() +
+//                    ".jpeg", image5);
+//        } else {
+//            scaleImage("program-images/artist-images/defaultpic.jpg", image5);
+//        }
 
         // adding songs and images to panel
         mainPanel.add(image1);
@@ -141,6 +147,10 @@ public class HistorySongRecWindow extends JFrame{
         Image imgScale = img.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         label.setIcon(scaledIcon);
+    }
+
+    public static void main(String[] args){
+        new HistorySongRecWindow();
     }
 
 }

@@ -10,9 +10,7 @@ import UI.HistoryWindow;
 import java.util.ArrayList;
 
 public class HistoryRecPresenter implements HistoryOutputBoundary {
-    public HistoryRecPresenter(){
-    //HistorySongRecWindow.HistorySongRecWindow();
-    }
+
 
     @Override
     public ArrayList<Song> generate(HistoryResponseModel response) {
