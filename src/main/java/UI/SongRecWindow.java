@@ -27,6 +27,8 @@ import static UI.HistoryWindow.Hwindow;
 public class SongRecWindow extends JFrame implements ActionListener {
     JPanel mainPanel;
 
+    JPanel bottomPanel;
+
     JButton goNextPage;
 
     JLabel song1, song2, song3, song4, song5;
@@ -71,13 +73,21 @@ public class SongRecWindow extends JFrame implements ActionListener {
         controller.generate(sliderValues);
         ArrayList<Song> songNameSet = presenter.get5RecSongs(); // now have our songs
 
+        // panel with songs on it
         mainPanel = new JPanel();
         mainPanel.setBackground(Color.getHSBColor(164,219,232));
         mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 30, 40, 30));
-        mainPanel.setLayout(new GridLayout(6, 1));
+        mainPanel.setLayout(new GridLayout(5, 1));
 
-        // initializing frame w/ panel
+        // bottom panel with button
+        bottomPanel = new JPanel();
+        bottomPanel.setBackground(Color.getHSBColor(0,0,(float) 0.2)); // dark grey
+        bottomPanel.setBorder(BorderFactory.createEmptyBorder(10, 30, 40, 30));
+        bottomPanel.setLayout(new GridLayout());
+
+        // initializing frames w/ panels
         add(mainPanel, BorderLayout.CENTER);
+        add(bottomPanel, BorderLayout.SOUTH);
         setTitle("Song Recommendation!");
         setSize(1200, 1000);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -87,6 +97,8 @@ public class SongRecWindow extends JFrame implements ActionListener {
         finishedButton.setSize(50, 50);
         finishedButton.setHorizontalAlignment(SwingConstants.CENTER);
         finishedButton.addActionListener(this);
+        finishedButton.setVerticalAlignment(SwingConstants.CENTER);
+        finishedButton.setBackground(Color.getHSBColor(0,0,1));
 
         // formatting song recs:
         // song names
@@ -171,7 +183,7 @@ public class SongRecWindow extends JFrame implements ActionListener {
         mainPanel.add(image5);
         mainPanel.add(song5);
 
-        mainPanel.add(finishedButton);
+        bottomPanel.add(finishedButton);
 
     }
 
