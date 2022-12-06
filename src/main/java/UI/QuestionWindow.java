@@ -73,7 +73,7 @@ public class QuestionWindow extends JFrame implements ActionListener{
         // Button Panel
         buttonPanel = new JPanel();
         buttonPanel.setBackground(Color.getHSBColor(0,0,(float) 0.2)); // dark grey
-        buttonPanel.setBorder(BorderFactory.createEmptyBorder(10, 30, 40, 30));
+        buttonPanel.setBorder(BorderFactory.createEmptyBorder(40, 30, 40, 30));
         buttonPanel.setLayout(new GridLayout());
 
         // submit button

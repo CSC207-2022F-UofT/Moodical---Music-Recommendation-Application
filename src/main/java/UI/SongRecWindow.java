@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -76,7 +78,7 @@ public class SongRecWindow extends JFrame implements ActionListener {
         // panel with songs on it
         mainPanel = new JPanel();
         mainPanel.setBackground(Color.getHSBColor(164,219,232));
-        mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 30, 40, 30));
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(60, 120, 60, 120));
         mainPanel.setLayout(new GridLayout(5, 1));
 
         // bottom panel with button
@@ -99,22 +101,34 @@ public class SongRecWindow extends JFrame implements ActionListener {
         finishedButton.addActionListener(this);
         finishedButton.setVerticalAlignment(SwingConstants.CENTER);
         finishedButton.setBackground(Color.getHSBColor(0,0,1));
+        finishedButton.setHorizontalAlignment(SwingConstants.LEFT);
+        finishedButton.setVerticalAlignment(SwingConstants.CENTER);
+        finishedButton.setFont(new Font("Helvetica", Font.BOLD, 20));
 
         // formatting song recs:
         // song names
-        song1 = new JLabel(songNameSet.get(0).getSong() + " by. " + songNameSet.get(0).getArtist());
-        song2 = new JLabel(songNameSet.get(1).getSong() + " by. " + songNameSet.get(1).getArtist());
-        song3 = new JLabel(songNameSet.get(2).getSong() + " by. " + songNameSet.get(2).getArtist());
-        song4 = new JLabel(songNameSet.get(3).getSong() + " by. " + songNameSet.get(3).getArtist());
-        song5 = new JLabel(songNameSet.get(4).getSong() + " by. " + songNameSet.get(4).getArtist());
+        song1 = new JLabel("<HTML>" + songNameSet.get(0).getSong() + " by. " + songNameSet.get(0).getArtist() +
+                "</HTML>");
+        song1.setFont(new Font("Helvetica", Font.BOLD, 20));
+        song2 = new JLabel("<HTML>" + songNameSet.get(1).getSong() + " by. " + songNameSet.get(1).getArtist() +
+                "</HTML>");
+        song2.setFont(new Font("Helvetica", Font.BOLD, 20));
+        song3 = new JLabel("<HTML>" + songNameSet.get(2).getSong() + " by. " + songNameSet.get(2).getArtist() +
+                "</HTML>");
+        song3.setFont(new Font("Helvetica", Font.BOLD, 20));
+        song4 = new JLabel("<HTML>" + songNameSet.get(3).getSong() + " by. " + songNameSet.get(3).getArtist() +
+                "</HTML>");
+        song4.setFont(new Font("Helvetica", Font.BOLD, 20));
+        song5 = new JLabel("<HTML>" + songNameSet.get(4).getSong() + " by. " + songNameSet.get(4).getArtist() +
+                "</HTML>");
+        song5.setFont(new Font("Helvetica", Font.BOLD, 20));
 
         availableArtistImages.addAll(List.of(artistImages)); // for searching purposes
 
         // song artists pictures
-        // song image 1
         image1 = new JLabel();
         image1.setBounds(5, 5, 200, 200);
-        image1.setHorizontalAlignment(SwingConstants.CENTER);
+        image1.setHorizontalAlignment(SwingConstants.LEFT);
 
         image2 = new JLabel();
         image2.setBounds(5, 5, 200, 200);
@@ -122,7 +136,7 @@ public class SongRecWindow extends JFrame implements ActionListener {
 
         image3 = new JLabel();
         image3.setBounds(5, 5, 200, 200);
-        image3.setHorizontalAlignment(SwingConstants.CENTER);
+        image3.setHorizontalAlignment(SwingConstants.LEFT);
 
         image4 = new JLabel();
         image4.setBounds(5, 5, 200, 200);
@@ -130,7 +144,7 @@ public class SongRecWindow extends JFrame implements ActionListener {
 
         image5 = new JLabel();
         image5.setBounds(5, 5, 200, 200);
-        image5.setHorizontalAlignment(SwingConstants.CENTER);
+        image5.setHorizontalAlignment(SwingConstants.LEFT);
 
         if (availableArtistImages.contains(songNameSet.get(0).getArtist())) {
             scaleImage("program-images/artist-images/" + songNameSet.get(0).getArtist() +
