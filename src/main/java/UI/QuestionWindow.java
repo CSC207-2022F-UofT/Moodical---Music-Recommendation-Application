@@ -1,6 +1,13 @@
 package UI;
 
+import Boundaries.SongRecInputBoundary;
+import Boundaries.SongRecOutputBoundary;
+import Controllers.SongRecController;
+import Entities.SongPool;
 import Presenters.QuestionnairePresenter;
+import Presenters.SongRecPresenter;
+import Processors.CSVFileProcessing;
+import Processors.SongAnalysisProcessing;
 import ResponseModels.QuestionnaireResponseModel;
 
 import javax.swing.*;
@@ -134,15 +141,24 @@ public class QuestionWindow extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        double sum = 0;
-        sum += slider1.getValue();
-        sum += slider2.getValue();
-        sum += slider3.getValue();
-        sum += slider4.getValue();
-        sum += slider5.getValue();
-        double averageHappyScore = sum/5;
+        ArrayList<Integer> sliderValues = new ArrayList<>();
+        sliderValues.add(slider1.getValue());
+        sliderValues.add(slider2.getValue());
+        sliderValues.add(slider3.getValue());
+        sliderValues.add(slider4.getValue());
+        sliderValues.add(slider5.getValue());
         setVisible(false); // "closes" this screen -> makes it invisible
-        songRecWindow = new SongRecWindow(averageHappyScore);
+
+        // create parts to plug into use case + entities engine
+        CSVFileProcessing csvReader = new CSVFileProcessing();
+        SongPool songPool = new SongPool();
+        songPool.populateSongPool(csvReader, "dataset/songs.csv");
+
+        SongRecOutputBoundary presenter = new SongRecPresenter();
+        SongRecInputBoundary interactor = new SongAnalysisProcessing(presenter, songPool);
+        SongRecController controller = new SongRecController(interactor);
+
+        songRecWindow = new SongRecWindow(songPool, presenter, controller, interactor, sliderValues);
         songRecWindow.setVisible(true);
     }
 

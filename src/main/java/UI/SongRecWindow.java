@@ -1,11 +1,14 @@
 package UI;
 
+import Boundaries.SongRecInputBoundary;
+import Boundaries.SongRecOutputBoundary;
+import Controllers.SongRecController;
 import Entities.Song;
 import Entities.SongPool;
 import Presenters.QuestionnairePresenter;
 import Presenters.SongRecPresenter;
+import Processors.SongAnalysisProcessing;
 import ResponseModels.QuestionnaireResponseModel;
-import ResponseModels.SongRecResponseModel;
 
 import javax.swing.*;
 import javax.swing.JPanel;
@@ -29,7 +32,6 @@ public class SongRecWindow extends JFrame implements ActionListener {
     JLabel song1, song2, song3, song4, song5;
 
     JLabel image1, image2, image3, image4, image5;
-    double averageHappyScore;
 
     ArrayList<Song> recommendedSongs;
 
@@ -37,26 +39,37 @@ public class SongRecWindow extends JFrame implements ActionListener {
     ArrayList<String> availableArtistImages;
     public static JButton finishedButton;
 
-    public SongRecWindow(double givenAHappyScore) {
-        this.averageHappyScore = givenAHappyScore;
+    SongPool songPool;
+
+    SongRecOutputBoundary presenter;
+
+    SongRecInputBoundary useCaseInteractor;
+
+    SongRecController controller;
+
+    ArrayList<Integer> sliderValues;
+
+    public SongRecWindow(SongPool inputSongPool, SongRecOutputBoundary inputPresenter,
+                         SongRecController inputController, SongRecInputBoundary inputInteractor,
+                         ArrayList<Integer> inputSliderValues) {
         artistImages = new String[]{"Adele", "Ariana Grande", "Beyonce", "Bruno Mars", "Drake",
                 "Ed Sheeran", "Eminem", "Jennifer Lopez", "Justin Bieber", "Justin Timberlake", "Katy Perry",
                 "Lady Gaga", "Maroon 5", "One Direction", "Pitbull", "Rihanna", "The Black Eyed Peas",
                 "The Chainsmokers", "The Weeknd"};
         availableArtistImages = new ArrayList<String>();
+
+        songPool = inputSongPool;
+        presenter = inputPresenter;
+        controller = inputController;
+        useCaseInteractor = inputInteractor;
+        sliderValues = inputSliderValues;
+
         initializeSongRecWindow();
     }
 
     private void initializeSongRecWindow() {
-        SongPool processingSongPool = new SongPool();
-        SongRecPresenter sPresenter = new SongRecPresenter();
-        recommendedSongs = new ArrayList<Song>();
-        SongRecResponseModel sResponseModel = new SongRecResponseModel(processingSongPool, averageHappyScore,
-                recommendedSongs);
-        ArrayList<Song> songNameSet; // now have our songs
-
-        sResponseModel = sPresenter.generate(sResponseModel);
-        songNameSet = sResponseModel.get5RandSongs();
+        controller.generate(sliderValues);
+        ArrayList<Song> songNameSet = presenter.get5RecSongs(); // now have our songs
 
         mainPanel = new JPanel();
         mainPanel.setBackground(Color.getHSBColor(164,219,232));
