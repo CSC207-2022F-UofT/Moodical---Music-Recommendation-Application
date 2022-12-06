@@ -1,6 +1,13 @@
 package UI;
 
+import Boundaries.SongRecInputBoundary;
+import Boundaries.SongRecOutputBoundary;
+import Controllers.SongRecController;
+import Entities.SongPool;
 import Presenters.QuestionnairePresenter;
+import Presenters.SongRecPresenter;
+import Processors.CSVFileProcessing;
+import Processors.SongAnalysisProcessing;
 import ResponseModels.QuestionnaireResponseModel;
 
 import javax.swing.*;
@@ -26,6 +33,8 @@ public class QuestionWindow extends JFrame implements ActionListener{
 
     private JPanel messagePanel;
     private JPanel mainPanel;
+
+    private JPanel buttonPanel;
 
     private JLabel q1;
     private JLabel q2;
@@ -54,17 +63,32 @@ public class QuestionWindow extends JFrame implements ActionListener{
         // Text for user Panel
         messagePanel = new JPanel();
         messagePanel.setBackground(Color.getHSBColor(164,219,232));
-        messagePanel.setBorder(BorderFactory.createEmptyBorder(30, 70, 30, 10));
+        messagePanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 10));
         messagePanel.setLayout(new GridLayout());
-
         // Interaction Panel
         mainPanel = new JPanel();
+        mainPanel.setBackground(Color.getHSBColor(0,0,(float) 0.2)); // dark grey
         mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 30, 40, 30));
-        mainPanel.setLayout(new GridLayout(7, 1));
+        mainPanel.setLayout(new GridLayout(5, 1));
+        // Button Panel
+        buttonPanel = new JPanel();
+        buttonPanel.setBackground(Color.getHSBColor(0,0,(float) 0.2)); // dark grey
+        buttonPanel.setBorder(BorderFactory.createEmptyBorder(40, 30, 40, 30));
+        buttonPanel.setLayout(new GridLayout());
 
+        // submit button
         JButton submitAnswersButton = new JButton("Submit Responses!");
+        submitAnswersButton.setVerticalAlignment(SwingConstants.CENTER);
+        submitAnswersButton.setHorizontalAlignment(SwingConstants.LEFT);
+        submitAnswersButton.setBackground(Color.getHSBColor(0,0,1));
+        submitAnswersButton.setFont(new Font("Helvetica", Font.BOLD, 15));
+
+        // info message at top
         JLabel questionnaireInfolabel = new JLabel("Questionnaire answers run on a scale of 0-10 " +
                 "(0 being the lowest, 10 being the highest!)");
+        questionnaireInfolabel.setFont(new Font("Seriff", Font.BOLD, 15));
+        questionnaireInfolabel.setForeground(Color.getHSBColor(0,0,(float) 0.2)); // dark grey);
+        questionnaireInfolabel.setHorizontalAlignment(SwingConstants.LEFT);
 
         // slider questions
         // Get Questions
@@ -72,35 +96,65 @@ public class QuestionWindow extends JFrame implements ActionListener{
         questionSet = qResponseModel.getRandQs();
 
         // Slider settings
-        q1 = new JLabel("1." + " " + questionSet.get(0));
+        q1 = new JLabel("<HTML>1." + "   " + questionSet.get(0) + "</HTML>");
+        q1.setFont(new Font("Helvetica", Font.BOLD, 15));
+        q1.setForeground(Color.getHSBColor(0,0,(float) 10));
+        q1.setVerticalAlignment(SwingConstants.CENTER);
         slider1 = new JSlider(0, 10, 5);
         slider1.setMajorTickSpacing(1);
         slider1.setPaintLabels(true);
         slider1.setPaintTicks(true);
+        slider1.setBackground(Color.getHSBColor(0,0, (float) 0.2));
+        slider1.setFont(new Font("Helvetica", Font.BOLD, 15));
+        slider1.setForeground(Color.getHSBColor(0,0,(float) 1));
 
-        q2 = new JLabel("2." + " " + questionSet.get(1));
+        q2 = new JLabel("<HTML>2." + " " + questionSet.get(1) + "</HTML>");
+        q2.setFont(new Font("Helvetica", Font.BOLD, 15));
+        q2.setForeground(Color.getHSBColor(0,0,(float) 10));
+        q2.setVerticalAlignment(SwingConstants.CENTER);
         slider2 = new JSlider(0, 10, 5);
         slider2.setMajorTickSpacing(1);
         slider2.setPaintLabels(true);
         slider2.setPaintTicks(true);
+        slider2.setBackground(Color.getHSBColor(0,0, (float) 0.2));
+        slider2.setFont(new Font("Helvetica", Font.BOLD, 15));
+        slider2.setForeground(Color.getHSBColor(0,0,(float) 1));
 
-        q3 = new JLabel("3." + " " + questionSet.get(2));
+        q3 = new JLabel("<HTML>3." + " " + questionSet.get(2) + "</HTML>");
+        q3.setFont(new Font("Helvetica", Font.BOLD, 15));
+        q3.setForeground(Color.getHSBColor(0,0,(float) 10));
+        q3.setVerticalAlignment(SwingConstants.CENTER);
         slider3 = new JSlider(0, 10,5 );
         slider3.setMajorTickSpacing(1);
         slider3.setPaintLabels(true);
         slider3.setPaintTicks(true);
+        slider3.setBackground(Color.getHSBColor(0,0, (float) 0.2));
+        slider3.setFont(new Font("Helvetica", Font.BOLD, 15));
+        slider3.setForeground(Color.getHSBColor(0,0,(float) 1));
 
-        q4 = new JLabel("4." + " " + questionSet.get(3));
+        q4 = new JLabel("<HTML>4." + " " + questionSet.get(3) + "</HTML>");
+        q4.setFont(new Font("Helvetica", Font.BOLD, 15));
+        q4.setForeground(Color.getHSBColor(0,0,(float) 10));
+        q4.setVerticalAlignment(SwingConstants.CENTER);
         slider4 = new JSlider(0, 10, 5);
         slider4.setMajorTickSpacing(1);
         slider4.setPaintLabels(true);
         slider4.setPaintTicks(true);
+        slider4.setBackground(Color.getHSBColor(0,0, (float) 0.2));
+        slider4.setFont(new Font("Helvetica", Font.BOLD, 15));
+        slider4.setForeground(Color.getHSBColor(0,0,(float) 1));
 
-        q5 = new JLabel("5." + " " + questionSet.get(4));
+        q5 = new JLabel("<HTML>5." + " " + questionSet.get(4) + "</HTML>");
+        q5.setFont(new Font("Helvetica", Font.BOLD, 15));
+        q5.setForeground(Color.getHSBColor(0,0,(float) 10));
+        q5.setVerticalAlignment(SwingConstants.CENTER);
         slider5 = new JSlider(0, 10, 5);
         slider5.setMajorTickSpacing(1);
         slider5.setPaintLabels(true);
         slider5.setPaintTicks(true);
+        slider5.setBackground(Color.getHSBColor(0,0, (float) 0.2));
+        slider5.setFont(new Font("Helvetica", Font.BOLD, 15));
+        slider5.setForeground(Color.getHSBColor(0,0,(float) 1));
 
         // Message panel at top
         messagePanel.add(questionnaireInfolabel);
@@ -117,12 +171,13 @@ public class QuestionWindow extends JFrame implements ActionListener{
         mainPanel.add(q5);
         mainPanel.add(slider5);
 
-        mainPanel.add(submitAnswersButton);
+        buttonPanel.add(submitAnswersButton);
 
 
         // initializing frame w/ panel
         add(messagePanel, BorderLayout.PAGE_START);
         add(mainPanel, BorderLayout.CENTER);
+        add(buttonPanel, BorderLayout.SOUTH);
         setTitle("Questionnaire Time!");
         setSize(1200, 700);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -134,15 +189,24 @@ public class QuestionWindow extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        double sum = 0;
-        sum += slider1.getValue();
-        sum += slider2.getValue();
-        sum += slider3.getValue();
-        sum += slider4.getValue();
-        sum += slider5.getValue();
-        double averageHappyScore = sum/5;
+        ArrayList<Integer> sliderValues = new ArrayList<>();
+        sliderValues.add(slider1.getValue());
+        sliderValues.add(slider2.getValue());
+        sliderValues.add(slider3.getValue());
+        sliderValues.add(slider4.getValue());
+        sliderValues.add(slider5.getValue());
         setVisible(false); // "closes" this screen -> makes it invisible
-        songRecWindow = new SongRecWindow(averageHappyScore);
+
+        // create parts to plug into use case + entities engine
+        CSVFileProcessing csvReader = new CSVFileProcessing();
+        SongPool songPool = new SongPool();
+        songPool.populateSongPool(csvReader, "dataset/songs.csv");
+
+        SongRecOutputBoundary presenter = new SongRecPresenter();
+        SongRecInputBoundary interactor = new SongAnalysisProcessing(presenter, songPool);
+        SongRecController controller = new SongRecController(interactor);
+
+        songRecWindow = new SongRecWindow(songPool, presenter, controller, interactor, sliderValues);
         songRecWindow.setVisible(true);
     }
 
