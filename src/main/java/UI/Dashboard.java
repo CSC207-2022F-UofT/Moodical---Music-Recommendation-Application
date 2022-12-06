@@ -176,9 +176,9 @@ public class Dashboard  extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == b){Hwindow(HistoryProcessor.toArray(HistoryProcessor.userAccount)); }
+        if(e.getSource() == b){Hwindow(); }
 
-        if(e.getSource() == b1){FavouritesWindow(FavouritesProcessor.toArray(FavouritesProcessor.userAccount));}
+        if(e.getSource() == b1){FavouritesWindow();}
 
         if(e.getSource() == b2){MemePage();}
 
