@@ -19,7 +19,7 @@ public class FavouritesWindow implements ActionListener {
     public static JTextField text;
 
     public static JButton enterButton;
-    public static void FavouritesWindow(String[][] data) {
+    public static void FavouritesWindow() {
         f = new JFrame();
 
 
@@ -27,7 +27,7 @@ public class FavouritesWindow implements ActionListener {
         f.setBackground(Color.getHSBColor(164, 219, 232));
 
         String[] columnNames = {"Favourites"};
-//        String [][] data = {{"song"}, {"song2"}, {"song3"}, {"song4"}, {"song5"}};
+        String [][] data = {{"song"}, {"song2"}, {"song3"}, {"song4"}, {"song5"}};
 //          dummy data
 
 //         String [][] data = FavouritesProcessor.toArray(FavouritesProcessor.userAccount);

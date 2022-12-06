@@ -16,7 +16,7 @@ import javax.swing.table.JTableHeader;
 
 public class HistoryWindow implements ActionListener {
 
-    private static JPanel panel1;
+    public static JPanel j1;
     private static JTextArea textArea;
     public static JFrame f;
     public static JTable j;
@@ -37,7 +37,7 @@ public class HistoryWindow implements ActionListener {
         String[][] data = {{"Bad Romance, Just The Way You Are, Only Girl In The World, Cooler Than Me, Marry You"},
                 {"Your Love is My Drug, Take It Off, Teenage Dream, My First Kiss, Sexy Bitch"}};
 
-
+        j1 = new JPanel(new GridLayout(2,1, 5,5));
         j = new JTable(data, columnNames);
 
 
@@ -56,29 +56,30 @@ public class HistoryWindow implements ActionListener {
         f.getContentPane().add(scrollPane);
 //        JScrollPane sp = new JScrollPane(j);
 //        f.add(sp);
-        f.setSize(1000, 1000);
-        f.setVisible(true);
+
+        j1.add(scrollPane);
 
         rbutton = new JButton("Get Reccomendation");
         rbutton.setBounds(10, 80, 80, 25);
         rbutton.addActionListener(new HistoryWindow());
-        f.add(rbutton);
+        rbutton.setBackground(Color.PINK);
+        j1.add(rbutton);
 
+        f.add(j1);
 
-
+        f.setSize(1000, 1000);
+        f.setVisible(true);
 
     }
 
 
-
     @Override
     public void actionPerformed(ActionEvent e){
-    new HistorySongRecWindow();
+        if (e.getSource() == rbutton) {
+        HistorySongRecWindow his = new HistorySongRecWindow();
+        his.HistorySongRecWindow1();}
 
     }
     // Driver  method
 
 }
-
-
-

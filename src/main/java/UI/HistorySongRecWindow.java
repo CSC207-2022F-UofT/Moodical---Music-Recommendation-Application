@@ -12,25 +12,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HistorySongRecWindow extends JFrame{
-    JPanel mainPanel;
+    public static JFrame j;
+    public static JPanel mainPanel;
 
-    JLabel song1, song2, song3, song4, song5;
+    public static JLabel song1, song2, song3, song4, song5;
 
-    JLabel image1, image2, image3, image4, image5;
-    String[] artistImages;
-    ArrayList<String> availableArtistImages;
+    public static JLabel image1, image2, image3, image4, image5;
+
+    public static String[] artistImages;
+    public static ArrayList<String> availableArtistImages;
 
 
-    public void HistorySongRecWindow(){
+    public void HistorySongRecWindow1(){
         artistImages = new String[]{"Adele", "Ariana Grande", "Beyonce", "Bruno Mars", "Drake",
                 "Ed Sheeran", "Eminem", "Jennifer Lopez", "Justin Bieber", "Justin Timberlake", "Katy Perry",
                 "Lady Gaga", "Maroon 5", "One Direction", "Pitbull", "Rihanna", "The Black Eyed Peas",
                 "The Chainsmokers", "The Weeknd"};
         availableArtistImages = new ArrayList<String>();
-        initializeHistorySongRecWindow();
-    }
-
-    private void initializeHistorySongRecWindow(){
+//        initializeHistorySongRecWindow();
+//    }
+//
+//    public void initializeHistorySongRecWindow(){
         mainPanel = new JPanel();
         mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 30, 40, 30));
         mainPanel.setLayout(new GridLayout(6, 1));
@@ -40,15 +42,20 @@ public class HistorySongRecWindow extends JFrame{
         setTitle("Song Recommendation!");
         setSize(1200, 1000);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setVisible(false); // needs to be because we want only visible AFTER user presses submit results button
+//       setVisible(true); // needs to be because we want only visible AFTER user presses submit results button
 
 //        HistoryResponseModel response = new HistoryResponseModel();
+
 //        HistoryRecPresenter presenter = new HistoryRecPresenter();
-//        ArrayList<Song> songNameSet = presenter.generate(response);
+//        ArrayList<Song> songNameSet = response.getRecommendedPlaylist();
+
         // formatting song recs:
         // song names
-
-
+//        song1 = new JLabel(songNameSet.get(0).getSong() + " by. " + songNameSet.get(0).getArtist());
+//        song2 = new JLabel(songNameSet.get(1).getSong() + " by. " + songNameSet.get(1).getArtist());
+//        song3 = new JLabel(songNameSet.get(2).getSong() + " by. " + songNameSet.get(2).getArtist());
+//        song4 = new JLabel(songNameSet.get(3).getSong() + " by. " + songNameSet.get(3).getArtist());
+//        song5 = new JLabel(songNameSet.get(4).getSong() + " by. " + songNameSet.get(4).getArtist());
 
         song1 = new JLabel("Bad Romance by Lady Gaga");
         song2 = new JLabel("Just The Way You Are by Bruno Mars");
@@ -56,10 +63,10 @@ public class HistorySongRecWindow extends JFrame{
         song4 = new JLabel("Teenage Dream by Katy Perry");
         song5 = new JLabel("Sexy Bitch by David Guetta");
 
-        availableArtistImages.addAll(List.of(artistImages)); // for searching purposes
-
-        // song artists pictures
-        // song image 1
+//        availableArtistImages.addAll(List.of(artistImages)); // for searching purposes
+//
+//        // song artists pictures
+//        // song image 1
         image1 = new JLabel();
         image1.setBounds(5, 5, 200, 200);
         image1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -79,13 +86,6 @@ public class HistorySongRecWindow extends JFrame{
         image5 = new JLabel();
         image5.setBounds(5, 5, 200, 200);
         image5.setHorizontalAlignment(SwingConstants.CENTER);
-
-        scaleImage("program-images/artist-images/LadyGaga.jpeg", image1);
-        scaleImage("program-images/artist-images/BrunoMars.jpeg", image2);
-        scaleImage("program-images/artist-images/defaultpic.jpg", image3);
-        scaleImage("program-images/artist-images/KatyPerry.jpeg", image4);
-        scaleImage("program-images/artist-images/defaultpic.jpg", image5);
-
 
 //        if (availableArtistImages.contains(songNameSet.get(0).getArtist())) {
 //            scaleImage("program-images/artist-images/" + songNameSet.get(0).getArtist() +
@@ -125,8 +125,15 @@ public class HistorySongRecWindow extends JFrame{
 //        } else {
 //            scaleImage("program-images/artist-images/defaultpic.jpg", image5);
 //        }
+        scaleImage("program-images/artist-images/Lady Gaga.jpeg", image1);
+        scaleImage("program-images/artist-images/Bruno Mars.jpeg", image2);
+        scaleImage("program-images/artist-images/defaultpic.jpg", image3);
+        scaleImage("program-images/artist-images/Katy Perry.jpeg", image4);
+        scaleImage("program-images/artist-images/defaultpic.jpg", image5);
 
         // adding songs and images to panel
+//        mainPanel.add(image1);
+
         mainPanel.add(image1);
         mainPanel.add(song1);
         mainPanel.add(image2);
@@ -138,6 +145,13 @@ public class HistorySongRecWindow extends JFrame{
         mainPanel.add(image5);
         mainPanel.add(song5);
 
+//        mainPanel.setVisible(true);
+
+        j = new JFrame();
+        j.setBackground(Color.getHSBColor(164,219,232));
+        j.setSize(1100,1500);
+        j.add(mainPanel);
+        j.setVisible(true);
 
     }
 
@@ -149,9 +163,13 @@ public class HistorySongRecWindow extends JFrame{
         label.setIcon(scaledIcon);
     }
 
-    public static void main(String[] args){
-        new HistorySongRecWindow();
-    }
+//    public static void main(String[] args){
+//
+//        HistorySongRecWindow his = new HistorySongRecWindow();
+//        his.HistorySongRecWindow1();
+//        //new initializeHistorySongRecWindow();
+//    }
+
 
 }
 
