@@ -38,6 +38,7 @@ public class HistoryWindow implements ActionListener {
                 {"Your Love is My Drug, Take It Off, Teenage Dream, My First Kiss, Sexy Bitch"}};
 
         j1 = new JPanel(new GridLayout(2,1, 5,5));
+        j1.setBackground(Color.getHSBColor(164,219,232));
         j = new JTable(data, columnNames);
 
 
@@ -71,7 +72,6 @@ public class HistoryWindow implements ActionListener {
         f.setVisible(true);
 
     }
-
 
     @Override
     public void actionPerformed(ActionEvent e){

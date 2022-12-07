@@ -24,6 +24,7 @@ public class HistorySongRecWindow extends JFrame{
 
 
     public void HistorySongRecWindow1(){
+
         artistImages = new String[]{"Adele", "Ariana Grande", "Beyonce", "Bruno Mars", "Drake",
                 "Ed Sheeran", "Eminem", "Jennifer Lopez", "Justin Bieber", "Justin Timberlake", "Katy Perry",
                 "Lady Gaga", "Maroon 5", "One Direction", "Pitbull", "Rihanna", "The Black Eyed Peas",
@@ -33,9 +34,11 @@ public class HistorySongRecWindow extends JFrame{
 //    }
 //
 //    public void initializeHistorySongRecWindow(){
+
         mainPanel = new JPanel();
         mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 30, 40, 30));
         mainPanel.setLayout(new GridLayout(6, 1));
+        mainPanel.setBackground(Color.getHSBColor(164,219,232));
 
         // initializing frame w/ panel
         add(mainPanel, BorderLayout.CENTER);

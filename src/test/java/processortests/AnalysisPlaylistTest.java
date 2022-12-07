@@ -13,6 +13,13 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AnalysisPlaylistTest {
+
+    /**
+     * This test creates a mock account with a history filled with songs (song objects)
+     * The purpose of the test is to assess whether the methods in AnalysePlaylist Processing successfully
+     * returns the expected output based on the categories of assessment
+     */
+
     static ArrayList<Song> playlist = new ArrayList<>();
     static ArrayList<ArrayList<Song>> previousSongs =  new ArrayList<ArrayList<Song>>();
     static Account account = new Account();
@@ -114,5 +121,6 @@ void createExampleData(){
     void allData(){ assertEquals(result, AnalysePlaylistProcessing.getAllData());
     // This test covers all the tests for the other functions since it collects the output of the other function
         // return it as an arraylist
+
     }
 }

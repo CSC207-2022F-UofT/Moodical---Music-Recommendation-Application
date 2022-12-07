@@ -10,6 +10,10 @@ import Entities.Song;
 
 public class AnalysePlaylistProcessing{
 
+    /** This processing (use case) performs all the calculations needed to display
+     * the correct analysis for the main dashboard page
+     */
+
     public static Account account;
     public static History allHistory;
     public static ArrayList<Song> prevRecs;
@@ -198,6 +202,9 @@ public class AnalysePlaylistProcessing{
     }
 
     public static ArrayList<ArrayList<String>> getAllData(){
+        /* This returns all the data analysed combined, and the returned data is used by the dashboard
+         */
+
         ArrayList<ArrayList<String>> allData = new ArrayList<>();
 
         allData.add(getMostArtist());

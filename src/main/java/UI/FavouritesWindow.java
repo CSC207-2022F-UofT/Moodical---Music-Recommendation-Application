@@ -22,19 +22,16 @@ public class FavouritesWindow implements ActionListener {
     public static void FavouritesWindow() {
         f = new JFrame();
 
-
         // Set the Frame colour
         f.setBackground(Color.getHSBColor(164, 219, 232));
 
         String[] columnNames = {"Favourites"};
         String [][] data = {{"song"}, {"song2"}, {"song3"}, {"song4"}, {"song5"}};
-//          dummy data
 
 //         String [][] data = FavouritesProcessor.toArray(FavouritesProcessor.userAccount);
         //called in presenter
 
         j = new JTable(data, columnNames);
-
 
         j.setBounds(50, 60, 100, 200);
         j.setRowHeight(100);
@@ -64,7 +61,6 @@ public class FavouritesWindow implements ActionListener {
         f.getContentPane().add(scrollPane);
         f.setSize(1000, 1000);
         f.setVisible(true);
-
 
     }
 
