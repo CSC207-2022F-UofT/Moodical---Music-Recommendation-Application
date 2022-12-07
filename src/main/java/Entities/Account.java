@@ -1,7 +1,5 @@
 package Entities;
 
-import static java.nio.file.Files.newBufferedWriter;
-
 
 public class Account {
     public String username = "";
@@ -14,6 +12,8 @@ public class Account {
         this.password = password;
         this.userHistory = previous_songs;
         this.userFavourites = favourites;
+    }
+    public Account() {
     }
 
     public void setUsername(String username){
@@ -39,11 +39,10 @@ public class Account {
         return this.username;
     }
 
-    public String getUserHistory() {
-        return this.userHistory.toString();
+    public History getUserHistory() {
+        return this.userHistory;
     }
-    public String getUserFavourites(){
-        return this.userFavourites.toString();
-    }
+    public Favourites getUserFavourites(){
+        return this.userFavourites; }
 
 };
