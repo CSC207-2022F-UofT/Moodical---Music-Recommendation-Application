@@ -1,39 +1,38 @@
-# Project Template
+# Moodical Project Overview
 
-This is a template repository for CSC 207 projects. 
-This repository contains starter code for a gradle project.
-It also contains workflow documents that give instructions on how to manage your Github repository and how to use Github Projects for efficient collaboration.
+Welcome to Moodical! A program designed to generate music recommendations based on your current mood. 
 
-## Checklist For Your Project
-- [ ] Verify the correct settings for your project repository
-- [ ] Set up Github Projects
-- [ ] Create the implementation plan using issues and Github Projects
-- [ ] Create deveopment branches for your features
-- [ ] Use pull requests to merge finished features into main branch
-- [ ] Conduct code reviews
+<img width="973" alt="Screenshot 2022-12-07 at 2 29 47 PM" src="https://user-images.githubusercontent.com/70494988/206278565-c8c5430b-3728-4cdd-8303-fc034f3b5504.png">
 
-**If your team has trouble with any of these steps, please ask on Piazza. For example, with how GitHub Classroom works, your team *may* not have permissions to do some of the first few steps, in which case we'll post alternative instructions as needed.**
+# How the recommendations work:
 
-## Workflow Documents
+1. After the user login/ register for a new account, a questionnaire window will be prompted.
+2. The questionnaire contains questions aimed to access your current mood, and the user can respond to the questions by using the sliders.
+3. After the questionnaire is submitted, the user will be given a playlist with 10 songs recommended immediately.
+4. After submitting the recommendation page, the user will be directed to the dashboard, where they can see their past recommendation analysis, history and favourites.
+5. The user can choose to generate new recommendations from history, which contains their previous recommendations. 
+6. As a bonus, the user can visit the "Your Daily Dose of Sertonin" page for motivational quotes!
 
-* Github Workflow: Please refer to the workflow that was introduced in the first lab. You should follow this when working on your code. The following document provides additional details too.
+<img width="1189" alt="Screenshot 2022-12-07 at 2 29 22 PM" src="https://user-images.githubusercontent.com/70494988/206282694-907d2392-38de-45f7-b5ee-117c15690716.png">
 
-* [Project Planning and Development Guide](project_plan_dev.md): This document helps you to understand how to create and maintain a project plan for your class project. **This document helps you to complete the Implementation Plan Milestone.**
+# Features
 
-## Gradle Project
-Import this project into your Intellij editor. It should automatically recognise this as a gradle repository.
-The starter code was built using SDK version 11.0.1. Ensure that you are using this version for this project. (You can, of course, change the SDK version as per your requirement if your team has all agreed to use a different version)
+1. User login/ registration 
+2. Questionnaire 
+3. Music recommendations based on questionnaire responses
+4. History/ favourites -> generating new playlists from previous recommendations
+5. Dashboard analysis of the most recommended artists, genres and more
+6. Interactive dashboard with mood related pictures and quotes
 
-You have been provided with two starter files for demonstration: HelloWorld and HelloWorldTest.
+# How to run the program
 
-You will find HelloWorld in `src/main/java/tutorial` directory. Right click on the HelloWorld file and click on `Run HelloWorld.main()`.
-This should run the program and print on your console.
+1. Open main and run main
+2. The UI will immediately pop up once the user runs main
 
-You will find HelloWorldTest in `src/test/java/tutorial` directory. Right click on the HelloWorldTest file and click on `Run HelloWorldTest`.
-All tests should pass. Your team can remove this sample of how testing works once you start adding your project code to the repo.
+# Project Team Members
 
-Moving forward, we expect you to maintain this project structure. You *should* use Gradle as the build environment, but it is fine if your team prefers to use something else -- just remove the gradle files and push your preferred project setup. Assuming you stick with Gradle, your source code should go into `src/main/java` (you can keep creating more subdirectories as per your project requirement). Every source class can auto-generate a test file for you. For example, open HelloWorld.java file and click on the `HelloWorld` variable as shown in the image below. You should see an option `Generate` and on clicking this your should see an option `Test`. Clicking on this will generate a JUnit test file for `HelloWorld` class. This was used to generate the `HelloWorldTest`.
-
-![image](https://user-images.githubusercontent.com/5333020/196066655-d3c97bf4-fdbd-46b0-b6ae-aeb8dbcf351d.png)
-
-You can create another simple class and try generating a test for this class.
+1. Savanna Pan
+2. Minha Faheem
+3. Arvin Gingoyon
+4. Yumna Refai
+5. Meghan George

@@ -16,7 +16,7 @@ public class Song {
     public Song(){
     }
     public Song(String songIn, String artistIn, String genreIn, String energyIn, String livenessIn,
-                String valenceIn, String popularityIn, String danceabilityIn){
+                String valenceIn, String popularityIn, String danceabilityIn, String bpm){
         this.song = songIn;
         this.artist = artistIn;
         this.genre = genreIn;
@@ -25,5 +25,15 @@ public class Song {
         this.valence = valenceIn;
         this.popularity = popularityIn;
         this.danceability = danceabilityIn;
+        this.bpm = bpm;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+
+    // returns song name
+    public String getSong() {
+        return song;
     }
 }

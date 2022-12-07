@@ -1,6 +1,9 @@
 package RequestModels;
 import Entities.History;
 import Entities.Favourites;
+import Entities.Song;
+import java.util.ArrayList;
+
 public class UserAccountRequestModel {
 
     private String username;
@@ -14,20 +17,24 @@ public class UserAccountRequestModel {
         this.userHistory = userHistory;
         this.userFavourites = userFavourites;
     }
+    public static History createEmptyHistoryObject(){
+        ArrayList<Song> innerArray = new ArrayList<Song>();
+        ArrayList<ArrayList<Song>> outerArray = new ArrayList<ArrayList<Song>>();
+        outerArray.add(innerArray);
 
-    public void setUsername(String username){
+        return new History(outerArray);
+    }
+
+    public static Favourites createEmptyFavouritesObject() {
+        ArrayList<String> innerArray = new ArrayList<String>();
+        return new Favourites(innerArray);
+    }
+    public void setOrChangeUsername(String username){
         this.username = username;
     }
 
-    public void setPassword(String password) {
+    public void setOrChangePassword(String password) {
         this.password = password;
-    }
-
-    public void changeUsername(String newUsername) {
-        this.username = newUsername;
-    }
-    public void changePassword(String newPassword) {
-        this.password = newPassword;
     }
 
     public String getPassword(){
@@ -38,11 +45,11 @@ public class UserAccountRequestModel {
         return username;
     }
 
-    public String getUserHistory() {
-        return this.userHistory.toString();
+    public History getUserHistory() {
+        return userHistory;
     }
-    public String getUserFavourites(){
-        return this.userFavourites.toString();
+    public Favourites getUserFavourites(){
+        return userFavourites;
     }
 
 }
