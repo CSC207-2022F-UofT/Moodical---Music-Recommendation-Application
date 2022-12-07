@@ -13,10 +13,26 @@ Welcome to Moodical! A program designed to generate music recommendations based 
 5. The user can choose to generate new recommendations from history, which contains their previous recommendations. 
 6. As a bonus, the user can visit the "Your Daily Dose of Sertonin" page for motivational quotes!
 
+<img width="1189" alt="Screenshot 2022-12-07 at 2 29 22 PM" src="https://user-images.githubusercontent.com/70494988/206282694-907d2392-38de-45f7-b5ee-117c15690716.png">
+
+# Features
+
+1. User login/ registration 
+2. Questionnaire 
+3. Music recommendations based on questionnaire responses
+4. History/ favourites -> generating new playlists from previous recommendations
+5. Dashboard analysis of the most recommended artists, genres and more
+6. Interactive dashboard with mood related pictures and quotes
+
+# How to run the program
+
+1. Open main and run main
+2. The UI will immediately pop up once the user runs main
+
 # Project Team Members
 
-Savanna Pan
-Minha Faheem
-Arvin Gingoyon
-Yumna Refai
-Meghan George
+1. Savanna Pan
+2. Minha Faheem
+3. Arvin Gingoyon
+4. Yumna Refai
+5. Meghan George
