@@ -28,11 +28,20 @@ public class Song {
         this.bpm = bpm;
     }
 
+    /**
+     * getter
+     *
+     * @return song's artist instance attribute
+     */
     public String getArtist() {
         return artist;
     }
 
-    // returns song name
+    /**
+     * getter
+     *
+     * @return song's song (song name) instance attribute
+     */
     public String getSong() {
         return song;
     }
