@@ -12,18 +12,22 @@ public class questionPool {
 
         ArrayList<String> lstOfQs = p.readRows(filepath);
     }
+
+    /**
+     * getter
+     *
+     * @return lstOfQs instance attribute
+     */
     public static ArrayList<String> getRandQ(){
         return lstOfQs;
     }
+
+    /**
+     * setter (sets the lstOfQs instance attribute to given list of question strings)
+     *
+     * @param lst
+     */
     public static void setRandQ(ArrayList<String> lst){
         lstOfQs = lst;
     }
-
-
 }
-
-
-/*
-This class only consists of a list of strings.
-We will store and save questions from a csv file using interface which is another doc
- */

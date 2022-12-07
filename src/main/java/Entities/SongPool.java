@@ -14,6 +14,13 @@ public class SongPool {
         return this.songs;
     }
 
+    /**
+     * given a readable file (data access interface) and a file path directory, will populate
+     * song pool instance attribute with songs from that data set file
+     *
+     * @param songFile
+     * @param filePath
+     */
     public void populateSongPool(ReadableFile songFile, String filePath) {
         ArrayList<String> songsReadFromFile = songFile.readRows(filePath); //want readFile to return a list of Songs, we don't care how
         for (String readLine : songsReadFromFile) {
@@ -23,7 +30,12 @@ public class SongPool {
         this.songs.remove(0);
     }
 
-    // helper function
+    /**
+     * helper function for populating song pool with data set songs
+     *
+     * @param values
+     * @return
+     */
     public static Song readLine(String[] values) {
         Song newSong = new Song();
 
@@ -40,5 +52,3 @@ public class SongPool {
         return newSong;
     }
 }
-
-/// Arvin create it in the Song's constructor and return the new song

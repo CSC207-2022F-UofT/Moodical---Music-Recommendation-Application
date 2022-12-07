@@ -5,33 +5,22 @@ import Boundaries.SongRecOutputBoundary;
 import Controllers.SongRecController;
 import Entities.Song;
 import Entities.SongPool;
-import Presenters.QuestionnairePresenter;
-import Presenters.SongRecPresenter;
-import Processors.SongAnalysisProcessing;
-import ResponseModels.QuestionnaireResponseModel;
 
 import javax.swing.*;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JFrame;
 import javax.swing.JButton;
-import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-import UI.Dashboard;
-
-import static UI.HistoryWindow.Hwindow;
 
 public class SongRecWindow extends JFrame implements ActionListener {
     JPanel mainPanel;
 
     JPanel bottomPanel;
-
-    JButton goNextPage;
 
     JLabel song1, song2, song3, song4, song5;
 
@@ -78,7 +67,7 @@ public class SongRecWindow extends JFrame implements ActionListener {
         // panel with songs on it
         mainPanel = new JPanel();
         mainPanel.setBackground(Color.getHSBColor(164,219,232));
-        mainPanel.setBorder(BorderFactory.createEmptyBorder(60, 120, 60, 120));
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(30, 120, 30, 120));
         mainPanel.setLayout(new GridLayout(5, 1));
 
         // bottom panel with button

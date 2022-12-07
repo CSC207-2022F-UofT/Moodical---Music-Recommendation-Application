@@ -4,7 +4,6 @@ import Boundaries.SongRecInputBoundary;
 import Boundaries.SongRecOutputBoundary;
 import Entities.Song;
 import Entities.SongPool;
-import Presenters.SongRecPresenter;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,6 +19,13 @@ public class SongAnalysisProcessing implements SongRecInputBoundary {
         this.songsList = songList;
     }
 
+    /**
+     * given average happy score, will parse through song pool instance to pick out a song that matches
+     * corresponding happy score (i.e. low happy score of 3, this method will return 'sad' song type)
+     *
+     * @param averageHappyScore
+     * @return song object calculated from given average happy score
+     */
     public Song getSong(double averageHappyScore){
         // 'verysad', 'sad', 'happy', 'veryhappy' for type
         ArrayList<Song> copySongList = (ArrayList<Song>) this.songsList.getSongList().clone();
@@ -50,6 +56,13 @@ public class SongAnalysisProcessing implements SongRecInputBoundary {
         return returnSong;
     }
 
+    /**
+     * given a song object and string type, calculates if the song matches the happiness level of the type
+     *
+     * @param song
+     * @param type
+     * @return returns boolean true or false based on if given song matches the song type of string type
+     */
     private boolean isDesiredScore(Song song, String type){
         if (80 <= getSongHappyScore(song) && Objects.equals(type, "veryhappy")){
             return true;
@@ -67,6 +80,13 @@ public class SongAnalysisProcessing implements SongRecInputBoundary {
             return false;
         }
     }
+
+    /**
+     * helper function for getSong that gets the happy score of a given song
+     *
+     * @param songFromPool
+     * @return happy score of given song object from song pool
+     */
     private double getSongHappyScore(Song songFromPool){
         int a1 = Integer.parseInt(songFromPool.danceability);
         int a2 = Integer.parseInt(songFromPool.energy);
@@ -77,6 +97,14 @@ public class SongAnalysisProcessing implements SongRecInputBoundary {
 
     // only used method, above are helper functions and SHOULD NOT be used outside this class
     // (getSong ok for testing purposes)
+
+    /**
+     * (method for clean architecture, called by the Controller to be used in UI level)
+     * calculates given happy score from userinput and calls presenter output boundary methods to 'pass up'
+     * list of songs to UI level
+     *
+     * @param averageHappyScore
+     */
     @Override
     public void calculate5Songs(double averageHappyScore) {
         ArrayList<Song> returnList = new ArrayList<>();
