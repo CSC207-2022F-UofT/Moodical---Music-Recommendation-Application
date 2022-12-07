@@ -9,6 +9,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class QuestionnaireProcessingTest {
+    /** This test converts questions from the questions csv file into strings
+     * and provides 5 random questions for the questionnaire.
+     *
+     */
     ReadableFile p;
     String filepath;
     @BeforeEach

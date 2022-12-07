@@ -10,6 +10,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 
 class SongAnalysisProcessingTest {
+    /**
+     * The test verifies that given a song pool, this class' methods will call the correct song type
+     * (very sad, sad, happy, very happy)
+     */
 
     SongPool songPool;
     Song exampleSong1, exampleSong2, exampleSong3, exampleSong4;
