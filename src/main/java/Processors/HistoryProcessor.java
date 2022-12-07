@@ -1,5 +1,7 @@
 package Processors;
 
+import Boundaries.HistoryInputBoundary;
+import Boundaries.HistoryOutputBoundary;
 import Entities.Account;
 import Entities.Favourites;
 import Entities.History;
@@ -8,21 +10,27 @@ import Entities.Song;
 
 import java.util.ArrayList;
 
-public class HistoryProcessor {
+public class HistoryProcessor implements HistoryInputBoundary {
     public static Account userAccount;
+    public HistoryOutputBoundary presenter;
 
     public static void setAccount(Account account){
-        HistoryProcessor.userAccount = account;
+        userAccount = account;
+    }
+
+    public HistoryProcessor(Account account, HistoryOutputBoundary presenter){
+        this.userAccount = account;
+        this.presenter = presenter;
     }
     //use this to link to an account in the controllers and the UI
 
-
-    public static ArrayList<Song> recommend(Account userAccount) {
+    @Override
+    public void getRecommended() {
         ArrayList<Song> new_playlist = new ArrayList<>();
         History history = userAccount.userHistory;
         if (history.getPrevious_songs().size() <= 1)
-            return history.getPrevious_songs().get(0);
-        while (new_playlist.size() < 5) {
+            this.presenter.generate(history.getPrevious_songs().get(0));
+        for (int i = 0; i < 5; i++) {
             int index = (int) ((Math.random() * (((history.getPrevious_songs().size()) - 1))));
             ArrayList<Song> playlist = history.getPrevious_songs().get(index);
             int index2 = (int) ((Math.random() * 4));
@@ -32,7 +40,7 @@ public class HistoryProcessor {
             }
             addTo(new_playlist, userAccount);
         }
-        return new_playlist;
+        this.presenter.generate(new_playlist);
     }
     public static void addTo(ArrayList<Song> playlist, Account userAccount) {
         userAccount.userHistory.getPrevious_songs().add(playlist);
@@ -74,6 +82,7 @@ public class HistoryProcessor {
         }
         return new String[][]{str_Array};
     }
+
 
 }
 

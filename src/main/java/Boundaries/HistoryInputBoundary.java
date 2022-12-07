@@ -1,11 +1,9 @@
 package Boundaries;
 
+import Entities.Account;
 import RequestModels.UserAccountRequestModel;
-import ResponseModels.HistoryResponseModel;
 
 public interface HistoryInputBoundary {
+    void getRecommended();
 
-    public HistoryResponseModel create(UserAccountRequestModel requestModel);
-
-    public HistoryResponseModel create_history(UserAccountRequestModel requestModel);
 }

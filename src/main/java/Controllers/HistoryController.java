@@ -1,22 +1,20 @@
 package Controllers;
 
 import Boundaries.HistoryInputBoundary;
+import Entities.Song;
+import Processors.HistoryProcessor;
 import RequestModels.UserAccountRequestModel;
-import ResponseModels.HistoryResponseModel;
+
+import java.util.ArrayList;
 
 public class HistoryController {
-    private final HistoryInputBoundary historyInput;
+    public HistoryInputBoundary processor;
 
+    public HistoryController(HistoryInputBoundary processor)
+    {this.processor = processor;}
 
-    public HistoryController(HistoryInputBoundary historyInput) {
-        this.historyInput = historyInput;
+    public void generate(ArrayList<Song> recommendedPlaylist){
+        processor.getRecommended();
     }
-    HistoryResponseModel create(UserAccountRequestModel accountRequestModel){
-        return historyInput.create(accountRequestModel);
-    }
-    HistoryResponseModel create_history(UserAccountRequestModel accountRequestModel){
-        return historyInput.create(accountRequestModel);
-    }
-
 
 }

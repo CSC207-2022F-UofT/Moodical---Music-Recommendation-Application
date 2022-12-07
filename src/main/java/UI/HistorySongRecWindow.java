@@ -1,15 +1,8 @@
 package UI;
 
-import Entities.History;
-import Entities.Song;
-import Presenters.HistoryRecPresenter;
-import ResponseModels.HistoryResponseModel;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.List;
 
 public class HistorySongRecWindow extends JFrame{
     public static JFrame j;
@@ -41,13 +34,6 @@ public class HistorySongRecWindow extends JFrame{
         setTitle("Song Recommendation!");
         setSize(1200, 1000);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-            // how this would work following design pattern
-//        UserRegisterAccountRequestModel requestmodel = new UserRegisterRequestModel(){
-//            //get input from Account window?
-//        HistoryResponseModel response = HistoryController.create(model);
-//        ArrayListSong songNameSet = response.getRecommendedPlaylist;
-
 
 
         // formatting song recs:

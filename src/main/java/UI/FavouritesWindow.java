@@ -1,8 +1,19 @@
 package UI;
 
+import Boundaries.FavouritesInputBoundary;
+import Boundaries.FavouritesOutputBoundary;
+import Controllers.FavouritesController;
+import Entities.Account;
+import Entities.Favourites;
+import Entities.History;
+import Entities.Song;
+import Presenters.FavouritesPresenter;
+import Processors.FavouritesProcessor;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.JTable;
 import javax.swing.JFrame;
@@ -66,12 +77,14 @@ public class FavouritesWindow implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
+        String song = text.getText();
+        Account account = new Account("username", "password",
+        new History(new ArrayList<ArrayList<Song>>()), new Favourites(new ArrayList<String>()));
+        FavouritesOutputBoundary presenter = new FavouritesPresenter();
+        FavouritesInputBoundary processor = new FavouritesProcessor(account, presenter);
+        FavouritesController controller = new FavouritesController(processor);
+        controller.generate(song);
 
-    }
-
-    // Driver  method
-    public static void main(String[] args){
-        new FavouritesWindow();
 
     }
 

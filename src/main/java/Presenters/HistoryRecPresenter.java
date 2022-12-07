@@ -2,18 +2,20 @@ package Presenters;
 
 import Boundaries.HistoryOutputBoundary;
 import Entities.Song;
-import Processors.HistoryProcessor;
-import ResponseModels.HistoryResponseModel;
-import UI.HistorySongRecWindow;
-import UI.HistoryWindow;
 
 import java.util.ArrayList;
 
 public class HistoryRecPresenter implements HistoryOutputBoundary {
 
+    public ArrayList<Song> recommendedPlaylist;
 
     @Override
-    public ArrayList<Song> generate(HistoryResponseModel response) {
-        return response.getRecommendedPlaylist();
+    public void generate(ArrayList<Song> recommended) {
+        this.recommendedPlaylist = recommended;
+    }
+
+    @Override
+    public ArrayList<Song> getRecommended() {
+        return this.recommendedPlaylist;
     }
 }
