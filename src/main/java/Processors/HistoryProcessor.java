@@ -10,6 +10,10 @@ import Entities.Song;
 
 import java.util.ArrayList;
 
+/**
+ * Use Case level
+ *
+ */
 public class HistoryProcessor implements HistoryInputBoundary {
     public static Account userAccount;
     public HistoryOutputBoundary presenter;
@@ -18,6 +22,11 @@ public class HistoryProcessor implements HistoryInputBoundary {
         userAccount = account;
     }
 
+    /**
+     * @param account
+     * @param presenter
+     * constructor
+     */
     public HistoryProcessor(Account account, HistoryOutputBoundary presenter){
         this.userAccount = account;
         this.presenter = presenter;
@@ -42,6 +51,12 @@ public class HistoryProcessor implements HistoryInputBoundary {
         }
         this.presenter.generate(new_playlist);
     }
+
+    /**
+     * @param playlist
+     * @param userAccount
+     * helper function to update history
+     */
     public static void addTo(ArrayList<Song> playlist, Account userAccount) {
         userAccount.userHistory.getPrevious_songs().add(playlist);
         // need to save to CSV file
@@ -63,6 +78,11 @@ public class HistoryProcessor implements HistoryInputBoundary {
         return songs_so_far;
     }
 
+    /**
+     * @param account
+     * @return
+     * formats the history object
+     */
     public static ArrayList<String> get_song_strings(Account account) {
         ArrayList<String> playlists = new ArrayList<String>();
         for (ArrayList<Song> playlist : account.userHistory.getPrevious_songs()) {
@@ -74,6 +94,12 @@ public class HistoryProcessor implements HistoryInputBoundary {
         }
         return playlists;
     }
+
+    /**
+     * @param account
+     * @return
+     * formats for the UI
+     */
     public static String[][] toArray(Account account) {
         ArrayList<String> songs = HistoryProcessor.get_song_strings(account);
         String[] str_Array = new String[songs.size()];

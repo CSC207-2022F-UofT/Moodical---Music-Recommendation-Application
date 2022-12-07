@@ -1,7 +1,10 @@
 package Boundaries;
 
-import Entities.Account;
-import RequestModels.UserAccountRequestModel;
+/**
+ * Clean Arch Level: Input Boundaries
+ * -implemented by HistoryProcessor
+ *
+ */
 
 public interface HistoryInputBoundary {
     void getRecommended();
