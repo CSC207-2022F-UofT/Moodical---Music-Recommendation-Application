@@ -2,8 +2,6 @@ package Presenters;
 
 import Boundaries.QuestionnaireOutputBoundary;
 import ResponseModels.QuestionnaireResponseModel;
-
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class QuestionnairePresenter implements QuestionnaireOutputBoundary {

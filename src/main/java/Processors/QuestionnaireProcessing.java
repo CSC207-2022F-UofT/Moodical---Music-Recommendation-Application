@@ -9,11 +9,10 @@ public class QuestionnaireProcessing {
     /**
      * This class has two methods for processing - obtaining the list of questions from Questions.csv and then
      * filtering out this list to obtain 5 questions at random for higher level usage.
-     * <p>
      * Final variables are :
      * 1. lst of questions from csv as they don't change
-     * 2. questionOutputBoundary named questionOutputs as it doesn't change - these have
-     * only 5 questions as opposed to 1.
+     * 2. questionOutputBoundary named questionOutputs as it doesn't change
+     * These have only 5 questions as opposed to 1.
      */
     public QuestionnaireProcessing(){
     }
