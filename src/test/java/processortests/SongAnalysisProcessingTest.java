@@ -1,5 +1,6 @@
 package processortests;
 
+import Presenters.SongRecPresenter;
 import Processors.SongAnalysisProcessing;
 import Entities.Song;
 import Entities.SongPool;
@@ -14,6 +15,8 @@ class SongAnalysisProcessingTest {
     SongPool songPool;
     Song exampleSong1, exampleSong2, exampleSong3, exampleSong4;
     ArrayList<Song> songList = new ArrayList<Song>();
+
+    SongAnalysisProcessing songProcessing;
 
 
     @BeforeEach
@@ -35,26 +38,27 @@ class SongAnalysisProcessingTest {
 
         // song, artist, genre,
         // year, BPM, energy, danceability, loudness, liveness, valence, length, acousticness, speechiness, popularity
-    }
 
+        songProcessing = new SongAnalysisProcessing(new SongRecPresenter(), songPool);
+    }
     @Test
     void getVeryHappySong(){
-        assertEquals(exampleSong1, SongAnalysisProcessing.getSong(9.5, songPool));
+        assertEquals(exampleSong1, songProcessing.getSong(9.5));
     }
 
     @Test
     void getHappySong(){
-        assertEquals(exampleSong2, SongAnalysisProcessing.getSong(8.0, songPool));
+        assertEquals(exampleSong2, songProcessing.getSong(8.0));
     }
 
     @Test
     void getSadSong(){
-        assertEquals(exampleSong3, SongAnalysisProcessing.getSong(4.5, songPool));
+        assertEquals(exampleSong3, songProcessing.getSong(4.5));
     }
 
     @Test
     void getVerySadSong(){
-        assertEquals(exampleSong4, SongAnalysisProcessing.getSong(2.0, songPool));
+        assertEquals(exampleSong4, songProcessing.getSong(2.0));
     }
 
     @AfterEach
