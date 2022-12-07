@@ -1,18 +1,12 @@
 package UI;
 
-import Processors.FavouritesProcessor;
-import Processors.HistoryProcessor;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.JTable;
 import javax.swing.JFrame;
-import javax.swing.event.ChangeListener;
 import javax.swing.table.JTableHeader;
-import java.awt.event.*;
-
 import static UI.HistoryWindow.Hwindow;
 import static UI.FavouritesWindow.FavouritesWindow;
 
