@@ -11,7 +11,11 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class AccountEntitiesTest{
+public class AccountEntitiesTest {
+    /**
+     * This test checks if the username, password, history and favourites match the
+     * account entity methods which are getter methods.
+     */
     ArrayList<ArrayList<Song>> samplePreviousSongs;
     ArrayList<String> favourites;
     History sampleHistory;
@@ -19,7 +23,7 @@ public class AccountEntitiesTest{
     Account sampleAccount;
 
     @BeforeEach
-    void createExampleData(){
+    void createExampleData() {
         samplePreviousSongs = new ArrayList<ArrayList<Song>>();
         favourites = new ArrayList<String>();
         sampleHistory = new History(samplePreviousSongs);
@@ -28,16 +32,24 @@ public class AccountEntitiesTest{
     }
 
     @Test
-    public void getUsernameTest(){ assertEquals(sampleAccount.getUsername(), "myUsername");}
+    public void getUsernameTest() {
+        assertEquals(sampleAccount.getUsername(), "myUsername");
+    }
 
     @Test
-    public void getPasswordTest(){ assertEquals(sampleAccount.getPassword(), "myPassword");}
+    public void getPasswordTest() {
+        assertEquals(sampleAccount.getPassword(), "myPassword");
+    }
 
     @Test
-    public void getUserHistoryTest(){ assertEquals(sampleAccount.getUserHistory(), sampleHistory);}
+    public void getUserHistoryTest() {
+        assertEquals(sampleAccount.getUserHistory(), sampleHistory);
+    }
 
     @Test
-    public void getUserFavouritesTest(){ assertEquals(sampleAccount.getUserFavourites(), sampleFavourites);}
+    public void getUserFavouritesTest() {
+        assertEquals(sampleAccount.getUserFavourites(), sampleFavourites);
+    }
 
     @Test
     public void changeUsernameTest() {
@@ -47,7 +59,7 @@ public class AccountEntitiesTest{
     }
 
     @Test
-    public void changePasswordTest(){
+    public void changePasswordTest() {
         String newPassword = "newPassword";
         sampleAccount.changePassword(newPassword);
         assertEquals(sampleAccount.getPassword(), newPassword);

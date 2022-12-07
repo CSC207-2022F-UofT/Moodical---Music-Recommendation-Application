@@ -6,9 +6,9 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SongPoolTest {
-    /** This test checks if the entity is storing the relevant attributes to
+    /**
+     * This test checks if the entity is storing the relevant attributes to
      * song e.g. the BPM, energy, loudness
-     *
      */
     SongPool songPool;
     String[] exampleStringArray;

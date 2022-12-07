@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class QuestionnaireResponseModelTest{
-    /**
-     *
+    /** This test checks whether the 5 random questions are generated and stored in
+     * the response model.
      */
 
     ReadableFile p;
