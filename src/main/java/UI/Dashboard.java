@@ -7,13 +7,16 @@ import javax.swing.*;
 import javax.swing.JTable;
 import javax.swing.JFrame;
 import javax.swing.table.JTableHeader;
+
 import static UI.HistoryWindow.Hwindow;
 import static UI.FavouritesWindow.FavouritesWindow;
 
-
 public class Dashboard  extends JFrame implements ActionListener {
-    private static JPanel panel;
-    private static JTextArea textArea;
+    /**
+     * The Dashboard UI class is responsible for creating the JFrame that contains all the
+     * functionalities of the program (aside from the questionnaire recommendation system
+     */
+
     public static JFrame f;
     public static JFrame f1;
     public static JTable j;
@@ -39,6 +42,7 @@ public class Dashboard  extends JFrame implements ActionListener {
         // Layout of the dashboard
         //GridLayout layout = new GridLayout(0,2);
         J = new JPanel(new GridLayout(2,1, 5,5));
+        J.setBackground(Color.getHSBColor(164,219,232));
 
         // Table data
         String[] columnNames = {"Artists", "Genres", "Average Bmp", "Danceable"};
@@ -52,6 +56,7 @@ public class Dashboard  extends JFrame implements ActionListener {
                 {"Only Girl","Cardigan","In My Blood","Bad Romance"}};
 
 //      Object[] allData = playlist.getAllData().toArray();  this is the actual data we will be using
+        // with working account saving
 
         // Making the first JTable
         j = new JTable(data, columnNames);
@@ -158,6 +163,7 @@ public class Dashboard  extends JFrame implements ActionListener {
         b6.addActionListener(this);
 
         J1 = new JPanel(new GridLayout(2,1, 5,5));
+        J1.setBackground(Color.getHSBColor(164,219,232));
 
         J1.add(b3);
         J1.add(b4);
@@ -228,7 +234,6 @@ public class Dashboard  extends JFrame implements ActionListener {
             f6.setSize(500, 500);
 
             f6.setVisible(true);}
-
 
         if(e.getSource() == b6){
             JLabel j6 = new JLabel();

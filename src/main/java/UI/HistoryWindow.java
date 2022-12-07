@@ -41,6 +41,7 @@ public class HistoryWindow implements ActionListener {
 
 
         j1 = new JPanel(new GridLayout(2,1, 5,5));
+        j1.setBackground(Color.getHSBColor(164,219,232));
         j = new JTable(data, columnNames);
 
 
@@ -75,7 +76,6 @@ public class HistoryWindow implements ActionListener {
         f.setVisible(true);
 
     }
-
 
     @Override
     public void actionPerformed(ActionEvent e){

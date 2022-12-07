@@ -1,6 +1,7 @@
 package UI;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,6 +21,8 @@ public class AccountCreationWindow implements ActionListener {
         frame.setSize(500, 300);
         panel = new JPanel();
         frame.add(panel);
+        frame.setBackground(Color.getHSBColor(164,219,232));
+        panel.setBackground(Color.getHSBColor(164,219,232));
 
         panel.setLayout(null);
 
@@ -63,12 +66,9 @@ public class AccountCreationWindow implements ActionListener {
         String password = passwordInput.getText();
 
         if (button.getSource() == createAccount) {
-            RequestModels.UserAccountRequestModel requestModel =
-                    new RequestModels.UserAccountRequestModel(username, password,
-                            RequestModels.UserAccountRequestModel.createEmptyHistoryObject(),
-                            RequestModels.UserAccountRequestModel.createEmptyFavouritesObject());
-            Controllers.UserAccountController.registerAccount(requestModel);
-            successMessage.setText("Account Creation Successful! Click Login");
+            QuestionWindow qw = new QuestionWindow();
+            qw.QuestionWindow();
+
         } else { // if button BackToLogin
             new LoginWindow();
         }

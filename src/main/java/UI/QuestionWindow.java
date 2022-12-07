@@ -47,7 +47,7 @@ public class QuestionWindow extends JFrame implements ActionListener{
     // the slider values
     private ArrayList<Integer> sliderValues = new ArrayList<Integer>();
 
-    public QuestionWindow() {
+    public void QuestionWindow() {
         initializeQuestionnaireWindow();
     }
 

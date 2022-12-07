@@ -1,11 +1,12 @@
 package UI;
 
+import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.io.IOException;
+import UI.QuestionWindow;
 
 public class LoginWindow implements ActionListener {
     JFrame frame;
@@ -19,11 +20,13 @@ public class LoginWindow implements ActionListener {
     JButton enterButton;
     JLabel successMessage;
 
-    LoginWindow() {
+    public void LoginWindow() {
         frame = new JFrame("Welcome!");
         frame.setSize(500, 300);
+        frame.setBackground(Color.getHSBColor(164,219,232));
 
         panel = new JPanel();
+        panel.setBackground(Color.getHSBColor(164,219,232));
         frame.add(panel);
 
         panel.setLayout(null);
@@ -74,20 +77,8 @@ public class LoginWindow implements ActionListener {
         if (button.getSource() == createAccount) {
             new AccountCreationWindow();
         } else {
-            RequestModels.UserAccountRequestModel requestModel =
-                    new RequestModels.UserAccountRequestModel(username, password,
-                            RequestModels.UserAccountRequestModel.createEmptyHistoryObject(),
-                            RequestModels.UserAccountRequestModel.createEmptyFavouritesObject());
-            try {
-                if (Controllers.UserAccountController.returnUserExistence(requestModel)) {
-                    successMessage.setText("Login Successful");
-                } else {
-                    successMessage.setText("User not found. Please create an account");
-                }
-
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            QuestionWindow qw = new QuestionWindow();
+            qw.QuestionWindow();
         }
     }
 
