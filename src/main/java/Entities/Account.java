@@ -1,11 +1,5 @@
 package Entities;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Objects;
-import java.io.FileWriter;
-import java.io.BufferedWriter;
-
 import static java.nio.file.Files.newBufferedWriter;
 
 
@@ -52,4 +46,4 @@ public class Account {
         return this.userFavourites.toString();
     }
 
-}
+};

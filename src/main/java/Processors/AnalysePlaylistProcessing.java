@@ -1,28 +1,39 @@
 package Processors;
 
-import Processors.HistoryProcessor;
-import Entities.Song;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
-public class AnalysePlaylistProcessing {
+import Entities.Account;
+import Entities.History;
+import Entities.Song;
 
-    private static Entities.Account Account;
-    public static ArrayList<Song> prevRecs = HistoryProcessor.getAllSongs(Account);
+public class AnalysePlaylistProcessing{
+
+    public static Account account;
+    public static History allHistory;
+    public static ArrayList<Song> prevRecs;
+
+    public static void setAccount(Account account) {
+        AnalysePlaylistProcessing.account = account;
+        AnalysePlaylistProcessing.allHistory = account.userHistory;
+        HistoryProcessor.setAccount(account);
+        AnalysePlaylistProcessing.prevRecs = HistoryProcessor.getAllSongs(account);
+    }
+
     public static ArrayList<String> getMostArtist() {
         /* Return the most commonly appeared artist in the user's history (past recommendations)
           Return multiple artists if there is a tie in the number of occurrences
          */
-
         HashMap<String, Integer> allArtists = new HashMap<String, Integer>();
 
         ArrayList<String> resArtists = new ArrayList<String>();
 
         for (Song song : prevRecs) {
+
             Integer count = allArtists.get(song.artist);
             if (count == null) {
-                count = 1;
+                allArtists.put(song.artist, 1);
             } else {
                 allArtists.put(song.artist, count + 1);
             }
@@ -38,7 +49,7 @@ public class AnalysePlaylistProcessing {
         return resArtists;
     }
 
-    public ArrayList<String> getMostGenre(){
+    public static ArrayList<String> getMostGenre(){
         /* Return the most commonly appeared genre in the user's history (past recommendations)
           Return multiple genres if there is a tie between the number of occurrences
          */
@@ -49,7 +60,7 @@ public class AnalysePlaylistProcessing {
         for (Song song : prevRecs) {
             Integer count = allGenres.get(song.genre);
             if (count == null) {
-                count = 1;
+                allGenres.put(song.genre, 1);
             } else {
                 allGenres.put(song.genre, count + 1);
             }
@@ -66,18 +77,22 @@ public class AnalysePlaylistProcessing {
 
     }
 
-    public static double getAverageBmp() {
+    public static ArrayList<String> getAverageBmp() {
         /* Return the average bmp of all the songs in the user's history (past recommendations)
          */
+        ArrayList<String> bmp =  new ArrayList<String>();
+
         double sum = 0;
 
         for (Song song : prevRecs) {
             sum = sum + Double.parseDouble(song.bpm);
-            }
+        }
 
         double total = prevRecs.size();
+        String result = Double.toString(sum / total);
+        bmp.add(result);
 
-        return sum / total;
+        return bmp;
     }
 
     public static ArrayList<String> getMostDanceable(){
@@ -103,7 +118,7 @@ public class AnalysePlaylistProcessing {
 
     public static ArrayList<String> getMostPopular(){
         /* Return the song(s) with the highest popularity score, return multiple if there are ties
-        */
+         */
         HashMap<String, Integer> allPopularity = new HashMap<String, Integer>();
 
         ArrayList<String> mostPopular= new ArrayList<String>();
@@ -182,4 +197,20 @@ public class AnalysePlaylistProcessing {
         return res;
     }
 
+    public static ArrayList<ArrayList<String>> getAllData(){
+        ArrayList<ArrayList<String>> allData = new ArrayList<>();
+
+        allData.add(getMostArtist());
+        allData.add(getMostGenre());
+        allData.add(getAverageBmp());
+        allData.add(getMostDanceable());
+        allData.add(getMostPopular());
+        allData.add(getHappiest());
+        allData.add(getSaddest());
+        allData.add(getMoodBooster());
+
+        return allData;
+    }
 }
+
+

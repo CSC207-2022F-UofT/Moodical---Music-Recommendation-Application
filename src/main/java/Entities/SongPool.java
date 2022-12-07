@@ -20,6 +20,7 @@ public class SongPool {
             String[] values = readLine.split(",");
             this.songs.add(readLine(values));
         }
+        this.songs.remove(0);
     }
 
     // helper function
@@ -39,3 +40,5 @@ public class SongPool {
         return newSong;
     }
 }
+
+/// Arvin create it in the Song's constructor and return the new song
