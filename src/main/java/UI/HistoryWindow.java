@@ -1,14 +1,9 @@
 package UI;
 
-import Presenters.HistoryRecPresenter;
-import Processors.HistoryProcessor;
-import Entities.Account;
-import ResponseModels.HistoryResponseModel;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.JTable;
 import javax.swing.JFrame;
@@ -23,22 +18,31 @@ public class HistoryWindow implements ActionListener {
     public static JButton rbutton;
 
     public static void Hwindow() {
-        //technically takes in data as a param (calculated in the presenter and named table data) this came from the history
-        //processor
-        // Hwindow(String[][] data) and when calling hwindow input the table data in question
+
         f = new JFrame("History");
 
         // Set the Frame colour
         f.setBackground(Color.getHSBColor(164, 219, 232));
 
 
-        //this is dummy data
+        // the below data is hard coded for presentation demonstration purposes, when fully functioning History Processor
+        // to Array function will format the History Data into a String[][] and can be passed to the UI
         String[] columnNames = {"History"};
         String[][] data = {{"Bad Romance, Just The Way You Are, Only Girl In The World, Cooler Than Me, Marry You"},
                 {"Your Love is My Drug, Take It Off, Teenage Dream, My First Kiss, Sexy Bitch"}};
 
+
+
+        // with clean arch:
+//        UserRegisterAccountRequestModel requestmodel = new UserRegisterRequestModel(){
+//            //get input from Account window?
+//        HistoryResponseModel response = HistoryController.create_history(model);
+//        String[][] data = response.getpreviousSongs;
+
+
         j1 = new JPanel(new GridLayout(2,1, 5,5));
         j = new JTable(data, columnNames);
+
 
 
         j.setBounds(50, 60, 100, 200);
@@ -80,6 +84,6 @@ public class HistoryWindow implements ActionListener {
         his.HistorySongRecWindow1();}
 
     }
-    // Driver  method
+
 
 }
