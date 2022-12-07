@@ -66,14 +66,9 @@ public class FavouritesWindow implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        // this gets run everytime we click the Enter Button which we need to add to the text
-        String song = text.getText();
-        FavouritesResponseModel response = new FavouritesResponseModel();
-        // note presenter unused as there is nothing to present
-        response.addTo(song);
-        // use response model to add the string to favourites?
 
     }
+
     // Driver  method
     public static void main(String[] args){
         new FavouritesWindow();
