@@ -2,15 +2,15 @@ package Presenters;
 
 import Boundaries.QuestionnaireOutputBoundary;
 import ResponseModels.QuestionnaireResponseModel;
-
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class QuestionnairePresenter implements QuestionnaireOutputBoundary {
     /**
      * Obtains the questions from output boundary of questionnaire
+     *
+     * @param response
+     * @return
      */
-
     @Override
     public QuestionnaireResponseModel generate(QuestionnaireResponseModel response) {
         ArrayList<String> questions = response.getRandQs();

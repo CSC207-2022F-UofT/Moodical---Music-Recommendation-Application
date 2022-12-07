@@ -16,8 +16,6 @@ import javax.swing.JLabel;
 import javax.swing.JFrame;
 import javax.swing.JSlider;
 import javax.swing.JButton;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
