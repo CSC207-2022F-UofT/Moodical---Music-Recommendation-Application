@@ -1,5 +1,7 @@
+// Commented out due to issues with account connection
+
 //package processortests;
-//
+
 //import Entities.Account;
 //import Entities.History;
 //import Entities.Song;
@@ -117,6 +119,4 @@
 //        assertTrue(result);
 //    }
 //}
-//
-//
-//
+

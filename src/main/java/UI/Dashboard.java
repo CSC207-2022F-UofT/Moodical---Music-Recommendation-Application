@@ -56,6 +56,7 @@ public class Dashboard  extends JFrame implements ActionListener {
                 {"Only Girl","Cardigan","In My Blood","Bad Romance"}};
 
 //      Object[] allData = playlist.getAllData().toArray();  this is the actual data we will be using
+        // with working account saving
 
         // Making the first JTable
         j = new JTable(data, columnNames);

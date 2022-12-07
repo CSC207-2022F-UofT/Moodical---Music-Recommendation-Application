@@ -30,10 +30,6 @@ public class HistorySongRecWindow extends JFrame{
                 "Lady Gaga", "Maroon 5", "One Direction", "Pitbull", "Rihanna", "The Black Eyed Peas",
                 "The Chainsmokers", "The Weeknd"};
         availableArtistImages = new ArrayList<String>();
-//        initializeHistorySongRecWindow();
-//    }
-//
-//    public void initializeHistorySongRecWindow(){
 
         mainPanel = new JPanel();
         mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 30, 40, 30));
@@ -90,44 +86,6 @@ public class HistorySongRecWindow extends JFrame{
         image5.setBounds(5, 5, 200, 200);
         image5.setHorizontalAlignment(SwingConstants.CENTER);
 
-//        if (availableArtistImages.contains(songNameSet.get(0).getArtist())) {
-//            scaleImage("program-images/artist-images/" + songNameSet.get(0).getArtist() +
-//                    ".jpeg", image1);
-//        } else {
-//            scaleImage("program-images/artist-images/defaultpic.jpg", image1);
-//        }
-//
-//        // song image 2
-//        if (availableArtistImages.contains(songNameSet.get(1).getArtist())) {
-//            scaleImage("program-images/artist-images/" + songNameSet.get(1).getArtist() +
-//                    ".jpeg", image2);
-//        } else {
-//            scaleImage("program-images/artist-images/defaultpic.jpg", image2);
-//        }
-//
-//        // song image 3
-//        if (availableArtistImages.contains(songNameSet.get(2).getArtist())) {
-//            scaleImage("program-images/artist-images/" + songNameSet.get(2).getArtist() +
-//                    ".jpeg", image3);
-//        } else {
-//            scaleImage("program-images/artist-images/defaultpic.jpg", image3);
-//        }
-//
-//        // song image 4
-//        if (availableArtistImages.contains(songNameSet.get(3).getArtist())) {
-//            scaleImage("program-images/artist-images/" + songNameSet.get(3).getArtist() +
-//                    ".jpeg", image4);
-//        } else {
-//            scaleImage("program-images/artist-images/defaultpic.jpg", image4);
-//        }
-//
-//        // song image 5
-//        if (availableArtistImages.contains(songNameSet.get(4).getArtist())) {
-//            scaleImage("program-images/artist-images/" + songNameSet.get(4).getArtist() +
-//                    ".jpeg", image5);
-//        } else {
-//            scaleImage("program-images/artist-images/defaultpic.jpg", image5);
-//        }
         scaleImage("program-images/artist-images/Lady Gaga.jpeg", image1);
         scaleImage("program-images/artist-images/Bruno Mars.jpeg", image2);
         scaleImage("program-images/artist-images/defaultpic.jpg", image3);
@@ -135,7 +93,6 @@ public class HistorySongRecWindow extends JFrame{
         scaleImage("program-images/artist-images/defaultpic.jpg", image5);
 
         // adding songs and images to panel
-//        mainPanel.add(image1);
 
         mainPanel.add(image1);
         mainPanel.add(song1);
@@ -147,8 +104,6 @@ public class HistorySongRecWindow extends JFrame{
         mainPanel.add(song4);
         mainPanel.add(image5);
         mainPanel.add(song5);
-
-//        mainPanel.setVisible(true);
 
         j = new JFrame();
         j.setBackground(Color.getHSBColor(164,219,232));
@@ -165,13 +120,6 @@ public class HistorySongRecWindow extends JFrame{
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         label.setIcon(scaledIcon);
     }
-
-//    public static void main(String[] args){
-//
-//        HistorySongRecWindow his = new HistorySongRecWindow();
-//        his.HistorySongRecWindow1();
-//        //new initializeHistorySongRecWindow();
-//    }
 
 
 }

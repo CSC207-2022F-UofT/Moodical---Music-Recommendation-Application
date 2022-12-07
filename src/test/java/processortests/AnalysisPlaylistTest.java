@@ -117,10 +117,12 @@ void createExampleData(){
         HistoryProcessor.setAccount(account);
     }
 
+    /**
+     * This test covers all the tests for the other functions since it collects the output of the other function
+     *  return it as an arraylist
+     */
+
     @Test
     void allData(){ assertEquals(result, AnalysePlaylistProcessing.getAllData());
-    // This test covers all the tests for the other functions since it collects the output of the other function
-        // return it as an arraylist
-
     }
 }
