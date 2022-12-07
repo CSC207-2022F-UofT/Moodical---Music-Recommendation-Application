@@ -14,6 +14,7 @@ public class AnalysePlaylistProcessing{
     public static History allHistory;
     public static ArrayList<Song> prevRecs;
 
+
     public static void setAccount(Account account) {
         AnalysePlaylistProcessing.account = account;
         AnalysePlaylistProcessing.allHistory = account.userHistory;

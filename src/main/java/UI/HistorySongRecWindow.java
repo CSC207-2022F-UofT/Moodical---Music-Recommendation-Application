@@ -1,15 +1,8 @@
 package UI;
 
-import Entities.History;
-import Entities.Song;
-import Presenters.HistoryRecPresenter;
-import ResponseModels.HistoryResponseModel;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.List;
 
 public class HistorySongRecWindow extends JFrame{
     public static JFrame j;
@@ -29,10 +22,9 @@ public class HistorySongRecWindow extends JFrame{
                 "Lady Gaga", "Maroon 5", "One Direction", "Pitbull", "Rihanna", "The Black Eyed Peas",
                 "The Chainsmokers", "The Weeknd"};
         availableArtistImages = new ArrayList<String>();
-//        initializeHistorySongRecWindow();
-//    }
-//
-//    public void initializeHistorySongRecWindow(){
+
+
+
         mainPanel = new JPanel();
         mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 30, 40, 30));
         mainPanel.setLayout(new GridLayout(6, 1));
@@ -42,12 +34,7 @@ public class HistorySongRecWindow extends JFrame{
         setTitle("Song Recommendation!");
         setSize(1200, 1000);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-//       setVisible(true); // needs to be because we want only visible AFTER user presses submit results button
 
-//        HistoryResponseModel response = new HistoryResponseModel();
-
-//        HistoryRecPresenter presenter = new HistoryRecPresenter();
-//        ArrayList<Song> songNameSet = response.getRecommendedPlaylist();
 
         // formatting song recs:
         // song names
