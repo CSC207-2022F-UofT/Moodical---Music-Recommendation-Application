@@ -17,7 +17,6 @@ public class FavouritesSuccessWindow extends JFrame {
 
         setTitle("Add To Favourites");
         setSize(400, 200);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
 
         panel.setLayout(new GridLayout());
