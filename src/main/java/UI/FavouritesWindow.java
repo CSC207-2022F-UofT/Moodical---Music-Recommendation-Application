@@ -55,7 +55,6 @@ public class FavouritesWindow implements ActionListener {
 
         text = new JTextField();
         text.setBounds(100, 20,165, 25);
-//        j.add(text);
 
         enterButton = new JButton("Add To Favourites");
         enterButton.setBounds(10, 80, 80, 25);

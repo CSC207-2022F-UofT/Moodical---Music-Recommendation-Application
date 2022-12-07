@@ -76,6 +76,7 @@ public class LoginWindow implements ActionListener {
 
         if (button.getSource() == createAccount) {
             new AccountCreationWindow();
+            frame.setVisible(false);
         } else {
             QuestionWindow qw = new QuestionWindow();
             qw.QuestionWindow();

@@ -67,10 +67,12 @@ public class AccountCreationWindow implements ActionListener {
 
         if (button.getSource() == createAccount) {
             QuestionWindow qw = new QuestionWindow();
-            qw.QuestionWindow();
+            qw.QuestionWindow();}
 
-        } else { // if button BackToLogin
-            new LoginWindow();
+        if (button.getSource() == BackToLogin) {
+            // if button BackToLogin
+            LoginWindow login = new LoginWindow();
+            login.LoginWindow();
         }
     }
     public static void main(String[] args) { new AccountCreationWindow();}
