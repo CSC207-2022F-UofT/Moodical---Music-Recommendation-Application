@@ -11,6 +11,7 @@ public class FavouritesSuccessWindow extends JFrame {
 
     public FavouritesSuccessWindow(){
         panel = new JPanel();
+        panel.setBackground(Color.getHSBColor(164,219,232));
         successMessage = new JLabel("SONG SUCCESSFULLY ADDED TO FAVOURITES");
         add(panel);
 
@@ -25,7 +26,5 @@ public class FavouritesSuccessWindow extends JFrame {
         successMessage.setHorizontalAlignment(SwingConstants.CENTER);
 
     }
-
-
 
 }

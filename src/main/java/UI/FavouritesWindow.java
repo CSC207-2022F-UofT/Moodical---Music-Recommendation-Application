@@ -34,10 +34,11 @@ public class FavouritesWindow implements ActionListener {
         f.setBackground(Color.getHSBColor(164, 219, 232));
 
         String[] columnNames = {"Favourites"};
-        String [][] data = {{"song"}, {"song2"}, {"song3"}, {"song4"}, {"song5"}};
+        String [][] data = {{"Bad Romance by Lady Gaga"}, {"Just The Way You Are by Bruno Mars"},
+                {"Cooler Than Me by Mike Posner"}, {"Teenage Dream by Katy Perry"}, {"Sexy Bitch by David Guetta"}};
 
 //         String [][] data = FavouritesProcessor.toArray(FavouritesProcessor.userAccount);
-        //called in presenter
+        // called in presenter
 
         j = new JTable(data, columnNames);
 
@@ -54,19 +55,38 @@ public class FavouritesWindow implements ActionListener {
 
         text = new JTextField();
         text.setBounds(100, 20,165, 25);
-        j.add(text);
-
-        JScrollPane scrollPane = new JScrollPane(j);
-        scrollPane.getViewport().setViewPosition(new Point(100, 100));
-        f.add(scrollPane, BorderLayout.BEFORE_LINE_BEGINS);
+//        j.add(text);
 
         enterButton = new JButton("Add To Favourites");
         enterButton.setBounds(10, 80, 80, 25);
         enterButton.addActionListener(new FavouritesWindow());
-        f.add(enterButton);
+//        f.add(enterButton);
+
+        JScrollPane scrollPane = new JScrollPane(j);
+        scrollPane.getViewport().setViewPosition(new Point(100, 100));
+//        f.add(scrollPane, BorderLayout.BEFORE_LINE_BEGINS);
+
+        JLabel j4 = new JLabel();
+        j4.setBounds(5, 5, 500, 500);
+
+        ImageIcon icon = new ImageIcon("program-images/mood.jpeg");
+        Image img = icon.getImage();
+        Image imgScale = img.getScaledInstance(j4.getWidth(), j4.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        j4.setIcon(scaledIcon);
+
+        JPanel J = new JPanel(new GridLayout(2,1, 5,5));
+        J.setBackground(Color.getHSBColor(164,219,232));
+
+        J.add(scrollPane);
+        J.add(j4);
+        J.add(enterButton);
+        J.add(text);
+
+        f.add(J);
 
         scrollPane.setLocation(0, 100);
-        f.getContentPane().add(scrollPane);
+//        f.getContentPane().add(scrollPane);
         f.setSize(1000, 1000);
         f.setVisible(true);
 
@@ -81,7 +101,10 @@ public class FavouritesWindow implements ActionListener {
         FavouritesController controller = new FavouritesController(processor);
         controller.generate(song);
 
+    }
 
+    public static void main(String[] args){
+        new FavouritesWindow();
     }
 
 }

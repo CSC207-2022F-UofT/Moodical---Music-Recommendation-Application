@@ -1,10 +1,5 @@
 package UI;
 
-import Entities.History;
-import Entities.Song;
-import Presenters.HistoryRecPresenter;
-import ResponseModels.HistoryResponseModel;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
